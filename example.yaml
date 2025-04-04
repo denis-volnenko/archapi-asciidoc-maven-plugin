@@ -1,0 +1,22 @@
+---
+archapi: "1.0.0"
+title: Task Manager
+
+components:
+  environments:
+    internet:
+      name: Интернет
+      users:
+      - registred
+      environments: 
+      - scod
+      - mcod
+    scod:
+      name: SCOD
+    mcod:
+      name: MCOD
+  users:
+    registred: 
+      type: user
+      name: Зарегистрированные пользователи
+         
