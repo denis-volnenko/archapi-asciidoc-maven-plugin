@@ -45,6 +45,7 @@ components:
       - taskmanager-web
     scod-pgsql:
       databases:
+      - tm-etcd
       - tm-pgsql
     mcod:
       name: MCOD
@@ -61,6 +62,7 @@ components:
       - taskmanager-web
     mcod-pgsql:
       databases: 
+      - tm-etcd
       - tm-pgsql    
   users:
     registred: 
