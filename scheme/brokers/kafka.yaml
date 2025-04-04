@@ -1,4 +1,5 @@
 components:
-  kafka:
-    name: Apache Kafka
-    description: Распределённый программный брокер сообщений с открытым исходным кодом.
+  brokers:
+    kafka:
+      name: Apache Kafka
+      description: Распределённый программный брокер сообщений с открытым исходным кодом.
