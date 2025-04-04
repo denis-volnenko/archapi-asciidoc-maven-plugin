@@ -3,6 +3,13 @@ archapi: "1.0.0"
 title: Task Manager
 
 components:
+  services:
+    taskmanager-api:
+      name: TaskManager Rest API
+    taskmanager-worker:
+      name: TaskManager Worker
+    taskmanager-web:
+      name: TaskManager Frontend
   environments:
     internet:
       name: Интернет
@@ -13,8 +20,16 @@ components:
       - mcod
     scod:
       name: SCOD
+      services:
+      - taskmanager-api
+      - taskmanager-worker
+      - taskmanager-web
     mcod:
       name: MCOD
+      services:
+      - taskmanager-api
+      - taskmanager-worker
+      - taskmanager-web
   users:
     registred: 
       type: user
