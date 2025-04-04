@@ -33,6 +33,9 @@
         },
         "description": {
           "type": "string"
+        },
+        "environment": {
+          "$ref": "#/components/environments"          
         }
       }
     },
@@ -45,6 +48,9 @@
         "description": {
           "type": "string"
         }
+      },
+      "environment": {
+        "$ref": "#/components/environments"          
       }
     },
     "components": {
