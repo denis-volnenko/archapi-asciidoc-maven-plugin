@@ -16,7 +16,11 @@ components:
       name: Domain Name Server
   databases:
     tm-pgsql:
+      type: postgres
       name: TaskManager Postgres DataBase
+    tm-etcd:
+      type: etcd
+      name: TaskManager Etcd DataBase
   environments:
     internet:
       name: Интернет
