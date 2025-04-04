@@ -1,1 +1,34 @@
-
+{
+  "type": "object",
+  "properties": {
+    "archapi": {
+      "type": "string",
+      "description": "Version archapi"
+    },
+    "components": {
+      "type": "object",
+      "properties": {
+        "services": {
+          "type": "object",
+          "description": "Map of services"
+        },
+        "databases": {
+          "type": "object", 
+          "description": "Map of databases"
+        },
+        "storages": {
+          "type": "object",
+          "description": "Map of storages"
+        },
+        "topics": {
+          "type": "object",
+          "description": "Map of topics"
+        },
+        "queues": {
+          "type": "object",
+          "description": "Map of queues"
+        }
+      }
+    }
+  }
+}
