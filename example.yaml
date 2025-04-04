@@ -22,21 +22,25 @@ components:
       name: SCOD
       environments: 
       - scod-k8s
+      - scod-pgsql
     scod-k8s:
       name: SCOD K8S
       services:
       - taskmanager-api
       - taskmanager-worker
       - taskmanager-web
+    scod-pgsql:
     mcod:
       name: MCOD
       environments: 
       - mcod-k8s
+      - mcod-pgsql
     mcod-k8s:
       services:
       - taskmanager-api
       - taskmanager-worker
       - taskmanager-web
+    mcod-pgsql:
   users:
     registred: 
       type: user
