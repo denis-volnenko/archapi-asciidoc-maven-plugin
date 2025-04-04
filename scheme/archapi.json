@@ -209,6 +209,24 @@
             }
           }
         },
+        "connections": {
+          "type": "object",
+          "description": "Map of connections",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "port": {
+              "type": "number"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        },
         "users": {
           "type": "object",
           "description": "Map of users",
