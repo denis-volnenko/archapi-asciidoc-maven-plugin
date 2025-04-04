@@ -1,6 +1,6 @@
 components:
   servers:
     kafka:
-      type: kafka
+      type: broker
       name: Apache Kafka
       description: Распределённый программный брокер сообщений с открытым исходным кодом.
