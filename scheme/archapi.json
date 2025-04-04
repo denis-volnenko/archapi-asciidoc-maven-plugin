@@ -35,6 +35,12 @@
               "type": "string",
               "description": "Description of environment"
             },
+            "services": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/services"
+              }
+            },
             "environments": {
               "type": "array",
               "items": {
