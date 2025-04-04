@@ -25,9 +25,9 @@ components:
     internet:
       name: Интернет
       users:
-      - registred
+      - $ref: '#/components/users/registred'
       environments: 
-      - scod
+      - $ref: '#/components/environments/scod'
       - mcod
     scod:
       name: SCOD
