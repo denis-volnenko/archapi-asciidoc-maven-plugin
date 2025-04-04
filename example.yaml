@@ -6,10 +6,13 @@ components:
   services:
     taskmanager-api:
       name: TaskManager Rest API
+      scope: internal
     taskmanager-worker:
       name: TaskManager Worker
+      scope: internal
     taskmanager-web:
       name: TaskManager Frontend
+      scope: internal
     gslb:
       name: Global Server Load Balancer
     coredns:
@@ -17,9 +20,11 @@ components:
   databases:
     tm-pgsql:
       type: postgres
+      scope: internal
       name: TaskManager Postgres DataBase
     tm-etcd:
       type: etcd
+      scope: internal
       name: TaskManager Etcd DataBase
   environments:
     internet:
@@ -31,6 +36,7 @@ components:
       - $ref: '#/components/environments/mcod'
     scod:
       name: SCOD
+      scope: internal
       services:
       - gslb
       - coredns
@@ -39,6 +45,7 @@ components:
       - $ref: '#/components/environments/scod-pgsql'
     scod-k8s:
       name: SCOD K8S
+      scope: internal
       services:
       - $ref: '#/components/services/taskmanager-api'
       - $ref: '#/components/services/taskmanager-worker'
@@ -49,6 +56,7 @@ components:
       - $ref: '#/components/environments/tm-pgsql'
     mcod:
       name: MCOD
+      scope: internal
       services:
       - gslb
       - coredns
@@ -56,16 +64,21 @@ components:
       - $ref: '#/components/environments/mcod-k8s'
       - $ref: '#/components/environments/mcod-pgsql'
     mcod-k8s:
+      name: MCOD K8S
+      scope: internal
       services:
       - $ref: '#/components/services/taskmanager-api'
       - $ref: '#/components/services/taskmanager-worker'
       - $ref: '#/components/services/taskmanager-web'
     mcod-pgsql:
+      name: MCOD PGSQL
+      scope: internal
       databases: 
       - tm-etcd
       - tm-pgsql    
   users:
     registred: 
       type: user
+      scope: internal
       name: Зарегистрированные пользователи
          
