@@ -24,6 +24,9 @@ components:
       - mcod
     scod:
       name: SCOD
+      services:
+      - gslb
+      - coredns
       environments: 
       - scod-k8s
       - scod-pgsql
@@ -36,6 +39,9 @@ components:
     scod-pgsql:
     mcod:
       name: MCOD
+      services:
+      - gslb
+      - coredns
       environments: 
       - mcod-k8s
       - mcod-pgsql
