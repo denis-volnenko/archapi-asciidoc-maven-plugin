@@ -45,35 +45,99 @@
         }
         "services": {
           "type": "object",
-          "description": "Map of services"
+          "description": "Map of services",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
         },
         "databases": {
           "type": "object", 
-          "description": "Map of databases"
+          "description": "Map of databases",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
         },
         "storages": {
           "type": "object",
-          "description": "Map of storages"
+          "description": "Map of storages",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
         },
         "balancers": {
           "type": "object",
-          "description": "Map of balancers"
+          "description": "Map of balancers",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
         },
         "brokers": {
           "type": "object",
-          "description": "Map of brokers"
+          "description": "Map of brokers",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
         },
         "topics": {
           "type": "object",
-          "description": "Map of topics"
+          "description": "Map of topics",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
         },
         "queues": {
           "type": "object",
-          "description": "Map of queues"
+          "description": "Map of queues",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
         },
         "users": {
           "type": "object",
-          "description": "Map of users"
+          "description": "Map of users",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
         }
       }
     }
