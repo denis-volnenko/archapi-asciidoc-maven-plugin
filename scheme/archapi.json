@@ -95,6 +95,9 @@
             },
             "description": {
               "type": "string"
+            },
+            "connections": {
+              "type": "array"
             }
           }
         },
@@ -110,6 +113,9 @@
             },
             "description": {
               "type": "string"
+            },
+            "connections": {
+              "type": "array"
             }
           }
         }
@@ -126,6 +132,9 @@
             "description": {
               "type": "string"
             }
+          },
+          "connections": {
+            "type": "array"
           }
         },
         "balancers": {
@@ -141,6 +150,9 @@
             "description": {
               "type": "string"
             }
+          },
+          "connections": {
+            "type": "array"
           }
         },
         "brokers": {
@@ -156,6 +168,9 @@
             "description": {
               "type": "string"
             }
+          },
+          "connections": {
+            "type": "array"
           }
         },
         "topics": {
@@ -171,6 +186,9 @@
             "description": {
               "type": "string"
             }
+          },
+          "connections": {
+            "type": "array"
           }
         },
         "queues": {
@@ -185,6 +203,9 @@
             },
             "description": {
               "type": "string"
+            },
+            "connections": {
+              "type": "array"
             }
           }
         },
@@ -200,6 +221,9 @@
             },
             "description": {
               "type": "string"
+            },
+            "connections": {
+              "type": "array"
             }
           }
         }
