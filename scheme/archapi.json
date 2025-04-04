@@ -20,6 +20,10 @@
           "type": "object",
           "description": "Map of storages"
         },
+        "brokers": {
+          "type": "object",
+          "description": "Map of brokers"
+        },
         "topics": {
           "type": "object",
           "description": "Map of topics"
