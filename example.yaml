@@ -40,9 +40,9 @@ components:
     scod-k8s:
       name: SCOD K8S
       services:
-      - taskmanager-api
-      - taskmanager-worker
-      - taskmanager-web
+      - $ref: '#/components/services/taskmanager-api'
+      - $ref: '#/components/services/taskmanager-worker'
+      - $ref: '#/components/services/taskmanager-web'
     scod-pgsql:
       databases:
       - $ref: '#/components/environments/tm-etcd'
@@ -57,9 +57,9 @@ components:
       - $ref: '#/components/environments/mcod-pgsql'
     mcod-k8s:
       services:
-      - taskmanager-api
-      - taskmanager-worker
-      - taskmanager-web
+      - $ref: '#/components/services/taskmanager-api'
+      - $ref: '#/components/services/taskmanager-worker'
+      - $ref: '#/components/services/taskmanager-web'
     mcod-pgsql:
       databases: 
       - tm-etcd
