@@ -1,5 +1,5 @@
 components:
-  storages:
+  servers:
     minio:
       name: minio
       description: Совместимое S3 хранилище файлов.
