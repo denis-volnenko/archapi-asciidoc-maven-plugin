@@ -34,6 +34,12 @@
             "description": {
               "type": "string",
               "description": "Description of environment"
+            },
+            "environments": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/environments"
+              }
             }
           }
         }
