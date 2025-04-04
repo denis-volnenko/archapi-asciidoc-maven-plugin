@@ -1,0 +1,5 @@
+components:
+  servers:
+    etcd:
+      type: nosql
+      name: ETCD
