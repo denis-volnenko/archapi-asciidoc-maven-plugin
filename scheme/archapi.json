@@ -12,13 +12,37 @@
       "type": "string" 
     },
     "contectViews": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
     },
     "logicViews": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
     },
     "physicViews": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
     },
     "components": {
       "type": "object",
