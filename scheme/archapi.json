@@ -11,7 +11,7 @@
     "description": {
       "type": "string" 
     },
-    "contectViews": {
+    "contextViews": {
       "type": "object",
       "properties": {
         "name": {
@@ -19,6 +19,9 @@
         },
         "description": {
           "type": "string"
+        },
+        "environment": {
+          "$ref": "#/components/environments"          
         }
       }
     },
