@@ -11,6 +11,15 @@
     "description": {
       "type": "string" 
     },
+    "contectViews": {
+      "type": "object"
+    },
+    "logicViews": {
+      "type": "object"
+    },
+    "physicViews": {
+      "type": "object"
+    },
     "components": {
       "type": "object",
       "properties": {
@@ -41,6 +50,10 @@
         "queues": {
           "type": "object",
           "description": "Map of queues"
+        },
+        "users": {
+          "type": "object",
+          "description": "Map of users"
         }
       }
     }
