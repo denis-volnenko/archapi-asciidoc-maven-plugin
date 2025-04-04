@@ -20,12 +20,19 @@ components:
       - mcod
     scod:
       name: SCOD
+      environments: 
+      - scod-k8s
+    scod-k8s:
+      name: SCOD K8S
       services:
       - taskmanager-api
       - taskmanager-worker
       - taskmanager-web
     mcod:
       name: MCOD
+      environments: 
+      - mcod-k8s
+    mcod-k8s:
       services:
       - taskmanager-api
       - taskmanager-worker
