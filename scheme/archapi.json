@@ -119,9 +119,9 @@
             }
           }
         }
-        "storages": {
+        "buckets": {
           "type": "object",
-          "description": "Map of storages",
+          "description": "Map of buckets",
           "properties": {
             "type": {
               "type": "string"
@@ -155,9 +155,9 @@
             "type": "array"
           }
         },
-        "brokers": {
+        "servers": {
           "type": "object",
-          "description": "Map of brokers",
+          "description": "Map of servers",
           "properties": {
             "type": {
               "type": "string"
