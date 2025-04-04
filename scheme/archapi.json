@@ -23,6 +23,10 @@
     "components": {
       "type": "object",
       "properties": {
+        "environments": {
+          "type": "object",
+          "description": "Map of environments"
+        }
         "services": {
           "type": "object",
           "description": "Map of services"
