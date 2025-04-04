@@ -13,7 +13,6 @@ components:
     taskmanager-web:
       name: TaskManager Frontend
       scope: internal
-
     coredns:
       name: Domain Name Server
   balancers:
@@ -45,9 +44,8 @@ components:
     scod:
       name: SCOD
       scope: internal
-      services:
-      - gslb
-      - coredns
+      balancers:
+      - $ref: '#/components/balancers/gslb'
       environments: 
       - $ref: '#/components/environments/scod-k8s'
       - $ref: '#/components/environments/scod-pgsql'
@@ -65,9 +63,8 @@ components:
     mcod:
       name: MCOD
       scope: internal
-      services:
-      - gslb
-      - coredns
+      balancers:
+      - $ref: '#/components/balancers/gslb'
       environments: 
       - $ref: '#/components/environments/mcod-k8s'
       - $ref: '#/components/environments/mcod-pgsql'
