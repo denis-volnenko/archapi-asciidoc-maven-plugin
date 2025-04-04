@@ -13,10 +13,18 @@ components:
     taskmanager-web:
       name: TaskManager Frontend
       scope: internal
-    gslb:
-      name: Global Server Load Balancer
+
     coredns:
       name: Domain Name Server
+  balancers:
+    gslb:
+      name: Global Server Load Balancer
+    nlb-front:
+      type: haproxy
+      name: Front Node Load Balancer
+    nlb-pgsql:
+      type: haproxy
+      name: Postgres Node Load Balancer   
   databases:
     tm-pgsql:
       type: postgres
