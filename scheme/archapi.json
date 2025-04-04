@@ -25,7 +25,17 @@
       "properties": {
         "environments": {
           "type": "object",
-          "description": "Map of environments"
+          "description": "Map of environments",
+          "properties": {
+            "name": {
+              "type": "string"
+              "description": "Name of environment"
+            },
+            "description": {
+              "type": "string",
+              "description": "Description of environment"
+            }
+          }
         }
         "services": {
           "type": "object",
