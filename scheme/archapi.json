@@ -86,6 +86,10 @@
           "type": "object",
           "description": "Map of services",
           "properties": {
+            "type": {
+              "type": "string",
+              "defaultValue": "pod"
+            },
             "name": {
               "type": "string"
             },
@@ -98,6 +102,9 @@
           "type": "object", 
           "description": "Map of databases",
           "properties": {
+            "type": {
+              "type": "string"
+            },
             "name": {
               "type": "string"
             },
@@ -110,6 +117,9 @@
           "type": "object",
           "description": "Map of storages",
           "properties": {
+            "type": {
+              "type": "string"
+            },
             "name": {
               "type": "string"
             },
@@ -122,6 +132,9 @@
           "type": "object",
           "description": "Map of balancers",
           "properties": {
+            "type": {
+              "type": "string"
+            },
             "name": {
               "type": "string"
             },
@@ -134,6 +147,9 @@
           "type": "object",
           "description": "Map of brokers",
           "properties": {
+            "type": {
+              "type": "string"
+            },
             "name": {
               "type": "string"
             },
@@ -146,6 +162,9 @@
           "type": "object",
           "description": "Map of topics",
           "properties": {
+            "type": {
+              "type": "string"
+            },
             "name": {
               "type": "string"
             },
@@ -158,6 +177,9 @@
           "type": "object",
           "description": "Map of queues",
           "properties": {
+            "type": {
+              "type": "string"
+            },
             "name": {
               "type": "string"
             },
@@ -170,6 +192,9 @@
           "type": "object",
           "description": "Map of users",
           "properties": {
+            "type": {
+              "type": "string"
+            },
             "name": {
               "type": "string"
             },
