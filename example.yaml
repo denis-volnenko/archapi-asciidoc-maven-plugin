@@ -28,15 +28,15 @@ components:
       - $ref: '#/components/users/registred'
       environments: 
       - $ref: '#/components/environments/scod'
-      - mcod
+      - $ref: '#/components/environments/mcod'
     scod:
       name: SCOD
       services:
       - gslb
       - coredns
       environments: 
-      - scod-k8s
-      - scod-pgsql
+      - $ref: '#/components/environments/scod-k8s'
+      - $ref: '#/components/environments/scod-pgsql'
     scod-k8s:
       name: SCOD K8S
       services:
@@ -45,16 +45,16 @@ components:
       - taskmanager-web
     scod-pgsql:
       databases:
-      - tm-etcd
-      - tm-pgsql
+      - $ref: '#/components/environments/tm-etcd'
+      - $ref: '#/components/environments/tm-pgsql'
     mcod:
       name: MCOD
       services:
       - gslb
       - coredns
       environments: 
-      - mcod-k8s
-      - mcod-pgsql
+      - $ref: '#/components/environments/mcod-k8s'
+      - $ref: '#/components/environments/mcod-pgsql'
     mcod-k8s:
       services:
       - taskmanager-api
