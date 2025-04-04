@@ -81,7 +81,7 @@
               }
             }
           }
-        }
+        },
         "services": {
           "type": "object",
           "description": "Map of services",
@@ -112,7 +112,7 @@
               "type": "string"
             }
           }
-        },
+        }
         "storages": {
           "type": "object",
           "description": "Map of storages",
@@ -187,7 +187,7 @@
               "type": "string"
             }
           }
-        },
+        }
         "users": {
           "type": "object",
           "description": "Map of users",
