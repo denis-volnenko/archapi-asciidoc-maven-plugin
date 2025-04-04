@@ -1,5 +1,5 @@
 components:
-  brokers:
+  servers:
     kafka:
       type: kafka
       name: Apache Kafka
