@@ -10,6 +10,10 @@ components:
       name: TaskManager Worker
     taskmanager-web:
       name: TaskManager Frontend
+    gslb:
+      name: Global Server Load Balancer
+    coredns:
+      name: Domain Name Server
   environments:
     internet:
       name: Интернет
@@ -41,6 +45,7 @@ components:
       - taskmanager-worker
       - taskmanager-web
     mcod-pgsql:
+    
   users:
     registred: 
       type: user
