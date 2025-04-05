@@ -32,6 +32,12 @@ public class Generator extends AbstractMojo {
     @Parameter(property = "tableOfContentsEnabled")
     public boolean tableOfContentsEnabled = true;
 
+    private boolean contextViewEnabled = true;
+
+    private boolean logicViewEnabled = true;
+
+    private boolean physicViewEnabled = true;
+
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
 
