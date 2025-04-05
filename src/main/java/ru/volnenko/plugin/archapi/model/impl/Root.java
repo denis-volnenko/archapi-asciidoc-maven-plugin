@@ -1,6 +1,10 @@
-package ru.volnenko.plugin.archapi.model;
+package ru.volnenko.plugin.archapi.model.impl;
 
-public class Root {
+import ru.volnenko.plugin.archapi.model.IRoot;
+
+import java.util.Map;
+
+public class Root implements IRoot {
 
     private String archapi;
 
@@ -13,6 +17,8 @@ public class Root {
     private LogicView logicView;
 
     private PhysicView physicView;
+
+    private Map<String, Sizing> sizing;
 
     private Components components;
 
