@@ -1,4 +1,12 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public class Queue {
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+public final class Queue extends AbstractModel {
+
 }
