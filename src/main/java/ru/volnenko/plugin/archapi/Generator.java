@@ -17,6 +17,21 @@ public class Generator extends AbstractMojo {
     @Parameter(property = "serviceName")
     public String serviceName = "Сервис";
 
+    @Getter
+    @Setter
+    @Parameter(property = "headerFirstEnabled")
+    public boolean headerFirstEnabled = true;
+
+    @Getter
+    @Setter
+    @Parameter(property = "headerSecondEnabled")
+    public boolean headerSecondEnabled = true;
+
+    @Getter
+    @Setter
+    @Parameter(property = "tableOfContentsEnabled")
+    public boolean tableOfContentsEnabled = true;
+
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
 
