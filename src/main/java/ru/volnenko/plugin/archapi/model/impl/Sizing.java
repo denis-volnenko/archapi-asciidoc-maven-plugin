@@ -10,8 +10,8 @@ public class Sizing {
 
     private String description;
 
-    private List<SizingPod> pods;
+    private List<SizingContainer> contarization;
 
-    private List<SizingVM> vms;
+    private List<SizingVirtualMachine> virtualization;
 
 }

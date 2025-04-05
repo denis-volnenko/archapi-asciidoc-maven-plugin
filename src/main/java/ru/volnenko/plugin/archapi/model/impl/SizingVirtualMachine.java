@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public class SizingPod {
+public class SizingVirtualMachine {
 
     private SizingCpu cpu;
 
@@ -9,5 +9,7 @@ public class SizingPod {
     private SizingHdd hdd;
 
     private SizingScale scale;
+
+    private ServerReference serverReference;
 
 }

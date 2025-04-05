@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public class SizingVM {
+public class SizingContainer {
 
     private SizingCpu cpu;
 
@@ -9,5 +9,7 @@ public class SizingVM {
     private SizingHdd hdd;
 
     private SizingScale scale;
+
+    private ServiceReference serviceReference;
 
 }
