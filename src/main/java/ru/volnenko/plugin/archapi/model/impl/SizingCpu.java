@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public class SizingCpu {
+public final class SizingCpu {
 
     private Integer value;
 

@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public class SizingScale {
+public final class SizingScale {
 
     private Integer count;
 

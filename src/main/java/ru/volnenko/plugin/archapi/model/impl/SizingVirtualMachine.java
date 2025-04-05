@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public class SizingVirtualMachine {
+public final class SizingVirtualMachine {
 
     private SizingCpu cpu;
 

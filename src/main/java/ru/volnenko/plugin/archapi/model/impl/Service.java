@@ -1,4 +1,4 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public class Service {
+public final class Service {
 }

@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public class SizingHdd {
+public final class SizingHdd {
 
     private Integer value;
 

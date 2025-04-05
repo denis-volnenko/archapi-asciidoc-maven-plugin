@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public class SizingRam {
+public final class SizingRam {
 
     private Integer value;
 

@@ -2,7 +2,7 @@ package ru.volnenko.plugin.archapi.model.impl;
 
 import java.util.List;
 
-public class Sizing {
+public final class Sizing {
 
     private EnvironmentReference reference;
 

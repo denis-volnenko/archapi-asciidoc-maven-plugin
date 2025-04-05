@@ -4,7 +4,7 @@ import ru.volnenko.plugin.archapi.model.IRoot;
 
 import java.util.Map;
 
-public class Root implements IRoot {
+public final class Root implements IRoot {
 
     private String archapi;
 
