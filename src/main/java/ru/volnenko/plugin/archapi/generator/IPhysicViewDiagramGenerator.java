@@ -1,4 +1,4 @@
 package ru.volnenko.plugin.archapi.generator;
 
-public interface IPhysicViewDiagramGenerator {
+public interface IPhysicViewDiagramGenerator extends IGenerator {
 }

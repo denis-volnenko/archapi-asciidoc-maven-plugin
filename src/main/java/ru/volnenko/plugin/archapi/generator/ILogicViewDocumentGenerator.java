@@ -1,4 +1,4 @@
 package ru.volnenko.plugin.archapi.generator;
 
-public interface ILogicViewDocumentGenerator {
+public interface ILogicViewDocumentGenerator extends IGenerator {
 }
