@@ -51,4 +51,16 @@ public final class RootBuilder extends AbstractBuilder implements IRootBuilder {
         return root;
     }
 
+    @NonNull
+    @Override
+    public String yaml() {
+        return null;
+    }
+
+    @NonNull
+    @Override
+    public String json() {
+        return null;
+    }
+
 }

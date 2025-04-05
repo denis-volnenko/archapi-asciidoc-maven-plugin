@@ -7,7 +7,7 @@ public class RootBuilderTest {
 
     @Test
     public void test() {
-        RootBuilder.create();
+        RootBuilder.create().toRoot();
     }
 
 }

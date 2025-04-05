@@ -20,4 +20,10 @@ public interface IRootBuilder {
     @NonNull
     IRoot root();
 
+    @NonNull
+    String yaml();
+
+    @NonNull
+    String json();
+
 }
