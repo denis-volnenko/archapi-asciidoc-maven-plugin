@@ -6,6 +6,7 @@ import lombok.Setter;
 import ru.volnenko.plugin.archapi.model.IRoot;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Getter
@@ -18,6 +19,10 @@ public final class Root extends AbstractModel implements IRoot {
     private String title = "";
 
     private String description = "";
+
+    private Map<String, History> history = new LinkedHashMap<>();
+
+    private Map<String, Glossary> glossary = new LinkedHashMap<>();
 
     private ContextView contextView = new ContextView();
 
