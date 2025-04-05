@@ -1,4 +1,25 @@
 package ru.volnenko.plugin.archapi;
 
-public class Generator {
+import lombok.Getter;
+import lombok.Setter;
+import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+
+@Mojo(name = "generate", defaultPhase = LifecyclePhase.COMPILE)
+public class Generator extends AbstractMojo {
+
+    @Getter
+    @Setter
+    @Parameter(property = "serviceName")
+    public String serviceName = "Сервис";
+
+    @Override
+    public void execute() throws MojoExecutionException, MojoFailureException {
+
+    }
+
 }
