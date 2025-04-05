@@ -2,6 +2,7 @@ package ru.volnenko.plugin.archapi.builder;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.archapi.model.IRoot;
+import ru.volnenko.plugin.archapi.printer.IRootPrinter;
 
 public interface IRootBuilder {
 
@@ -19,6 +20,9 @@ public interface IRootBuilder {
 
     @NonNull
     IRoot root();
+
+    @NonNull
+    IRootPrinter printer();
 
     @NonNull
     String yaml();
