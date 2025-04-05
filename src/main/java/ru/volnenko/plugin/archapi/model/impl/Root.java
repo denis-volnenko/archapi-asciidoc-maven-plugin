@@ -25,6 +25,10 @@ public final class Root extends AbstractModel implements IRoot {
 
     private PhysicView physicView = new PhysicView();
 
+    private OperationView operationView = new OperationView();
+
+    private SecurityView securityView = new SecurityView();
+
     private Map<String, Sizing> sizing = new HashMap<>();
 
     private Components components = new Components();
