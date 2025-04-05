@@ -3,9 +3,7 @@ package ru.volnenko.plugin.archapi.builder.impl;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.SneakyThrows;
-import ru.volnenko.plugin.archapi.builder.IComponentsBuilder;
-import ru.volnenko.plugin.archapi.builder.ILogicViewBuilder;
-import ru.volnenko.plugin.archapi.builder.IRootBuilder;
+import ru.volnenko.plugin.archapi.builder.*;
 import ru.volnenko.plugin.archapi.model.IRoot;
 import ru.volnenko.plugin.archapi.model.impl.Root;
 import ru.volnenko.plugin.archapi.printer.IRootPrinter;
@@ -22,15 +20,33 @@ public final class RootBuilder extends AbstractBuilder implements IRootBuilder {
     private final IRootPrinter rootPrinter = new RootPrinter(this);
 
     @NonNull
-    private final ILogicViewBuilder logicViewBuilder = new LogicViewBuilder();
+    private final IContextViewBuilder contextViewBuilder = new ContextViewBuilder(this);
+
+    @NonNull
+    private final ILogicViewBuilder logicViewBuilder = new LogicViewBuilder(this);
+
+    @NonNull
+    private final IPhysicViewBuilder physicViewBuilder = new PhysicViewBuilder(this);
 
     @NonNull
     private Root root = new Root();
 
     @NonNull
     @Override
+    public IContextViewBuilder contextView() {
+        return contextViewBuilder;
+    }
+
+    @NonNull
+    @Override
     public ILogicViewBuilder logicView() {
         return logicViewBuilder;
+    }
+
+    @NonNull
+    @Override
+    public IPhysicViewBuilder physicView() {
+        return physicViewBuilder;
     }
 
     @NonNull

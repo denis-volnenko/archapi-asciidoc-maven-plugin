@@ -1,9 +1,15 @@
 package ru.volnenko.plugin.archapi.builder.impl;
 
-import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import ru.volnenko.plugin.archapi.builder.IPhysicViewBuilder;
+import ru.volnenko.plugin.archapi.builder.IRootBuilder;
 
-@NoArgsConstructor
 public final class PhysicViewBuilder extends AbstractBuilder implements IPhysicViewBuilder {
 
+    @NonNull
+    private final IRootBuilder rootBuilder;
+
+    public PhysicViewBuilder(@NonNull IRootBuilder rootBuilder) {
+        this.rootBuilder = rootBuilder;
+    }
 }

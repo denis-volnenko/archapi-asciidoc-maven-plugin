@@ -19,7 +19,13 @@ public interface IRootBuilder {
     IComponentsBuilder componentsBuilder();
 
     @NonNull
+    IContextViewBuilder contextView();
+
+    @NonNull
     ILogicViewBuilder logicView();
+
+    @NonNull
+    IPhysicViewBuilder physicView();
 
     @NonNull
     IRootBuilder root();
