@@ -8,9 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class ServerReference extends AbstractModel {
+public final class Topic extends AbstractModel {
 
-    @JsonProperty("$ref")
-    private String reference;
+    @JsonProperty("server")
+    private ServerReference serverReference;
 
 }

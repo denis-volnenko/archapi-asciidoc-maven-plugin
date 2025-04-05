@@ -23,4 +23,10 @@ public final class Components extends AbstractModel implements IComponents {
 
     private Map<String, Bucket> buckets = new LinkedHashMap<>();
 
+    private Map<String, Topic> topics = new LinkedHashMap<>();
+
+    private Map<String, Queue> queue = new LinkedHashMap<>();
+
+    private Map<String, User> users = new LinkedHashMap<>();
+
 }
