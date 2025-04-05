@@ -17,6 +17,8 @@ public final class LogicView extends AbstractModel {
 
     private String description = "";
 
+    private List<Link> links = new ArrayList<>();
+
     private List<Note> notes = new ArrayList<>();
 
     @JsonProperty("environment")

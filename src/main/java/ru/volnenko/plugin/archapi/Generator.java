@@ -32,10 +32,19 @@ public class Generator extends AbstractMojo {
     @Parameter(property = "tableOfContentsEnabled")
     public boolean tableOfContentsEnabled = true;
 
+    @Getter
+    @Setter
+    @Parameter(property = "contextViewEnabled")
     private boolean contextViewEnabled = true;
 
+    @Getter
+    @Setter
+    @Parameter(property = "logicViewEnabled")
     private boolean logicViewEnabled = true;
 
+    @Getter
+    @Setter
+    @Parameter(property = "physicViewEnabled")
     private boolean physicViewEnabled = true;
 
     @Override

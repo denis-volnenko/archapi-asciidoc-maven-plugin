@@ -18,6 +18,8 @@ public final class ContextView extends AbstractModel implements IContextView {
 
     private String description = "";
 
+    private List<Link> links = new ArrayList<>();
+
     private List<Note> notes = new ArrayList<>();
 
     @JsonProperty("environment")
