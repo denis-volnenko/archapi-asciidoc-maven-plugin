@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -13,12 +14,12 @@ public final class Sizing extends AbstractModel {
 
     private EnvironmentReference reference;
 
-    private String title;
+    private String title = "";
 
-    private String description;
+    private String description = "";
 
-    private List<SizingContainer> contarization;
+    private List<SizingContainer> contarization = new ArrayList<>();
 
-    private List<SizingVirtualMachine> virtualization;
+    private List<SizingVirtualMachine> virtualization = new ArrayList<>();
 
 }
