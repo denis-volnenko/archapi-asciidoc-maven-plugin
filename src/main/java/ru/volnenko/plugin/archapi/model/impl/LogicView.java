@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public final class LogicView extends AbstractModel {
 
-    private String title = "";
+    private String title = "Логическое представление (Logic View)";
 
     private String description = "";
 

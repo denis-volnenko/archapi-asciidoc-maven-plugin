@@ -12,14 +12,13 @@ public final class RootBasicGenerator implements IRootBasicGenerator {
     private ContextViewBasicGenerator contextViewBasicGenerator;
 
     @NonNull
-    private LogicViewBasicGenerator logicViewBasicGenerator;
+    private ILogicViewBasicGenerator logicViewBasicGenerator = new LogicViewBasicGenerator();
 
     @NonNull
     private PhysicViewBasicGenerator physicViewBasicGenerator;
 
-    @NonNull
     @Override
-    public String generate() {
+    public @NonNull String generate() {
         return null;
     }
 
