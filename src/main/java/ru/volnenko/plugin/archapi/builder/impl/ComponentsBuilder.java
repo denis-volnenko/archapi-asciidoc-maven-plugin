@@ -1,9 +1,22 @@
 package ru.volnenko.plugin.archapi.builder.impl;
 
-import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import ru.volnenko.plugin.archapi.builder.IComponentsBuilder;
+import ru.volnenko.plugin.archapi.builder.IRootBuilder;
 
-@NoArgsConstructor
 public final class ComponentsBuilder extends AbstractBuilder implements IComponentsBuilder {
+
+    @NonNull
+    private final IRootBuilder rootBuilder;
+
+    public ComponentsBuilder(@NonNull final IRootBuilder rootBuilder) {
+        this.rootBuilder = rootBuilder;
+    }
+
+    @NonNull
+    @Override
+    public IRootBuilder root() {
+        return rootBuilder;
+    }
 
 }

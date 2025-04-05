@@ -15,7 +15,7 @@ import ru.volnenko.plugin.archapi.util.MapperUtil;
 public final class RootBuilder extends AbstractBuilder implements IRootBuilder {
 
     @NonNull
-    private final IComponentsBuilder componentsBuilder = new ComponentsBuilder();
+    private final IComponentsBuilder componentsBuilder = new ComponentsBuilder(this);
 
     @NonNull
     private final IRootPrinter rootPrinter = new RootPrinter(this);
@@ -48,13 +48,13 @@ public final class RootBuilder extends AbstractBuilder implements IRootBuilder {
 
     @NonNull
     @Override
-    public IRootBuilder toRoot() {
+    public IRootBuilder root() {
         return this;
     }
 
     @NonNull
     @Override
-    public IRoot root() {
+    public IRoot toRoot() {
         return root;
     }
 

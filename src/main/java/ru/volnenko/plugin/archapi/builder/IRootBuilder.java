@@ -16,10 +16,10 @@ public interface IRootBuilder {
     IComponentsBuilder componentsBuilder();
 
     @NonNull
-    IRootBuilder toRoot();
+    IRootBuilder root();
 
     @NonNull
-    IRoot root();
+    IRoot toRoot();
 
     @NonNull
     IRootPrinter printer();
