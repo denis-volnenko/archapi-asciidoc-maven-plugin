@@ -1,9 +1,15 @@
 package ru.volnenko.plugin.archapi.builder.impl;
 
-import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import ru.volnenko.plugin.archapi.builder.IComponentsBuilder;
 import ru.volnenko.plugin.archapi.builder.IServerBuilder;
 
-@NoArgsConstructor
 public final class ServiceBuilder extends AbstractBuilder implements IServerBuilder {
 
+    @NonNull
+    private final IComponentsBuilder componentsBuilder;
+
+    public ServiceBuilder(@NonNull IComponentsBuilder componentsBuilder) {
+        this.componentsBuilder = componentsBuilder;
+    }
 }

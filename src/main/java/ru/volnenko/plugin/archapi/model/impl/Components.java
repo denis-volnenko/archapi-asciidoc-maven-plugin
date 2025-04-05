@@ -13,6 +13,8 @@ import java.util.Map;
 @NoArgsConstructor
 public final class Components implements IComponents {
 
+    private Map<String, Network> networks = new LinkedHashMap<>();
+
     private Map<String, Server> servers = new LinkedHashMap<>();
 
     private Map<String, Service> services = new LinkedHashMap<>();
