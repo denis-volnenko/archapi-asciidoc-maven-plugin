@@ -19,4 +19,8 @@ public final class Components implements IComponents {
 
     private Map<String, Service> services = new LinkedHashMap<>();
 
+    private Map<String, DataBase> databases = new LinkedHashMap<>();
+
+    private Map<String, Bucket> buckets = new LinkedHashMap<>();
+
 }
