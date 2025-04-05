@@ -4,7 +4,7 @@ import lombok.NonNull;
 import ru.volnenko.plugin.archapi.model.IRoot;
 import ru.volnenko.plugin.archapi.printer.IRootPrinter;
 
-public interface IRootBuilder {
+public interface IRootBuilder extends IToRoot {
 
     @NonNull
     IRootBuilder archapi(@NonNull String archapi);
@@ -16,7 +16,7 @@ public interface IRootBuilder {
     IRootBuilder description(@NonNull String description);
 
     @NonNull
-    IComponentsBuilder componentsBuilder();
+    IComponentsBuilder components();
 
     @NonNull
     IContextViewBuilder contextView();

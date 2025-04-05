@@ -14,16 +14,7 @@ import ru.volnenko.plugin.archapi.util.MapperUtil;
 public final class RootBuilder extends AbstractBuilder implements IRootBuilder {
 
     @NonNull
-    private final IComponentsBuilder componentsBuilder = new ComponentsBuilder(this);
-
-    @NonNull
     private final IRootPrinter rootPrinter = new RootPrinter(this);
-
-    @NonNull
-    private final IContextViewBuilder contextViewBuilder = new ContextViewBuilder(this);
-
-    @NonNull
-    private final ILogicViewBuilder logicViewBuilder = new LogicViewBuilder(this);
 
     @NonNull
     private final IPhysicViewBuilder physicViewBuilder = new PhysicViewBuilder(this);
@@ -34,13 +25,13 @@ public final class RootBuilder extends AbstractBuilder implements IRootBuilder {
     @NonNull
     @Override
     public IContextViewBuilder contextView() {
-        return contextViewBuilder;
+        return new ContextViewBuilder(this);
     }
 
     @NonNull
     @Override
     public ILogicViewBuilder logicView() {
-        return logicViewBuilder;
+        return new LogicViewBuilder(this);
     }
 
     @NonNull
@@ -72,8 +63,8 @@ public final class RootBuilder extends AbstractBuilder implements IRootBuilder {
 
     @NonNull
     @Override
-    public IComponentsBuilder componentsBuilder() {
-        return componentsBuilder;
+    public IComponentsBuilder components() {
+        return new ComponentsBuilder(this);
     }
 
     @NonNull

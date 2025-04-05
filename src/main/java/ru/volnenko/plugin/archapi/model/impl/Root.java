@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.archapi.model.IRoot;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Getter
@@ -12,20 +13,20 @@ import java.util.Map;
 @NoArgsConstructor
 public final class Root implements IRoot {
 
-    private String archapi;
+    private String archapi = "1.0.0";
 
-    private String title;
+    private String title = "";
 
-    private String description;
+    private String description = "";
 
-    private ContextView contextView;
+    private ContextView contextView = new ContextView();
 
-    private LogicView logicView;
+    private LogicView logicView = new LogicView();
 
-    private PhysicView physicView;
+    private PhysicView physicView = new PhysicView();
 
-    private Map<String, Sizing> sizing;
+    private Map<String, Sizing> sizing = new HashMap<>();
 
-    private Components components;
+    private Components components = new Components();
 
 }

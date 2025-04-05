@@ -7,7 +7,10 @@ public class RootBuilderTest {
 
     @Test
     public void test() {
-        RootBuilder.create().printer().yaml();
+        RootBuilder.create()
+                .components()
+                .root()
+                .printer().yaml();
     }
 
 }
