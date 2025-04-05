@@ -2,7 +2,7 @@ package ru.volnenko.plugin.archapi.generator;
 
 import lombok.NonNull;
 
-public interface IRootGenerator {
+public interface IRootBasicGenerator extends IGenerator {
 
     @NonNull
     IContextViewBasicGenerator contextView();
