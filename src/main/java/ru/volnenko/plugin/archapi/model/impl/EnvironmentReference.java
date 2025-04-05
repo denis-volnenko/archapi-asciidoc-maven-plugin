@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class EnvironmentReference {
+public final class EnvironmentReference extends AbstractModel {
 
     @JsonProperty("$ref")
     private String reference;

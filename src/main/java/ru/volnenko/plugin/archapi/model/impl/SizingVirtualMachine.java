@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class SizingVirtualMachine {
+public final class SizingVirtualMachine extends AbstractModel {
 
     private SizingCpu cpu;
 

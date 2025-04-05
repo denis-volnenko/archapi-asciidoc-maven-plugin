@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class LogicView {
+public final class LogicView extends AbstractModel {
 
     private String title = "";
 

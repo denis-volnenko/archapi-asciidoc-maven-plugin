@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class SizingScale {
+public final class SizingScale extends AbstractModel {
 
     private Integer count;
 

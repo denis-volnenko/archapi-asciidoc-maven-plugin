@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class ContextView implements IContextView {
+public final class ContextView extends AbstractModel implements IContextView {
 
     private String title = "";
 

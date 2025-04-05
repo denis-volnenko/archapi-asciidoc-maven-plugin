@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class SizingRam {
+public final class SizingRam extends AbstractModel {
 
     private Integer value;
 

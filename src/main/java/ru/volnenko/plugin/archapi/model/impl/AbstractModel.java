@@ -1,4 +1,4 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public final class Bucket extends AbstractModel {
+public abstract class AbstractModel {
 }

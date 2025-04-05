@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class SizingHdd {
+public final class SizingHdd extends AbstractModel {
 
     private Integer value;
 

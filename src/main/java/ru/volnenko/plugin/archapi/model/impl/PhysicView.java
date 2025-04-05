@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class PhysicView {
+public final class PhysicView extends AbstractModel {
 
     private String title = "";
 

@@ -11,7 +11,7 @@ import java.util.Map;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class Components implements IComponents {
+public final class Components extends AbstractModel implements IComponents {
 
     private Map<String, Network> networks = new LinkedHashMap<>();
 

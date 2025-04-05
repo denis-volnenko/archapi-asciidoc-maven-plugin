@@ -11,7 +11,7 @@ import java.util.Map;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class Root implements IRoot {
+public final class Root extends AbstractModel implements IRoot {
 
     private String archapi = "1.0.0";
 

@@ -1,4 +1,11 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
-public class Network {
+public final class Network extends AbstractModel {
+
+    private String name = "";
+
+    private String mask = "";
+
+    private String description = "";
+
 }

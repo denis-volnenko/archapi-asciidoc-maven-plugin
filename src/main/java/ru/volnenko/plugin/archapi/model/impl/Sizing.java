@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class Sizing {
+public final class Sizing extends AbstractModel {
 
     private EnvironmentReference reference;
 

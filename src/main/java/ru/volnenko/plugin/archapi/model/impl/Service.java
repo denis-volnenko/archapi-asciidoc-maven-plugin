@@ -8,5 +8,5 @@ import ru.volnenko.plugin.archapi.model.IServer;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class Service implements IServer {
+public final class Service extends AbstractModel implements IServer {
 }

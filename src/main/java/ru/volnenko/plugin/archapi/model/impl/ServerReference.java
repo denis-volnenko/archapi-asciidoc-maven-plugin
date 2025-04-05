@@ -7,5 +7,5 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class ServerReference {
+public final class ServerReference extends AbstractModel {
 }

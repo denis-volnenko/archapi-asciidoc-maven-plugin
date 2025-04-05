@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class SizingContainer {
+public final class SizingContainer extends AbstractModel {
 
     private SizingCpu cpu;
 
