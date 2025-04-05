@@ -4,6 +4,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import ru.volnenko.plugin.archapi.builder.IComponentsBuilder;
+import ru.volnenko.plugin.archapi.builder.ILogicViewBuilder;
 import ru.volnenko.plugin.archapi.builder.IRootBuilder;
 import ru.volnenko.plugin.archapi.model.IRoot;
 import ru.volnenko.plugin.archapi.model.impl.Root;
@@ -21,17 +22,35 @@ public final class RootBuilder extends AbstractBuilder implements IRootBuilder {
     private final IRootPrinter rootPrinter = new RootPrinter(this);
 
     @NonNull
+    private final ILogicViewBuilder logicViewBuilder = new LogicViewBuilder();
+
+    @NonNull
     private Root root = new Root();
 
     @NonNull
     @Override
+    public ILogicViewBuilder logicView() {
+        return logicViewBuilder;
+    }
+
+    @NonNull
+    @Override
+    public IRootBuilder archapi(@NonNull final String archapi) {
+        this.root.setArchapi(archapi);
+        return this;
+    }
+
+    @NonNull
+    @Override
     public IRootBuilder title(@NonNull final String title) {
+        this.root.setTitle(title);
         return this;
     }
 
     @NonNull
     @Override
     public IRootBuilder description(@NonNull final String description) {
+        this.root.setDescription(description);
         return this;
     }
 

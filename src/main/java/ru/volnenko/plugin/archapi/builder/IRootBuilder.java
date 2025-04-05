@@ -7,6 +7,9 @@ import ru.volnenko.plugin.archapi.printer.IRootPrinter;
 public interface IRootBuilder {
 
     @NonNull
+    IRootBuilder archapi(@NonNull String archapi);
+
+    @NonNull
     IRootBuilder title(@NonNull String title);
 
     @NonNull
@@ -14,6 +17,9 @@ public interface IRootBuilder {
 
     @NonNull
     IComponentsBuilder componentsBuilder();
+
+    @NonNull
+    ILogicViewBuilder logicView();
 
     @NonNull
     IRootBuilder root();
@@ -29,5 +35,6 @@ public interface IRootBuilder {
 
     @NonNull
     String json();
+
 
 }
