@@ -9,8 +9,5 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class SizingScale extends AbstractModel {
-
-    private Integer count;
-
+public final class Technology {
 }
