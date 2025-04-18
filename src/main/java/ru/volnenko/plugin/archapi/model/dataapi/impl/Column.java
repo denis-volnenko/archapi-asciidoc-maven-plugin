@@ -2,6 +2,7 @@ package ru.volnenko.plugin.archapi.model.dataapi.impl;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import ru.volnenko.plugin.archapi.model.dataapi.IColumn;
 
@@ -31,19 +32,22 @@ public final class Column implements IColumn {
         return description;
     }
 
+    @NonNull
     @Override
     public IColumn id(String id) {
-        return null;
+        return this;
     }
 
+    @NonNull
     @Override
     public IColumn name(String name) {
-        return null;
+        return this;
     }
 
+    @NonNull
     @Override
     public IColumn description(String description) {
-        return null;
+        return this;
     }
 
 }

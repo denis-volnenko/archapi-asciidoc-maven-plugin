@@ -1,5 +1,7 @@
 package ru.volnenko.plugin.archapi.model.dataapi;
 
+import lombok.NonNull;
+
 public interface ITable {
 
     String id();
@@ -8,10 +10,13 @@ public interface ITable {
 
     String description();
 
-    ITable id(String id);
+    @NonNull
+    ITable id(@NonNull String id);
 
-    ITable name(String name);
+    @NonNull
+    ITable name(@NonNull String name);
 
-    ITable description(String description);
+    @NonNull
+    ITable description(@NonNull String description);
 
 }

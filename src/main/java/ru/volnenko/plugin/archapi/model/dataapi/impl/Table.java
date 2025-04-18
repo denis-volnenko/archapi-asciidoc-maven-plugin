@@ -2,6 +2,7 @@ package ru.volnenko.plugin.archapi.model.dataapi.impl;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import ru.volnenko.plugin.archapi.model.dataapi.ITable;
 
@@ -31,19 +32,25 @@ public final class Table implements ITable {
         return description;
     }
 
+    @NonNull
     @Override
-    public ITable id(final String id) {
-        return null;
+    public ITable id(@NonNull final String id) {
+        this.id = id;
+        return this;
     }
 
+    @NonNull
     @Override
-    public ITable name(final String name) {
-        return null;
+    public ITable name(@NonNull final String name) {
+        this.name = name;
+        return this;
     }
 
+    @NonNull
     @Override
-    public ITable description(final String description) {
-        return null;
+    public ITable description(@NonNull final String description) {
+        this.description = description;
+        return this;
     }
 
 }

@@ -1,5 +1,7 @@
 package ru.volnenko.plugin.archapi.model.dataapi;
 
+import lombok.NonNull;
+
 public interface IColumn {
 
     String id();
@@ -8,10 +10,13 @@ public interface IColumn {
 
     String description();
 
+    @NonNull
     IColumn id(String id);
 
+    @NonNull
     IColumn name(String name);
 
+    @NonNull
     IColumn description(String description);
 
 }
