@@ -4,7 +4,7 @@ import ru.volnenko.plugin.archapi.model.archapi.impl.Bucket;
 import ru.volnenko.plugin.archapi.model.archapi.impl.Network;
 import ru.volnenko.plugin.archapi.model.archapi.impl.Server;
 import ru.volnenko.plugin.archapi.model.archapi.impl.Service;
-import ru.volnenko.plugin.archapi.model.dataapi.DataBase;
+import ru.volnenko.plugin.archapi.model.dataapi.impl.DataBase;
 
 import java.util.Map;
 

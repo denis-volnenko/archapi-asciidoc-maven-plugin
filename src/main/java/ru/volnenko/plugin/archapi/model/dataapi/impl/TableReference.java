@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.archapi.model.dataapi;
+package ru.volnenko.plugin.archapi.model.dataapi.impl;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

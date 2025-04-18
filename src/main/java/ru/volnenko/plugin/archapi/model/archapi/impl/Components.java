@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.archapi.model.IComponents;
-import ru.volnenko.plugin.archapi.model.dataapi.DataBase;
-import ru.volnenko.plugin.archapi.model.dataapi.Domain;
-import ru.volnenko.plugin.archapi.model.dataapi.Queue;
-import ru.volnenko.plugin.archapi.model.dataapi.Topic;
+import ru.volnenko.plugin.archapi.model.dataapi.impl.DataBase;
+import ru.volnenko.plugin.archapi.model.dataapi.impl.Domain;
+import ru.volnenko.plugin.archapi.model.dataapi.impl.Queue;
+import ru.volnenko.plugin.archapi.model.dataapi.impl.Topic;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
