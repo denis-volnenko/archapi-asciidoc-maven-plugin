@@ -23,7 +23,15 @@ public final class ColumnBuilder implements IColumnBuilder {
 
     @NonNull
     @Override
+    public IColumnBuilder id(@NonNull final String id) {
+        this.column.id(id);
+        return this;
+    }
+
+    @NonNull
+    @Override
     public IColumnBuilder name(@NonNull final String name) {
+        this.column.name(name);
         return this;
     }
 

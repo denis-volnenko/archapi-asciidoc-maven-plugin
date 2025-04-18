@@ -12,6 +12,9 @@ public interface IColumnBuilder {
     IColumnBuilder column(@NonNull IColumn column);
 
     @NonNull
+    IColumnBuilder id(@NonNull String id);
+
+    @NonNull
     IColumnBuilder name(@NonNull String name);
 
     @NonNull
