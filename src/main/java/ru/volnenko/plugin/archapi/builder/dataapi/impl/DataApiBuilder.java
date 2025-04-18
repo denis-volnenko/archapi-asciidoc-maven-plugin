@@ -23,13 +23,13 @@ public final class DataApiBuilder implements IDataApiBuilder {
     @NonNull
     @Override
     public ITableBuilder table() {
-        return null;
+        return new TableBuilder(this);
     }
 
     @NonNull
     @Override
     public ITableBuilder table(@NonNull final String name) {
-        return null;
+        return new TableBuilder(this);
     }
 
     @NonNull
