@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.archapi.builder;
+package ru.volnenko.plugin.archapi.builder.archapi;
 
 import lombok.NonNull;
 

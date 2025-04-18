@@ -1,7 +1,7 @@
-package ru.volnenko.plugin.archapi.builder.impl;
+package ru.volnenko.plugin.archapi.builder.archapi.impl;
 
 import lombok.NoArgsConstructor;
-import ru.volnenko.plugin.archapi.builder.IEnvironmentBuilder;
+import ru.volnenko.plugin.archapi.builder.archapi.IEnvironmentBuilder;
 
 @NoArgsConstructor
 public final class EnvironmentBuilder extends AbstractBuilder implements IEnvironmentBuilder {

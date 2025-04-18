@@ -1,7 +1,7 @@
 package ru.volnenko.plugin.archapi.builder;
 
 import org.junit.Test;
-import ru.volnenko.plugin.archapi.builder.impl.RootBuilder;
+import ru.volnenko.plugin.archapi.builder.archapi.impl.RootBuilder;
 
 public class RootBuilderTest {
 

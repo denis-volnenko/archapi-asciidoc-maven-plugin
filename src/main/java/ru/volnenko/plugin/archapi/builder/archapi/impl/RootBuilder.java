@@ -1,9 +1,9 @@
-package ru.volnenko.plugin.archapi.builder.impl;
+package ru.volnenko.plugin.archapi.builder.archapi.impl;
 
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.SneakyThrows;
-import ru.volnenko.plugin.archapi.builder.*;
+import ru.volnenko.plugin.archapi.builder.archapi.*;
 import ru.volnenko.plugin.archapi.model.IRoot;
 import ru.volnenko.plugin.archapi.model.archapi.Root;
 import ru.volnenko.plugin.archapi.printer.IRootPrinter;

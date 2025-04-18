@@ -1,8 +1,8 @@
-package ru.volnenko.plugin.archapi.builder.impl;
+package ru.volnenko.plugin.archapi.builder.archapi.impl;
 
 import lombok.NonNull;
-import ru.volnenko.plugin.archapi.builder.IComponentsBuilder;
-import ru.volnenko.plugin.archapi.builder.IRootBuilder;
+import ru.volnenko.plugin.archapi.builder.archapi.IComponentsBuilder;
+import ru.volnenko.plugin.archapi.builder.archapi.IRootBuilder;
 import ru.volnenko.plugin.archapi.model.IRoot;
 
 public final class ComponentsBuilder extends AbstractBuilder implements IComponentsBuilder {
