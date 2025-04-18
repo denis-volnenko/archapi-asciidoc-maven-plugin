@@ -1,7 +1,7 @@
 package ru.volnenko.plugin.archapi.generator.impl;
 
 import lombok.NonNull;
-import ru.volnenko.plugin.archapi.model.impl.Root;
+import ru.volnenko.plugin.archapi.model.archapi.Root;
 
 public abstract class AbstractDocumentGenerator extends AbstractGenerator {
 

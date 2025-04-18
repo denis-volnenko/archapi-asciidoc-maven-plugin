@@ -1,5 +1,6 @@
 package ru.volnenko.plugin.archapi.model;
 
+import ru.volnenko.plugin.archapi.model.dataapi.DataBase;
 import ru.volnenko.plugin.archapi.model.impl.*;
 
 import java.util.Map;

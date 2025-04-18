@@ -5,6 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.archapi.model.IComponents;
+import ru.volnenko.plugin.archapi.model.dataapi.DataBase;
+import ru.volnenko.plugin.archapi.model.dataapi.Domain;
+import ru.volnenko.plugin.archapi.model.dataapi.Queue;
+import ru.volnenko.plugin.archapi.model.dataapi.Topic;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -32,5 +36,7 @@ public final class Components extends AbstractModel implements IComponents {
     private Map<String, User> users = new LinkedHashMap<>();
 
     private Map<String, Connection> connections = new LinkedHashMap<>();
+
+    private Map<String, Domain> domains = new LinkedHashMap<>();
 
 }

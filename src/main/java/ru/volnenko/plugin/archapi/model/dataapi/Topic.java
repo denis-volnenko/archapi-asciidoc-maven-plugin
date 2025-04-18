@@ -1,10 +1,12 @@
-package ru.volnenko.plugin.archapi.model.impl;
+package ru.volnenko.plugin.archapi.model.dataapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.volnenko.plugin.archapi.model.impl.AbstractModel;
+import ru.volnenko.plugin.archapi.model.impl.ServerReference;
 
 @Getter
 @Setter

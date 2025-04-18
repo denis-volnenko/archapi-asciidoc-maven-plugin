@@ -5,7 +5,7 @@ import lombok.NonNull;
 import lombok.SneakyThrows;
 import ru.volnenko.plugin.archapi.builder.*;
 import ru.volnenko.plugin.archapi.model.IRoot;
-import ru.volnenko.plugin.archapi.model.impl.Root;
+import ru.volnenko.plugin.archapi.model.archapi.Root;
 import ru.volnenko.plugin.archapi.printer.IRootPrinter;
 import ru.volnenko.plugin.archapi.printer.impl.RootPrinter;
 import ru.volnenko.plugin.archapi.util.MapperUtil;
