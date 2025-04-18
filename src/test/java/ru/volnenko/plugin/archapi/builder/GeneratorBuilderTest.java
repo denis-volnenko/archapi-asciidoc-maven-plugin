@@ -1,10 +1,10 @@
 package ru.volnenko.plugin.archapi.builder;
 
-import lombok.NonNull;
+import org.junit.Test;
 
-public class GeneratorBuilderTest {
+public final class GeneratorBuilderTest {
 
-    @NonNull
+    @Test
     public void test() {
         IGeneratorBuilder.create();
     }

@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.archapi.model.IContextView;
-import ru.volnenko.plugin.archapi.model.archapi.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +19,6 @@ public final class ContextView extends AbstractModel implements IContextView {
     private String title = "";
 
     private String description = "";
-
-    private List<View> views = new ArrayList<>();
 
     private List<Link> links = new ArrayList<>();
 
