@@ -1,7 +1,7 @@
 package ru.volnenko.plugin.archapi.model;
 
-import ru.volnenko.plugin.archapi.model.impl.EnvironmentReference;
-import ru.volnenko.plugin.archapi.model.impl.Note;
+import ru.volnenko.plugin.archapi.model.archapi.impl.EnvironmentReference;
+import ru.volnenko.plugin.archapi.model.archapi.impl.Note;
 
 import java.util.List;
 

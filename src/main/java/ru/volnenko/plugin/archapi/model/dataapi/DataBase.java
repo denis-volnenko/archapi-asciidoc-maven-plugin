@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.archapi.model.IDataBase;
-import ru.volnenko.plugin.archapi.model.impl.AbstractModel;
-import ru.volnenko.plugin.archapi.model.impl.ServerReference;
+import ru.volnenko.plugin.archapi.model.archapi.impl.AbstractModel;
+import ru.volnenko.plugin.archapi.model.archapi.impl.ServerReference;
 
 @Getter
 @Setter

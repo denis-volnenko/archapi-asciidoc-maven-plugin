@@ -2,7 +2,7 @@ package ru.volnenko.plugin.archapi.generator.impl;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.archapi.generator.ILogicViewDocumentGenerator;
-import ru.volnenko.plugin.archapi.model.impl.LogicView;
+import ru.volnenko.plugin.archapi.model.archapi.impl.LogicView;
 import ru.volnenko.plugin.archapi.model.archapi.Root;
 
 public final class LogicViewDocumentGenerator extends AbstractDocumentGenerator implements ILogicViewDocumentGenerator {
