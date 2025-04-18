@@ -31,4 +31,19 @@ public final class Column implements IColumn {
         return description;
     }
 
+    @Override
+    public IColumn id(String id) {
+        return null;
+    }
+
+    @Override
+    public IColumn name(String name) {
+        return null;
+    }
+
+    @Override
+    public IColumn description(String description) {
+        return null;
+    }
+
 }

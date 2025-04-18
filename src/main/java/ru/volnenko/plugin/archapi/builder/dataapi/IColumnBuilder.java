@@ -9,6 +9,9 @@ public interface IColumnBuilder {
     IColumnBuilder column(@NonNull IColumn column);
 
     @NonNull
+    IColumnBuilder name(@NonNull String name);
+
+    @NonNull
     IDataApiBuilder dataApi();
 
 }

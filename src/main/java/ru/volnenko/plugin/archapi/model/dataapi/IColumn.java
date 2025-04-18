@@ -8,4 +8,10 @@ public interface IColumn {
 
     String description();
 
+    IColumn id(String id);
+
+    IColumn name(String name);
+
+    IColumn description(String description);
+
 }
