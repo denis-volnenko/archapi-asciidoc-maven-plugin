@@ -37,6 +37,13 @@ public final class ColumnBuilder implements IColumnBuilder {
 
     @NonNull
     @Override
+    public IColumnBuilder description(@NonNull final String description) {
+        this.column.description(description);
+        return this;
+    }
+
+    @NonNull
+    @Override
     public IColumn toColumn() {
         return column;
     }
