@@ -22,11 +22,13 @@ public final class ColumnBuilder implements IColumnBuilder {
     }
 
     @NonNull
+    @Override
     public IColumnBuilder name(@NonNull final String name) {
         return this;
     }
 
     @NonNull
+    @Override
     public IColumn toColumn() {
         return column;
     }
