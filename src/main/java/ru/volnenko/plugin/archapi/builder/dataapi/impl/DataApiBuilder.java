@@ -28,7 +28,7 @@ public final class DataApiBuilder implements IDataApiBuilder {
 
     @NonNull
     @Override
-    public ITableBuilder table(@NonNull String name) {
+    public ITableBuilder table(@NonNull final String name) {
         return null;
     }
 
