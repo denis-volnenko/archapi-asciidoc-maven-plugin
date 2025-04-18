@@ -9,13 +9,13 @@ public interface IColumnBuilder {
     IDataApiBuilder dataApi();
 
     @NonNull
-    IColumnBuilder column(@NonNull IColumn column);
-
-    @NonNull
     IColumnBuilder id(@NonNull String id);
 
     @NonNull
     IColumnBuilder name(@NonNull String name);
+
+    @NonNull
+    IColumnBuilder column(@NonNull IColumn column);
 
     @NonNull
     IColumn toColumn();
