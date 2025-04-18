@@ -19,6 +19,6 @@ public interface IGeneratorBuilder {
     ITechApiBuilder techapi();
 
     @NonNull
-    IDataApiBuilder datapi();
+    IDataApiBuilder dataapi();
 
 }

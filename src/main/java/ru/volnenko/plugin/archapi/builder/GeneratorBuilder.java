@@ -26,7 +26,7 @@ public final class GeneratorBuilder implements IGeneratorBuilder {
 
     @NonNull
     @Override
-    public IDataApiBuilder datapi() {
+    public IDataApiBuilder dataapi() {
         return null;
     }
 
