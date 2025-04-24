@@ -370,6 +370,21 @@
 
 |===
 
+=== EntityReference [[EntityReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === Enum [[Enum]]
 
 [cols="0,20,80"]
@@ -468,6 +483,10 @@
 |description
 |string
 
+|04.
+|entity
+|<<EntityReference>>
+
 |===
 
 === Database
@@ -491,9 +510,13 @@
 |description
 |string
 
+|04.
+|tables
+|<<Table>>[]
+
 |===
 
-=== DatabaseReference
+=== DatabaseReference [[DatabaseReference]]
 
 [cols="0,20,80"]
 |===
@@ -529,6 +552,25 @@
 |description
 |string
 
+|04.
+|columns
+|<<Column>>[]
+
+|===
+
+=== TableReference [[TableReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
 |===
 
 === Column [[Column]]
@@ -551,6 +593,10 @@
 |03.
 |description
 |string
+
+|04.
+|table
+|<<TableReference>>
 
 |===
 
