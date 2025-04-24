@@ -1,0 +1,6 @@
+---
+components:
+  datacenters:
+    mcod:
+      id: mcod
+      name: MCOD
