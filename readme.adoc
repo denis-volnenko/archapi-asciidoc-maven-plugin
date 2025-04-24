@@ -983,7 +983,7 @@
 
 == Tech Domain
 
-=== Stack
+=== Stack [[Stack]]
 
 [cols="0,20,80"]
 |===
