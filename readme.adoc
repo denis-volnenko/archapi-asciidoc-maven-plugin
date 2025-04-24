@@ -987,8 +987,60 @@
 
 === SizingCpu
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|value
+|number
+
+|===
+
 === SizingRam
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|value
+|number
+
+|===
 
 === SizingHdd
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|value
+|number
+
+|===
+
 === SizingScale
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|value
+|number
+
+|===
