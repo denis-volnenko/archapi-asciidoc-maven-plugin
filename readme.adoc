@@ -123,6 +123,30 @@
 
 |===
 
+=== ConnectionSource [[ConnectionSource]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+
+|===
+
+=== ConnectionTarget [[ConnectionTarget]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+
+|===
+
 === Process
 
 [cols="0,20,80"]
