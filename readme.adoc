@@ -1,7 +1,7 @@
 = ARCHAPI MAVEN PLUGIN
 :toc:
 
-== Arch API v.1.0.0
+== Arch API (v.1.0.0)
 
 === Root [[Root]]
 
