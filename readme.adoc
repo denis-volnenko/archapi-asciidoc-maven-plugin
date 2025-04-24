@@ -391,9 +391,13 @@
 |domain
 |<<DomainReference>>
 
-|04.
+|05.
 |database
 |<<DatabaseReference>>
+
+|06.
+|values
+|<<EnumValue>>[]
 
 |===
 
