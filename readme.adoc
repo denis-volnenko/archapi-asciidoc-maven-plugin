@@ -145,6 +145,14 @@
 |description
 |string
 
+|04.
+|address
+|string
+
+|05.
+|mask
+|string
+
 |===
 
 === NetworkReference [[NetworkReference]]
@@ -290,6 +298,10 @@
 |description
 |string
 
+|03.
+|type
+|string
+
 |===
 
 === Service [[Service]]
@@ -316,6 +328,13 @@
 |04.
 |sizings
 |<<SizingService>>[]
+
+|05.
+|type
+|string
+
+
+
 
 |===
 
@@ -353,6 +372,10 @@
 
 |03.
 |description
+|string
+
+|04.
+|type
 |string
 
 |===
@@ -396,6 +419,14 @@
 |04.
 |sizings
 |<<SizingServer>>[]
+
+|05.
+|type
+|string
+
+|06.
+|xtype
+|enum[BM, VM]
 
 |===
 
