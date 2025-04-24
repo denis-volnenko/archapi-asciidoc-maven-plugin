@@ -78,6 +78,21 @@
 
 |===
 
+=== ConnectionReference
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === Environment
 
 [cols="0,20,80"]
