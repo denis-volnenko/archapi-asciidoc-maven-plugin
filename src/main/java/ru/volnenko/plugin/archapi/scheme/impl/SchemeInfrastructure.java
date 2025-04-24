@@ -2,10 +2,12 @@ package ru.volnenko.plugin.archapi.scheme.impl;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.archapi.model.*;
+import ru.volnenko.plugin.archapi.model.archapi.IBalancer;
 import ru.volnenko.plugin.archapi.model.archapi.ISystem;
 import ru.volnenko.plugin.archapi.model.dataapi.IQueue;
 import ru.volnenko.plugin.archapi.model.dataapi.IStorage;
 import ru.volnenko.plugin.archapi.model.dataapi.ITopic;
+import ru.volnenko.plugin.archapi.scheme.ISchemeComponent;
 import ru.volnenko.plugin.archapi.scheme.ISchemeContext;
 import ru.volnenko.plugin.archapi.scheme.ISchemeInfrastructure;
 
@@ -53,6 +55,16 @@ public final class SchemeInfrastructure implements ISchemeInfrastructure {
 
     @Override
     public @NonNull ISchemeContext append(@NonNull IConnection connection) {
+        return null;
+    }
+
+    @Override
+    public @NonNull ISchemeComponent append(@NonNull IServer server) {
+        return null;
+    }
+
+    @Override
+    public @NonNull ISchemeComponent append(@NonNull IBalancer balancer) {
         return null;
     }
 }
