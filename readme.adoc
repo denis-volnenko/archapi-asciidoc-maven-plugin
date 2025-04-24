@@ -917,7 +917,73 @@
 
 === SizingPod
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|container
+|ContainerReference
+
+|03.
+|cpu
+|SizingCpu
+
+|04.
+|ram
+|SizingRam
+
+|05.
+|hdd
+|SizingHdd
+
+|06.
+|scale
+|SizingScale
+
+|===
+
 === SizingVm
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|vm
+|VirtualMachineReference
+
+|03.
+|cpu
+|SizingCpu
+
+|04.
+|ram
+|SizingRam
+
+|05.
+|hdd
+|SizingHdd
+
+|06.
+|scale
+|SizingScale
+
+|===
 
 === SizingCpu
 
