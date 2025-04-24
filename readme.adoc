@@ -915,14 +915,14 @@
 
 == Size Domain
 
-=== SizingPOD
+=== SizingPod
 
-=== SizingVM
+=== SizingVm
 
-=== SizingCPU
+=== SizingCpu
 
-=== SizingRAM
+=== SizingRam
 
-=== SizingHDD
+=== SizingHdd
 
 === SizingScale
