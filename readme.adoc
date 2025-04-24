@@ -799,6 +799,10 @@
 |description
 |string
 
+|04.
+|version
+|string
+
 |===
 
 === Library
@@ -820,6 +824,10 @@
 
 |03.
 |description
+|string
+
+|04.
+|version
 |string
 
 |===
@@ -845,6 +853,10 @@
 |description
 |string
 
+|04.
+|version
+|string
+
 |===
 
 === Language
@@ -868,6 +880,10 @@
 |description
 |string
 
+|04.
+|version
+|string
+
 |===
 
 === Platform
@@ -889,6 +905,10 @@
 
 |03.
 |description
+|string
+
+|04.
+|version
 |string
 
 |===
