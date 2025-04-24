@@ -43,6 +43,10 @@
 |*Name*
 |*Type*
 
+|01.
+|environment
+|EnvironmentReference
+
 |===
 
 === LogicView
@@ -54,6 +58,10 @@
 |*Name*
 |*Type*
 
+|01.
+|environment
+|EnvironmentReference
+
 |===
 
 === PhysicView
@@ -64,6 +72,10 @@
 ^|*№*
 |*Name*
 |*Type*
+
+|01.
+|environment
+|EnvironmentReference
 
 |===
 
