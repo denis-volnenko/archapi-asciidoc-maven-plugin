@@ -159,6 +159,14 @@
 |description
 |string
 
+|04.
+|source
+|<<ConnectionRelation>>
+
+|05.
+|target
+|<<ConnectionRelation>>
+
 |===
 
 === ConnectionReference [[ConnectionReference]]
@@ -176,22 +184,7 @@
 
 |===
 
-=== ConnectionSource [[ConnectionSource]]
-
-[cols="0,20,80"]
-|===
-
-^|*№*
-|*Name*
-|*Type*
-
-|01.
-|service
-|<<ServiceReference>>
-
-|===
-
-=== ConnectionTarget [[ConnectionTarget]]
+=== ConnectionRelation [[ConnectionRelation]]
 
 [cols="0,20,80"]
 |===
