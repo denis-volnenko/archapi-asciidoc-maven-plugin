@@ -22,15 +22,15 @@
 
 |03.
 |contextView
-|Map<String,ContextView>
+|ContextViewReference
 
 |04.
 |logicView
-|Map<String,LogicView>
+|LogicViewReference
 
 |05.
 |physicView
-|Map<String,PhysicView>
+|PhysicViewReference
 
 |===
 
