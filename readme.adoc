@@ -1,6 +1,7 @@
 = ARCHAPI
+:toc:
 
-== Entity Scheme
+== Arch Domain
 
 === Service
 
