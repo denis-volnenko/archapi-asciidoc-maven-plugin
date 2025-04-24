@@ -778,7 +778,7 @@
 
 == Tech Domain
 
-=== Framework
+=== Framework [[Framework]]
 
 [cols="0,20,80"]
 |===
@@ -805,7 +805,7 @@
 
 |===
 
-=== Library
+=== Library [[Library]]
 
 [cols="0,20,80"]
 |===
@@ -832,7 +832,7 @@
 
 |===
 
-=== Tool
+=== Tool [[Tool]]
 
 [cols="0,20,80"]
 |===
@@ -859,7 +859,7 @@
 
 |===
 
-=== Language
+=== Language [[Language]]
 
 [cols="0,20,80"]
 |===
@@ -886,7 +886,7 @@
 
 |===
 
-=== Platform
+=== Platform [[Platform]]
 
 [cols="0,20,80"]
 |===
