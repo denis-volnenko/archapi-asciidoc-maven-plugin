@@ -15,6 +15,4 @@ public final class Domain {
 
     private String description = "";
 
-
-
 }
