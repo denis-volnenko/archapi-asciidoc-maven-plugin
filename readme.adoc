@@ -132,6 +132,9 @@
 |*Name*
 |*Type*
 
+|01.
+|service
+|<<ServiceReference>>
 
 |===
 
@@ -231,7 +234,7 @@
 
 |===
 
-=== Service
+=== Service [[Service]]
 
 [cols="0,20,80"]
 |===
@@ -254,7 +257,22 @@
 
 |===
 
-=== System
+=== ServiceReference [[ServiceReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
+=== System [[System]]
 
 [cols="0,20,80"]
 |===
@@ -273,6 +291,21 @@
 
 |03.
 |description
+|string
+
+|===
+
+=== SystemReference [[SystemReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
 |string
 
 |===
@@ -538,6 +571,18 @@
 |tables
 |<<Table>>[]
 
+|05.
+|service
+|<<ServiceReference>>
+
+|06.
+|system
+|<<SystemReference>>
+
+|07.
+|server
+|<<ServiceReference>>
+
 |===
 
 === DatabaseReference [[DatabaseReference]]
@@ -579,6 +624,10 @@
 |04.
 |columns
 |<<Column>>[]
+
+|05.
+|database
+|<<DatabaseReference>>
 
 |===
 
@@ -763,8 +812,13 @@
 |table
 |<<TableReference>>
 
+|06.
+|reference
+|<<TableReference>>
 
 |===
+
+
 
 === Broker [[Broker]]
 
@@ -825,6 +879,10 @@
 |description
 |string
 
+|04.
+|broker
+|<<BrokerReference>>
+
 |===
 
 === Topic [[Topic]]
@@ -847,6 +905,10 @@
 |03.
 |description
 |string
+
+|04.
+|broker
+|<<BrokerReference>>
 
 |===
 
