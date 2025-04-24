@@ -915,7 +915,9 @@
 
 == Size Domain
 
-=== Sizing
+=== SizingPOD
+
+=== SizingVM
 
 === SizingCPU
 
