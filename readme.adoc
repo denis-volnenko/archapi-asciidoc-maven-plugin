@@ -983,6 +983,49 @@
 
 == Tech Domain
 
+=== Stack
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|04.
+|frameworks
+|<<Framework>>[]
+
+|05.
+|libraries
+|<<Library>>[]
+
+|06.
+|tools
+|<<Tool>>[]
+
+|07.
+|languages
+|<<Language>>[]
+
+|08.
+|platforms
+|<<Platform>>[]
+
+|===
+
 === Framework [[Framework]]
 
 [cols="0,20,80"]
