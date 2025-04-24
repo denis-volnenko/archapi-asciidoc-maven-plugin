@@ -10,14 +10,14 @@
 
 |01.
 |id
-|
+|string
 
 |02.
 |name
-|
+|string
 
 |03.
 |description
-|
+|string
 
 |===
