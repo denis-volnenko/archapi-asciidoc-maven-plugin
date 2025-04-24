@@ -21,3 +21,24 @@
 |string
 
 |===
+
+== Data Domain
+
+=== Entity
+
+[cols="0,20,80"]
+|===
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
