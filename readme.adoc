@@ -51,6 +51,29 @@
 
 == Data Domain
 
+=== Domain
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
 === Entity
 
 [cols="0,20,80"]
@@ -75,6 +98,29 @@
 |===
 
 === Field
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
+=== Database
 
 [cols="0,20,80"]
 |===
