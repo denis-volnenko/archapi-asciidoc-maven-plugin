@@ -4,6 +4,7 @@ import lombok.NonNull;
 import ru.volnenko.plugin.archapi.model.*;
 import ru.volnenko.plugin.archapi.model.archapi.ISystem;
 import ru.volnenko.plugin.archapi.model.dataapi.IQueue;
+import ru.volnenko.plugin.archapi.model.dataapi.IStorage;
 import ru.volnenko.plugin.archapi.model.dataapi.ITopic;
 import ru.volnenko.plugin.archapi.scheme.ISchemeContext;
 
@@ -45,4 +46,13 @@ public final class SchemeContext implements ISchemeContext {
         return null;
     }
 
+    @Override
+    public @NonNull ISchemeContext append(@NonNull IDataBase dataBase) {
+        return null;
+    }
+
+    @Override
+    public @NonNull ISchemeContext append(@NonNull IStorage storage) {
+        return null;
+    }
 }
