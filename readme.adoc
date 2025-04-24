@@ -368,6 +368,44 @@
 
 |===
 
+=== Server [[Server]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
+=== ServerReference [[ServerReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === Tag
 
 [cols="0,20,80"]
@@ -1251,7 +1289,7 @@
 
 == Size Domain
 
-=== SizingPod [[SizingPod]]
+=== SizingService [[SizingPod]]
 
 [cols="0,20,80"]
 |===
@@ -1265,8 +1303,8 @@
 |string
 
 |02.
-|container
-|ContainerReference
+|service
+|<<ServiceReference>>
 
 |03.
 |cpu
@@ -1286,7 +1324,7 @@
 
 |===
 
-=== SizingVm [[SizingVm]]
+=== SizingServer [[SizingServer]]
 
 [cols="0,20,80"]
 |===
