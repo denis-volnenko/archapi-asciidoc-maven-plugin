@@ -189,7 +189,7 @@
 
 |===
 
-=== Enum
+=== Enum [[Enum]]
 
 [cols="0,20,80"]
 |===
@@ -212,7 +212,7 @@
 
 |===
 
-=== EnumValue
+=== EnumValue [[EnumValue]]
 
 [cols="0,20,80"]
 |===
