@@ -3,8 +3,6 @@
 
 == Arch API
 
-=== Connection
-
 [cols="0,20,80"]
 |===
 
