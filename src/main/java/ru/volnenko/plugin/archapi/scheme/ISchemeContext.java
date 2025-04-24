@@ -2,6 +2,8 @@ package ru.volnenko.plugin.archapi.scheme;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.archapi.model.*;
+import ru.volnenko.plugin.archapi.model.dataapi.IQueue;
+import ru.volnenko.plugin.archapi.model.dataapi.ITopic;
 
 public interface ISchemeContext {
 
@@ -9,10 +11,13 @@ public interface ISchemeContext {
     ISchemeContext append(@NonNull IService service);
 
     @NonNull
-    ISchemeContext append(@NonNull IServer server);
+    ISchemeContext append(@NonNull IUser user);
 
     @NonNull
-    ISchemeContext append(@NonNull IUser user);
+    ISchemeContext append(@NonNull ITopic topic);
+
+    @NonNull
+    ISchemeContext append(@NonNull IQueue queue);
 
     @NonNull
     ISchemeContext append(@NonNull IEnvironment environment);
