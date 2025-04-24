@@ -6,10 +6,10 @@ import ru.volnenko.plugin.archapi.model.archapi.ISystem;
 import ru.volnenko.plugin.archapi.model.dataapi.IQueue;
 import ru.volnenko.plugin.archapi.model.dataapi.IStorage;
 import ru.volnenko.plugin.archapi.model.dataapi.ITopic;
-import ru.volnenko.plugin.archapi.scheme.ISchemeComponent;
 import ru.volnenko.plugin.archapi.scheme.ISchemeContext;
+import ru.volnenko.plugin.archapi.scheme.ISchemeInfrastructure;
 
-public final class SchemeComponent implements ISchemeComponent {
+public final class SchemeInfrastructure implements ISchemeInfrastructure {
 
     @Override
     public @NonNull ISchemeContext append(@NonNull IService service) {
@@ -55,5 +55,4 @@ public final class SchemeComponent implements ISchemeComponent {
     public @NonNull ISchemeContext append(@NonNull IConnection connection) {
         return null;
     }
-
 }
