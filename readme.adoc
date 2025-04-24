@@ -1,5 +1,38 @@
-= ARCHAPI
+= ARCHAPI MAVEN PLUGIN
 :toc:
+
+== Arch API
+
+=== Connection
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|archapi
+|string
+
+|02.
+|components
+|object
+
+|03.
+|contextView
+|object
+
+|04.
+|logicView
+|object
+
+|05.
+|physicView
+|object
+
+|===
 
 == Arch Domain
 
