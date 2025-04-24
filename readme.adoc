@@ -306,6 +306,21 @@
 
 |===
 
+=== EnumReference [[EnumReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === EnumValue [[EnumValue]]
 
 [cols="0,20,80"]
@@ -326,6 +341,10 @@
 |03.
 |description
 |string
+
+|04.
+|enum
+|<<EnumReference>>
 
 |===
 
