@@ -56,4 +56,9 @@ public final class SchemeComponent implements ISchemeComponent {
         return null;
     }
 
+    @Override
+    public @NonNull ISchemeComponent append(@NonNull IServer server) {
+        return null;
+    }
+
 }
