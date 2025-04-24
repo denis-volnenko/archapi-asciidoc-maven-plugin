@@ -1,0 +1,22 @@
+---
+components:
+  databases:
+    tm:
+      id: tm
+      name: task-manager
+      tables:
+        tm_project:
+          id: tm_project
+          name: project
+          columns:
+            - id: id
+              name: id
+            - id: name
+              name: name
+        tm_task:
+          id: tm_task
+          columns:
+            - id: id
+              name: id
+            - id: name
+              name: name
