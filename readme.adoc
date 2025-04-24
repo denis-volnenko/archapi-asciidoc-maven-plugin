@@ -47,6 +47,10 @@
 |schemas
 |Map<String,Schema>
 
+|02.
+|connections
+|Map<String,Connection>
+
 |===
 
 == Arch Domain
