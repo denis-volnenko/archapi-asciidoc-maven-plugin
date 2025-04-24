@@ -912,3 +912,15 @@
 |string
 
 |===
+
+== Size Domain
+
+=== Sizing
+
+=== SizingCPU
+
+=== SizingRAM
+
+=== SizingHDD
+
+=== SizingScale
