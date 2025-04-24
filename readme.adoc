@@ -20,15 +20,15 @@
 
 |03.
 |contextView
-|object
+|Map<String,ContextView>
 
 |04.
 |logicView
-|object
+|Map<String,LogicView>
 
 |05.
 |physicView
-|object
+|Map<String,PhysicView>
 
 |===
 
