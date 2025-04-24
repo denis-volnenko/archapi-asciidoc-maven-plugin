@@ -1,9 +1,14 @@
 ---
 components:
+  domains:
+    project-management:
+      id: project-management
+      name: Управление проектами
   databases:
     tm:
       id: tm
       name: task-manager
+      domain: "#/components/domains/project-management"
       tables:
         tm_project:
           id: tm_project
