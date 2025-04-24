@@ -964,8 +964,8 @@
 |string
 
 |02.
-|vm
-|VirtualMachineReference
+|server
+|ServerReference
 
 |03.
 |cpu
