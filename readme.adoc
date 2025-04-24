@@ -313,6 +313,10 @@
 |description
 |string
 
+|04.
+|sizings
+|<<SizingService>>[]
+
 |===
 
 === ServiceReference [[ServiceReference]]
@@ -388,6 +392,10 @@
 |03.
 |description
 |string
+
+|04.
+|sizings
+|<<SizingServer>>[]
 
 |===
 
@@ -1289,7 +1297,7 @@
 
 == Size Domain
 
-=== SizingService [[SizingPod]]
+=== SizingService [[SizingService]]
 
 [cols="0,20,80"]
 |===
