@@ -765,6 +765,21 @@
 
 |===
 
+=== BrokerReference [[BrokerReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === Queue [[Queue]]
 
 [cols="0,20,80"]
