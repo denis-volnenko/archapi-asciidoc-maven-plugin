@@ -3,6 +3,29 @@
 
 == Arch Domain
 
+=== Environment
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
 === Service
 
 [cols="0,20,80"]
