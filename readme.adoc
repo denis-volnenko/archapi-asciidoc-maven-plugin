@@ -296,6 +296,14 @@
 |description
 |string
 
+|04.
+|domain
+|<<DomainReference>>
+
+|04.
+|database
+|<<DatabaseReference>>
+
 |===
 
 === EnumValue [[EnumValue]]
@@ -363,6 +371,21 @@
 
 |03.
 |description
+|string
+
+|===
+
+=== DatabaseReference
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
 |string
 
 |===
