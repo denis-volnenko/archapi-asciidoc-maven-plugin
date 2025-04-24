@@ -600,6 +600,21 @@
 
 |===
 
+=== ColumnReference [[ColumnReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === PrimaryKey [[PrimaryKey]]
 
 [cols="0,20,80"]
@@ -620,6 +635,10 @@
 |03.
 |description
 |string
+
+|04.
+|columns
+|<<ColumnReference>>[]
 
 |===
 
@@ -644,6 +663,10 @@
 |description
 |string
 
+|04.
+|columns
+|<<ColumnReference>>[]
+
 |===
 
 === UniqueKey [[UniqueKey]]
@@ -667,6 +690,10 @@
 |description
 |string
 
+|04.
+|columns
+|<<ColumnReference>>[]
+
 |===
 
 === ForeignKey [[ForeignKey]]
@@ -689,6 +716,10 @@
 |03.
 |description
 |string
+
+|04.
+|columns
+|<<ColumnReference>>[]
 
 |===
 
