@@ -22,15 +22,48 @@
 
 |03.
 |contextView
-|ContextViewReference
+|ContextView
 
 |04.
 |logicView
-|LogicViewReference
+|LogicView
 
 |05.
 |physicView
-|PhysicViewReference
+|PhysicView
+
+|===
+
+=== ContextView
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|===
+
+=== LogicView
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|===
+
+=== PhysicView
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
 
 |===
 
