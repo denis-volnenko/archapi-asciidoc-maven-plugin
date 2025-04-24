@@ -2,22 +2,20 @@
 components:
   databases:
     tm:
-      id: tm
-      name: task-manager
+      name: tm
       domain: "#/components/domains/project-management"
       tables:
         tm_project:
-          id: tm_project
-          name: project
+          name: tm_project
           columns:
-            - id: id
-              name: id
-            - id: name
-              name: name
+            - name: id
+              type: uuid
+            - name: name
+              type: varchar(255)
         tm_task:
-          id: tm_task
+          name: tm_task
           columns:
-            - id: id
-              name: id
-            - id: name
-              name: name
+            - name: id
+              type: uuid
+            - name: name
+              type: varchar(255)
