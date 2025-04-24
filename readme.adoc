@@ -72,6 +72,29 @@
 
 |===
 
+=== User
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
 == Data Domain
 
 === Domain
