@@ -3,7 +3,7 @@
 
 == Arch API
 
-=== Root
+=== Root [[Root]]
 
 [cols="0,20,80"]
 |===
@@ -100,7 +100,7 @@
 
 == Arch Domain
 
-=== Connection
+=== Connection [[Connection]]
 
 [cols="0,20,80"]
 |===
@@ -119,6 +119,21 @@
 
 |03.
 |description
+|string
+
+|===
+
+=== ConnectionReference [[ConnectionReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
 |string
 
 |===
@@ -147,10 +162,13 @@
 |*Name*
 |*Type*
 
+|01.
+|service
+|<<ServiceReference>>
 
 |===
 
-=== Process
+=== Process [[Process]]
 
 [cols="0,20,80"]
 |===
@@ -173,7 +191,7 @@
 
 |===
 
-=== UseCase
+=== UseCase [[UseCase]]
 
 [cols="0,20,80"]
 |===
@@ -192,21 +210,6 @@
 
 |03.
 |description
-|string
-
-|===
-
-=== ConnectionReference
-
-[cols="0,20,80"]
-|===
-
-^|*№*
-|*Name*
-|*Type*
-
-|01.
-|$ref
 |string
 
 |===
@@ -333,6 +336,21 @@
 
 |===
 
+=== TagReference [[TagReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === User
 
 [cols="0,20,80"]
@@ -352,6 +370,21 @@
 
 |03.
 |description
+|string
+
+|===
+
+=== UserReference [[UserReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
 |string
 
 |===
