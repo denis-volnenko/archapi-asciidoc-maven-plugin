@@ -233,7 +233,7 @@
 
 |===
 
-=== DomainReference
+=== DomainReference [[DomainReference]]
 
 [cols="0,20,80"]
 |===
@@ -271,7 +271,7 @@
 
 |04.
 |domain
-|DomainReference
+|<<DomainReference>>
 
 |===
 
