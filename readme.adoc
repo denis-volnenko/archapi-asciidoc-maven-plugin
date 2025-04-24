@@ -1308,19 +1308,19 @@
 
 |03.
 |cpu
-|SizingCpu
+|<<SizingCpu>>
 
 |04.
 |ram
-|SizingRam
+|<<SizingRam>>
 
 |05.
 |hdd
-|SizingHdd
+|<<SizingHdd>>
 
 |06.
 |scale
-|SizingScale
+|<<SizingScale>>
 
 |===
 
@@ -1339,23 +1339,23 @@
 
 |02.
 |server
-|ServerReference
+|<<ServerReference>>
 
 |03.
 |cpu
-|SizingCpu
+|<<SizingCpu>>
 
 |04.
 |ram
-|SizingRam
+|<<SizingRam>>
 
 |05.
 |hdd
-|SizingHdd
+|<<SizingHdd>>
 
 |06.
 |scale
-|SizingScale
+|<<SizingScale>>
 
 |===
 
