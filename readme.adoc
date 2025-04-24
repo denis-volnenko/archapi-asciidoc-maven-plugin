@@ -301,7 +301,7 @@
 
 == Data Domain
 
-=== Domain
+=== Domain [[Domain]]
 
 [cols="0,20,80"]
 |===
@@ -322,6 +322,10 @@
 |description
 |string
 
+|04.
+|entities
+|<<Entity>>[]
+
 |===
 
 === DomainReference [[DomainReference]]
@@ -339,7 +343,7 @@
 
 |===
 
-=== Entity
+=== Entity [[Entity]]
 
 [cols="0,20,80"]
 |===
