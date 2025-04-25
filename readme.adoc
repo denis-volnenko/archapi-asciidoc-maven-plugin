@@ -2242,6 +2242,10 @@
 |scale
 |<<SizingScale>>
 
+^|07.
+|environment
+|<<EnvironmentReference>>
+
 |===
 
 === SizingCpu [[SizingCpu]]
@@ -2256,6 +2260,10 @@
 ^|01.
 |value
 |number
+
+|02.
+|units
+|enum [CORES, MINUTES]
 
 |===
 
