@@ -792,6 +792,10 @@
 |domain
 |<<DomainReference>>
 
+|05.
+|groups
+|<<EntityGroupReference>>[]
+
 |===
 
 === EntityReference [[EntityReference]]
@@ -809,7 +813,7 @@
 
 |===
 
-=== Entity Group
+=== EntityGroup
 
 [cols="0,20,80"]
 |===
@@ -829,6 +833,10 @@
 |03.
 |description
 |string
+
+|04.
+|entities
+|<<EntityReference>>[]
 
 |===
 
