@@ -809,6 +809,44 @@
 
 |===
 
+=== Entity Group
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
+=== EntityGroupReference [[EntityGroupReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === Enum [[Enum]]
 
 [cols="0,20,80"]
