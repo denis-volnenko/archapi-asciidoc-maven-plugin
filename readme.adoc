@@ -17,20 +17,20 @@
 |string
 
 ^|02.
-|components
-|Components
-
-^|03.
 |contextView
 |ContextView
 
-^|04.
+^|03.
 |logicView
 |LogicView
 
-^|05.
+^|04.
 |physicView
 |PhysicView
+
+^|05.
+|components
+|Components
 
 |===
 
@@ -102,11 +102,11 @@
 
 ^|01.
 |schemas
-|Map<String,Schema>
+|Map<String, <<Schema>>>
 
 ^|02.
 |connections
-|Map<String,Connection>
+|Map<String, <<Connection>>>
 
 |===
 
