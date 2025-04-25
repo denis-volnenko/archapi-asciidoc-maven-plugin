@@ -10,7 +10,6 @@ import ru.volnenko.plugin.archapi.basic.model.archapi.impl.ContextView;
 import ru.volnenko.plugin.archapi.basic.model.archapi.impl.LogicView;
 import ru.volnenko.plugin.archapi.basic.model.archapi.impl.PhysicView;
 import ru.volnenko.plugin.archapi.basic.model.archapi.impl.SecurityView;
-import ru.volnenko.plugin.archapi.model.archapi.impl.*;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
