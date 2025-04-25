@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.archapi.basic.model.dataapi.impl;
+package ru.volnenko.plugin.archapi.dataapi.model.impl;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

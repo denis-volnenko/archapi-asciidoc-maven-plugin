@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.volnenko.plugin.archapi.basic.model.dataapi.impl.DataBase;
-import ru.volnenko.plugin.archapi.basic.model.dataapi.impl.Queue;
-import ru.volnenko.plugin.archapi.basic.model.dataapi.impl.Topic;
+import ru.volnenko.plugin.archapi.dataapi.model.impl.DataBase;
+import ru.volnenko.plugin.archapi.dataapi.model.impl.Queue;
+import ru.volnenko.plugin.archapi.dataapi.model.impl.Topic;
 import ru.volnenko.plugin.archapi.basic.model.IComponents;
-import ru.volnenko.plugin.archapi.basic.model.dataapi.impl.Domain;
+import ru.volnenko.plugin.archapi.dataapi.model.impl.Domain;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
