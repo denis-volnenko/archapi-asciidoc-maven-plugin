@@ -1069,6 +1069,10 @@
 |groups
 |<<TableGroupReference>>[]
 
+|08.
+|records
+|<<RecordReference>>[]
+
 |===
 
 === TableReference [[TableReference]]
@@ -1620,6 +1624,42 @@
 |string
 
 |===
+
+=== Query [[Query]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|04.
+|query
+|string
+
+|05.
+|table
+|<<TableReference>>
+
+|06.
+|parameters
+|<<ColumnValue>>[]
+
+|===
+
 
 == Tech Domain
 
