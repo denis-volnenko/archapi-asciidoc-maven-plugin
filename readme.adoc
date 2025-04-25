@@ -77,10 +77,14 @@
 |*Type*
 
 ^|01.
+|id
+|string
+
+^|02.
 |environment
 |<<EnvironmentReference>>
 
-^|02.
+^|03.
 |notes
 |<<Note>>[]
 
@@ -111,10 +115,14 @@
 |*Type*
 
 ^|01.
+|id
+|string
+
+^|02.
 |environment
 |<<EnvironmentReference>>
 
-^|02.
+^|03.
 |notes
 |<<Note>>[]
 
@@ -145,10 +153,14 @@
 |*Type*
 
 ^|01.
+|id
+|string
+
+^|02.
 |environment
 |<<EnvironmentReference>>
 
-^|02.
+^|03.
 |notes
 |<<Note>>[]
 
