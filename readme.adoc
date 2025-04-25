@@ -234,6 +234,34 @@
 |service
 |<<ServiceReference>>
 
+|02.
+|server
+|<<ServiceReference>>
+
+|03.
+|system
+|<<SystemReference>>
+
+|04.
+|database
+|<<DatabaseReference>>
+
+|05.
+|storage
+|<<StorageReference>>
+
+|06.
+|user
+|<<UserReference>>
+
+|07.
+|environment
+|<<EnvironmentReference>>
+
+|02.
+|port
+|<<PortReference>>
+
 |===
 
 === Process [[Process]]
@@ -310,6 +338,21 @@
 |04.
 |networks
 |<<NetworkReference>>[]
+
+|===
+
+=== EnvironmentReference [[EnvironmentReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
 
 |===
 
@@ -516,6 +559,53 @@
 |===
 
 === UserReference [[UserReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
+=== Port [[Port]]
+
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|04.
+|type
+|string
+
+|05.
+|port
+|number
+
+|===
+
+=== PortReference [[PortReference]]
 
 [cols="0,20,80"]
 |===
@@ -1155,6 +1245,21 @@
 
 |03.
 |description
+|string
+
+|===
+
+=== StorageReference [[StorageReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
 |string
 
 |===
