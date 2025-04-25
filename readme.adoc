@@ -45,7 +45,11 @@
 
 ^|01.
 |environment
-|EnvironmentReference
+|<<EnvironmentReference>>
+
+^|02.
+|notes
+|<<Note>>[]
 
 |===
 
@@ -60,7 +64,11 @@
 
 ^|01.
 |environment
-|EnvironmentReference
+|<<EnvironmentReference>>
+
+^|02.
+|notes
+|<<Note>>[]
 
 |===
 
@@ -75,7 +83,11 @@
 
 ^|01.
 |environment
-|EnvironmentReference
+|<<EnvironmentReference>>
+
+^|02.
+|notes
+|<<Note>>[]
 
 |===
 
@@ -374,6 +386,10 @@
 ^|12.
 |port
 |<<PortReference>>
+
+^|13
+|cloud
+|<<CloudReference>>
 
 |===
 
@@ -700,6 +716,37 @@
 ^|01.
 |$ref
 |string
+
+|===
+
+=== Note [[Note]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|id
+|string
+
+^|02.
+|text
+|string
+
+^|03.
+|link
+|string
+
+^|04.
+|type
+|string
+
+^|05
+|notes
+|<<Note>>[]
 
 |===
 
