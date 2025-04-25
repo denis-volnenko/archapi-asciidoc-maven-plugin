@@ -131,7 +131,7 @@
 
 |===
 
-=== DataCenterReference [[DataCenterReference]]
+=== DatacenterReference [[DataCenterReference]]
 
 [cols="0,20,80"]
 |===
@@ -402,7 +402,7 @@
 
 |05.
 |datacenters
-|
+|<<DatacenterReference>>[]
 
 |===
 
