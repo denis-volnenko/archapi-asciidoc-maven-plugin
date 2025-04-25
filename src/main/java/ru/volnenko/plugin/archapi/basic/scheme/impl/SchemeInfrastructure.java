@@ -8,9 +8,9 @@ import ru.volnenko.plugin.archapi.dataapi.model.IDataBase;
 import ru.volnenko.plugin.archapi.model.*;
 import ru.volnenko.plugin.archapi.basic.model.archapi.IBalancer;
 import ru.volnenko.plugin.archapi.basic.model.archapi.ISystem;
-import ru.volnenko.plugin.archapi.basic.model.dataapi.IQueue;
-import ru.volnenko.plugin.archapi.basic.model.dataapi.IStorage;
-import ru.volnenko.plugin.archapi.basic.model.dataapi.ITopic;
+import ru.volnenko.plugin.archapi.dataapi.model.IQueue;
+import ru.volnenko.plugin.archapi.dataapi.model.IStorage;
+import ru.volnenko.plugin.archapi.dataapi.model.ITopic;
 import ru.volnenko.plugin.archapi.basic.scheme.ISchemeComponent;
 
 public final class SchemeInfrastructure implements ISchemeInfrastructure {

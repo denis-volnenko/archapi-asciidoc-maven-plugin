@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.archapi.basic.model.dataapi;
+package ru.volnenko.plugin.archapi.dataapi.model;
 
 import lombok.NonNull;
 

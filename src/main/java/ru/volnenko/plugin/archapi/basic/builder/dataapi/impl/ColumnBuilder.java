@@ -3,7 +3,7 @@ package ru.volnenko.plugin.archapi.basic.builder.dataapi.impl;
 import lombok.NonNull;
 import ru.volnenko.plugin.archapi.basic.builder.dataapi.IColumnBuilder;
 import ru.volnenko.plugin.archapi.basic.builder.dataapi.IDataApiBuilder;
-import ru.volnenko.plugin.archapi.basic.model.dataapi.IColumn;
+import ru.volnenko.plugin.archapi.dataapi.model.IColumn;
 import ru.volnenko.plugin.archapi.basic.model.dataapi.impl.Column;
 
 public final class ColumnBuilder implements IColumnBuilder {

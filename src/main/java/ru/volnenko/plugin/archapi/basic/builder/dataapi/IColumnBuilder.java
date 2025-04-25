@@ -1,7 +1,7 @@
 package ru.volnenko.plugin.archapi.basic.builder.dataapi;
 
 import lombok.NonNull;
-import ru.volnenko.plugin.archapi.basic.model.dataapi.IColumn;
+import ru.volnenko.plugin.archapi.dataapi.model.IColumn;
 
 public interface IColumnBuilder {
 
