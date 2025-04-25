@@ -1159,6 +1159,44 @@
 
 |===
 
+=== ColumnExample [[ColumnExample]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
+=== ColumnExampleReference [[ColumnExampleReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === PrimaryKey [[PrimaryKey]]
 
 [cols="0,20,80"]
