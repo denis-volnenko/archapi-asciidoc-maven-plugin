@@ -2109,6 +2109,19 @@
 
 === SoapOperationReference
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === SoapModel
 
 [cols="0,20,80"]
@@ -2133,6 +2146,19 @@
 |===
 
 === SoapModelReference
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
 
 === SoapEnum
 
@@ -2160,6 +2186,19 @@
 
 === SoapEnumReference
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === SoapRequest
 
 [cols="0,20,80"]
@@ -2184,6 +2223,19 @@
 |===
 
 === SoapRequestReference
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
 
 === SoapResponse
 
@@ -2210,6 +2262,19 @@
 
 === SoapResponseReference
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === SoapException
 
 [cols="0,20,80"]
@@ -2235,6 +2300,19 @@
 
 === SoapExceptionReference
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === SoapExample
 
 [cols="0,20,80"]
@@ -2259,4 +2337,18 @@
 |===
 
 === SoapExampleReference
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 
