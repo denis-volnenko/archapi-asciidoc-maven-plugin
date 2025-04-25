@@ -687,6 +687,44 @@
 
 == Data Domain
 
+=== Codepage [[Codepage]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
+=== CodepageReference [[CodepageReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === Domain [[Domain]]
 
 [cols="0,20,80"]
@@ -912,6 +950,10 @@
 |server
 |<<ServiceReference>>
 
+|08.
+|codepage
+|<<CodepageReference>>
+
 |===
 
 === DatabaseReference [[DatabaseReference]]
@@ -957,6 +999,10 @@
 |05.
 |database
 |<<DatabaseReference>>
+
+|06.
+|codepage
+|<<CodepageReference>>
 
 |===
 
@@ -1049,6 +1095,10 @@
 |06.
 |scheme
 |<<SchemaReference>>
+
+|07.
+|codepage
+|<<CodepageReference>>
 
 |===
 
@@ -1372,6 +1422,10 @@
 |03.
 |description
 |string
+
+|04.
+|codepage
+|<<CodepageReference>>
 
 |===
 
