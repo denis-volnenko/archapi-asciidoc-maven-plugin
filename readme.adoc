@@ -1806,32 +1806,202 @@
 
 === SoapEndpoint
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
 === SoapEndpointReference
 
 === SoapOperation
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
 
 === SoapOperationReference
 
 === SoapModel
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
 === SoapModelReference
 
 === SoapEnum
+
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
 
 === SoapEnumReference
 
 === SoapRequest
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
 === SoapRequestReference
 
 === SoapResponse
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
 === SoapResponseReference
 
 === SoapException
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
+
 === SoapExceptionReference
 
 === SoapExample
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|===
 
 === SoapExampleReference
 
