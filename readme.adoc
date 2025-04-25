@@ -862,6 +862,90 @@
 
 |===
 
+=== Author [[Author]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|id
+|string
+
+^|02.
+|name
+|string
+
+^|03.
+|description
+|string
+
+|===
+
+=== AuthReference [[AuthReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|$ref
+|string
+
+|===
+
+=== Change [[Change]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|id
+|string
+
+^|02.
+|name
+|string
+
+^|03.
+|description
+|string
+
+^|04.
+|date
+|string
+
+^|04.
+|author
+|<<AuthReference>>
+
+|===
+
+=== ChangeReference [[ChangeReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|$ref
+|string
+
+|===
+
 == Data Domain
 
 === Codepage [[Codepage]]
