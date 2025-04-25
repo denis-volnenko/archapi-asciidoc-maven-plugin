@@ -34,6 +34,27 @@
 
 |===
 
+=== Components [[Components]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|schemas
+|Map<String, <<Schema>>>
+
+^|02.
+|connections
+|Map<String, <<Connection>>>
+
+|===
+
+== Arch Domain
+
 === ContextView [[ContextView]]
 
 [cols="0,20,80"]
@@ -90,27 +111,6 @@
 |<<Note>>[]
 
 |===
-
-=== Components [[Components]]
-
-[cols="0,20,80"]
-|===
-
-^|*№*
-|*Name*
-|*Type*
-
-^|01.
-|schemas
-|Map<String, <<Schema>>>
-
-^|02.
-|connections
-|Map<String, <<Connection>>>
-
-|===
-
-== Arch Domain
 
 === Datacenter [[Datacenter]]
 
