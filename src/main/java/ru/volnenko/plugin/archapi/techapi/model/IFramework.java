@@ -1,7 +1,7 @@
 package ru.volnenko.plugin.archapi.techapi.model;
 
-import ru.volnenko.plugin.archapi.model.IBasicEntity;
+import ru.volnenko.plugin.archapi.model.IBasicVersion;
 
-public interface IFramework extends IBasicEntity {
+public interface IFramework extends IBasicVersion {
 
 }
