@@ -885,7 +885,7 @@
 
 |===
 
-=== AuthReference [[AuthReference]]
+=== AuthorReference [[AuthorReference]]
 
 [cols="0,20,80"]
 |===
@@ -927,7 +927,7 @@
 
 ^|04.
 |author
-|<<AuthReference>>
+|<<AuthorReference>>
 
 |===
 
