@@ -74,6 +74,21 @@
 
 |===
 
+=== ContextViewReference [[ContextViewReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|$ref
+|string
+
+|===
+
 === LogicView [[LogicView]]
 
 [cols="0,20,80"]
@@ -93,6 +108,21 @@
 
 |===
 
+=== LogicViewReference [[LogicViewReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|$ref
+|string
+
+|===
+
 === PhysicView [[PhysicView]]
 
 [cols="0,20,80"]
@@ -109,6 +139,21 @@
 ^|02.
 |notes
 |<<Note>>[]
+
+|===
+
+=== PhysicViewReference [[PhysicViewReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|$ref
+|string
 
 |===
 
