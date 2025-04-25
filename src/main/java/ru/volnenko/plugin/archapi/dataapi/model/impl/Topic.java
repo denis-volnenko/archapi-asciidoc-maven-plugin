@@ -7,12 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.archapi.basic.model.archapi.impl.AbstractModel;
 import ru.volnenko.plugin.archapi.basic.model.archapi.impl.ServerReference;
+import ru.volnenko.plugin.archapi.model.impl.AbstractBasicEntity;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Topic extends AbstractModel {
+public final class Topic extends AbstractBasicEntity
+{
 
     @JsonProperty("server")
     private ServerReference serverReference;

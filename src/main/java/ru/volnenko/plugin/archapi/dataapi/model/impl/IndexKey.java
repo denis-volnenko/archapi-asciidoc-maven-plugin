@@ -1,4 +1,6 @@
 package ru.volnenko.plugin.archapi.dataapi.model.impl;
 
-public final class IndexKey {
+import ru.volnenko.plugin.archapi.model.impl.AbstractBasicEntity;
+
+public final class IndexKey extends AbstractBasicEntity {
 }

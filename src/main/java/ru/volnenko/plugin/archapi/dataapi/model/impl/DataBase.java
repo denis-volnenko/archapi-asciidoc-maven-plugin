@@ -8,12 +8,13 @@ import lombok.Setter;
 import ru.volnenko.plugin.archapi.dataapi.model.IDataBase;
 import ru.volnenko.plugin.archapi.basic.model.archapi.impl.AbstractModel;
 import ru.volnenko.plugin.archapi.basic.model.archapi.impl.ServerReference;
+import ru.volnenko.plugin.archapi.model.impl.AbstractBasicEntity;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class DataBase extends AbstractModel implements IDataBase {
+public final class DataBase extends AbstractBasicEntity implements IDataBase {
 
     @JsonProperty("server")
     private ServerReference serverReference;

@@ -1,22 +1,7 @@
 package ru.volnenko.plugin.archapi.dataapi.model;
 
-import lombok.NonNull;
+import ru.volnenko.plugin.archapi.model.IBasicEntity;
 
-public interface IColumn {
-
-    String id();
-
-    String name();
-
-    String description();
-
-    @NonNull
-    IColumn id(String id);
-
-    @NonNull
-    IColumn name(String name);
-
-    @NonNull
-    IColumn description(String description);
+public interface IColumn extends IBasicEntity {
 
 }

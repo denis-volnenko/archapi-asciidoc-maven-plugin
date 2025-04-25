@@ -1,6 +1,8 @@
 package ru.volnenko.plugin.archapi.dataapi.model.impl;
 
-public final class UniqueKey {
+import ru.volnenko.plugin.archapi.model.impl.AbstractBasicEntity;
+
+public final class UniqueKey extends AbstractBasicEntity {
 
 
 }
