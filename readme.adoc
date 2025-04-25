@@ -146,6 +146,44 @@
 
 |===
 
+=== Balancer [[Balancer]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|id
+|string
+
+^|02.
+|name
+|string
+
+^|03.
+|description
+|string
+
+|===
+
+=== BalancerReference [[BalancerReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|$ref
+|string
+
+|===
+
 === Cloud [[Cloud]]
 
 [cols="0,20,80"]
@@ -417,6 +455,22 @@
 ^|06.
 |datacenters
 |<<DatacenterReference>>[]
+
+^|07.
+|services
+|<<Service>>[]
+
+^|08.
+|servers
+|<<Server>>[]
+
+|09.
+|databases
+|<<DatabaseReference>>[]
+
+|10.
+|balancers
+|
 
 |===
 
@@ -1871,6 +1925,10 @@
 ^|06.
 |scale
 |<<SizingScale>>
+
+^|07.
+|environment
+|<<EnvironmentReference>>
 
 |===
 
