@@ -1,4 +1,6 @@
 package ru.volnenko.plugin.archapi.techapi.model;
 
-public interface IPlatform {
+import ru.volnenko.plugin.archapi.model.IBasicEntity;
+
+public interface IPlatform  extends IBasicEntity {
 }

@@ -1,4 +1,6 @@
 package ru.volnenko.plugin.archapi.techapi.model;
 
-public interface ITool {
+import ru.volnenko.plugin.archapi.model.IBasicEntity;
+
+public interface ITool extends IBasicEntity {
 }
