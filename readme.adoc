@@ -258,7 +258,23 @@
 |environment
 |<<EnvironmentReference>>
 
-|02.
+|08.
+|bucket
+|
+
+|09.
+|topic
+|
+
+|10.
+|queue
+|
+
+|11.
+|broker
+|
+
+|12.
 |port
 |<<PortReference>>
 
