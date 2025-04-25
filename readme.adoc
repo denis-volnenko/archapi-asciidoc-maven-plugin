@@ -1116,16 +1116,16 @@
 |<<Table>>[]
 
 ^|05.
-|service
-|<<ServiceReference>>
+|services
+|<<ServiceReference>>[]
 
 ^|06.
-|system
-|<<SystemReference>>
+|systems
+|<<SystemReference>>[]
 
 ^|07.
-|server
-|<<ServiceReference>>
+|servers
+|<<ServiceReference>>[]
 
 ^|08.
 |codepage
@@ -1588,6 +1588,18 @@
 ^|03.
 |description
 |string
+
+^|04.
+|type
+|string
+
+^|05.
+|services
+|<<ServiceReference>>[]
+
+^|06.
+|systems
+|<<SystemReference>>[]
 
 |===
 
