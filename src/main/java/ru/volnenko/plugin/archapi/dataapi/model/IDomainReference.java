@@ -1,4 +1,6 @@
 package ru.volnenko.plugin.archapi.dataapi.model;
 
-public interface IDomainReference {
+import ru.volnenko.plugin.archapi.model.IBasicReference;
+
+public interface IDomainReference extends IBasicReference {
 }

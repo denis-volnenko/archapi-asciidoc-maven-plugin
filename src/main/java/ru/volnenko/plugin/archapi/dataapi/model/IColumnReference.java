@@ -1,4 +1,6 @@
 package ru.volnenko.plugin.archapi.dataapi.model;
 
-public interface IColumnReference {
+import ru.volnenko.plugin.archapi.model.IBasicReference;
+
+public interface IColumnReference extends IBasicReference {
 }
