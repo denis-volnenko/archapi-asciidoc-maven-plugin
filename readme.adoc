@@ -1791,6 +1791,18 @@
 |path
 |string
 
+|05.
+|operations
+|
+
+|06.
+|types
+|
+
+|07.
+|codes
+|
+
 |===
 
 === RestEndpointReference
@@ -1823,6 +1835,22 @@
 |05.
 |method
 |string
+
+|06
+|parameters
+|
+
+|07.
+|requests
+|
+
+|08.
+|responses
+|
+
+|09.
+|codes
+|
 
 |===
 
@@ -1861,7 +1889,7 @@
 
 === RestCodeReference
 
-=== RestHeader
+=== RestParameter
 
 [cols="0,20,80"]
 |===
@@ -1888,7 +1916,7 @@
 
 |===
 
-=== RestHeaderReference
+=== RestParameterReference
 
 === RestRequest
 
