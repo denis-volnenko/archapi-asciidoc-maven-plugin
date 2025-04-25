@@ -2280,6 +2280,10 @@
 |value
 |number
 
+^|02.
+|units
+|enum [KB, MB, GB, TB]
+
 |===
 
 === SizingHdd [[SizingHdd]]
@@ -2294,6 +2298,10 @@
 ^|01.
 |value
 |number
+
+^|02.
+|units
+|enum [KB, MB, GB, TB]
 
 |===
 
