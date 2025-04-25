@@ -1,11 +1,15 @@
 package ru.volnenko.plugin.archapi.model.impl;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.archapi.model.IBasicVersion;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class AbstractVersionEntity extends AbstractBasicEntity implements IBasicVersion {
 
     private String version;
