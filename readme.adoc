@@ -31,6 +31,8 @@
 |*Name*
 |*Type*
 
+3+^|ARCH API
+
 ^|01.
 |schemas
 |Map<String, <<Schema>>>
@@ -38,6 +40,28 @@
 ^|02.
 |connections
 |Map<String, <<Connection>>>
+
+3+^|DATA API
+
+^|01.
+|domains
+|Map<String, <<Domain>>>
+
+^|02.
+|entities
+|Map<String, <<Entity>>>
+
+^|03.
+|entityGroups
+|Map<String, <<EntityGroup>>>
+
+3+^|SIZE API
+
+3+^|TECH API
+
+3+^|REST API
+
+3+^|SOAP API
 
 |===
 
