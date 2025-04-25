@@ -1482,6 +1482,22 @@
 
 |===
 
+=== BucketReference [[BucketReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
+
 === Schema [[Schema]]
 
 [cols="0,20,80"]
