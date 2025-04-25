@@ -836,6 +836,10 @@
 |table
 |<<TableReference>>
 
+|05.
+|type
+|string
+
 |===
 
 === ColumnReference [[ColumnReference]]
@@ -1457,3 +1461,42 @@
 |number
 
 |===
+
+== Rest Domain
+
+=== RestEndpoint
+
+=== RestOperation
+
+=== RestCode
+
+=== RestHeader
+
+=== RestRequest
+
+=== RestResponse
+
+=== RestExample
+
+=== RestModel
+
+=== RestEnum
+
+== Soap Domain
+
+=== SoapEndpoint
+
+=== SoapOperation
+
+=== SoapModel
+
+=== SoapEnum
+
+=== SoapRequest
+
+=== SoapResponse
+
+=== SoapException
+
+=== SoapExample
+
