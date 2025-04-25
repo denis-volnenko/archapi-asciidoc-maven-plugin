@@ -840,6 +840,10 @@
 |type
 |string
 
+|06.
+|scheme
+|<<SchemaReference>>
+
 |===
 
 === ColumnReference [[ColumnReference]]
@@ -1146,6 +1150,21 @@
 
 |03.
 |description
+|string
+
+|===
+
+=== SchemaReference [[SchemaReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
 |string
 
 |===
