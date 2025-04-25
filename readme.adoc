@@ -1787,13 +1787,44 @@
 |description
 |string
 
-
+|04.
+|path
+|string
 
 |===
 
 === RestEndpointReference
 
 === RestOperation
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|04.
+|path
+|string
+
+|05.
+|method
+|string
+
+|===
 
 === RestOperationReference
 
@@ -1803,9 +1834,59 @@
 
 === RestCode
 
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|04.
+|code
+|number
+
+|===
+
 === RestCodeReference
 
 === RestHeader
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|id
+|string
+
+|02.
+|name
+|string
+
+|03.
+|description
+|string
+
+|04.
+|type
+|string
+
+|===
 
 === RestHeaderReference
 
