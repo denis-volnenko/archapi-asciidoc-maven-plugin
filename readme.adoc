@@ -169,6 +169,21 @@
 
 |===
 
+=== CloudReference [[CloudReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+|01.
+|$ref
+|string
+
+|===
+
 === Network [[Network]]
 
 [cols="0,20,80"]
