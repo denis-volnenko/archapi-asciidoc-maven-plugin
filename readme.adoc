@@ -391,6 +391,10 @@
 |cloud
 |<<CloudReference>>
 
+^|14.
+|process
+|<<ProcessReference>>
+
 |===
 
 === Process [[Process]]
@@ -412,6 +416,21 @@
 
 ^|03.
 |description
+|string
+
+|===
+
+=== ProcessReference [[ProcessReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|$ref
 |string
 
 |===
