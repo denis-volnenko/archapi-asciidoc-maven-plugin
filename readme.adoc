@@ -192,10 +192,15 @@
 |string
 
 |04.
+|networks
+|<<NetworkReference>>[]
+
+
+|05.
 |source
 |<<ConnectionRelation>>
 
-|05.
+|06.
 |target
 |<<ConnectionRelation>>
 
@@ -301,6 +306,10 @@
 |03.
 |type
 |string
+
+|04.
+|networks
+|<<NetworkReference>>[]
 
 |===
 
