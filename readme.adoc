@@ -1159,7 +1159,7 @@
 
 |===
 
-=== ColumnExample [[ColumnExample]]
+=== ColumnValue [[ColumnValue]]
 
 [cols="0,20,80"]
 |===
@@ -1182,7 +1182,7 @@
 
 |===
 
-=== ColumnExampleReference [[ColumnExampleReference]]
+=== ColumnValueReference [[ColumnValueReference]]
 
 [cols="0,20,80"]
 |===
