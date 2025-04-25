@@ -816,6 +816,52 @@
 
 |===
 
+=== Host [[Host]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|id
+|string
+
+^|02.
+|name
+|string
+
+^|03.
+|description
+|string
+
+^|04.
+|type
+|string
+
+^|05.
+|host
+|string
+
+|===
+
+=== HostReference [[HostReference]]
+
+[cols="0,20,80"]
+|===
+
+^|*№*
+|*Name*
+|*Type*
+
+^|01.
+|$ref
+|string
+
+|===
+
 == Data Domain
 
 === Codepage [[Codepage]]
