@@ -16,18 +16,6 @@
 |archapi
 |string
 
-^|02.
-|contextView
-|ContextView
-
-^|03.
-|logicView
-|LogicView
-
-^|04.
-|physicView
-|PhysicView
-
 ^|05.
 |components
 |Components
