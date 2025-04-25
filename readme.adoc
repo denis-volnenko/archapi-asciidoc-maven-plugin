@@ -1706,23 +1706,43 @@
 
 === RestEndpoint
 
+=== RestEndpointReference
+
 === RestOperation
+
+=== RestOperationReference
 
 === RestMediaType
 
+=== RestMediaTypeReference
+
 === RestCode
+
+=== RestCodeReference
 
 === RestHeader
 
+=== RestHeaderReference
+
 === RestRequest
+
+=== RestRequestReference
 
 === RestResponse
 
+=== RestResponseReference
+
 === RestExample
+
+=== RestExampleReference
 
 === RestModel
 
+=== RestModelReference
+
 === RestEnum
+
+=== RestEnumReference
 
 == Soap Domain
 
