@@ -9,7 +9,9 @@ public class TechBuilder {
     public void test() {
         ITechBuilder.create()
                 .library().description("").id("").name("").tech()
-                .tool().description("").id("").name("").tech();
+                .tool().description("").id("").name("").tech()
+                .language().description("").id("").name("").tech()
+                .framework().description("").id("").name("").tech();
     }
 
 }
