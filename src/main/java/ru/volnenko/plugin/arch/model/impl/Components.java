@@ -8,6 +8,7 @@ import lombok.Setter;
 import ru.volnenko.plugin.arch.component.dataapi.model.IColumn;
 import ru.volnenko.plugin.arch.component.dataapi.model.IDataBase;
 import ru.volnenko.plugin.arch.component.dataapi.model.ITable;
+import ru.volnenko.plugin.arch.component.dataapi.model.ITopic;
 import ru.volnenko.plugin.arch.component.techapi.model.*;
 import ru.volnenko.plugin.arch.model.IComponents;
 
@@ -36,6 +37,8 @@ public final class Components implements IComponents {
     private Map<String, ITable> tables = new LinkedHashMap<>();
 
     private Map<String, IColumn> columns = new LinkedHashMap<>();
+
+    private Map<String, ITopic> topics = new LinkedHashMap<>();
 
     @NonNull
     @Override
@@ -88,6 +91,12 @@ public final class Components implements IComponents {
     @Override
     public Map<String, ITable> tables() {
         return tables;
+    }
+
+    @NonNull
+    @Override
+    public Map<String, ITopic> topics() {
+        return topics;
     }
 
 }
