@@ -19,15 +19,6 @@ public interface IRootBuilder extends IToRoot {
     IComponentsBuilder components();
 
     @NonNull
-    IContextViewBuilder contextView();
-
-    @NonNull
-    ILogicViewBuilder logicView();
-
-    @NonNull
-    IPhysicViewBuilder physicView();
-
-    @NonNull
     IRootBuilder root();
 
     @NonNull

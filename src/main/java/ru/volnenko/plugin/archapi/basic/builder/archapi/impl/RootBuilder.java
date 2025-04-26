@@ -24,24 +24,6 @@ public final class RootBuilder extends AbstractBuilder implements IRootBuilder {
 
     @NonNull
     @Override
-    public IContextViewBuilder contextView() {
-        return new ContextViewBuilder(this);
-    }
-
-    @NonNull
-    @Override
-    public ILogicViewBuilder logicView() {
-        return new LogicViewBuilder(this);
-    }
-
-    @NonNull
-    @Override
-    public IPhysicViewBuilder physicView() {
-        return physicViewBuilder;
-    }
-
-    @NonNull
-    @Override
     public IRootBuilder archapi(@NonNull final String archapi) {
         this.root.setArchapi(archapi);
         return this;
