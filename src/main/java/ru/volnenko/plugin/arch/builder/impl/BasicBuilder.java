@@ -14,21 +14,21 @@ public abstract class BasicBuilder<T extends IBasicEntity> implements IBasicBuil
 
     @NonNull
     @Override
-    public IBasicBuilder id(String id) {
+    public IBasicBuilder id(@NonNull String id) {
         entity.id(id);
         return this;
     }
 
     @NonNull
     @Override
-    public IBasicBuilder name(String name) {
+    public IBasicBuilder name(@NonNull String name) {
         entity.name(name);
         return this;
     }
 
     @NonNull
     @Override
-    public IBasicBuilder description(String description) {
+    public IBasicBuilder description(@NonNull String description) {
         entity.description(description);
         return this;
     }

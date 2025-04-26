@@ -3,9 +3,10 @@ package ru.volnenko.plugin.arch.component.techapi.builder.impl;
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.component.techapi.builder.ILibraryBuilder;
 import ru.volnenko.plugin.arch.component.techapi.ITechBuilder;
+import ru.volnenko.plugin.arch.component.techapi.model.ILibrary;
 import ru.volnenko.plugin.arch.component.techapi.model.impl.Library;
 
-public final class LibraryBuilder extends AbstractITechBuilder<Library> implements ILibraryBuilder {
+public final class LibraryBuilder extends AbstractITechBuilder<ILibrary> implements ILibraryBuilder {
 
     public LibraryBuilder(@NonNull ITechBuilder techBuilder) {
         super(new Library(), techBuilder);

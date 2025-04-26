@@ -12,7 +12,7 @@ public abstract class VersionBuilder<T extends IBasicVersion> extends BasicBuild
 
     @NonNull
     @Override
-    public IVersionBuilder version(String version) {
+    public IVersionBuilder version(@NonNull String version) {
         entity.version(version);
         return this;
     }
