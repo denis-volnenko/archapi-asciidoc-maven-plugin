@@ -1,8 +1,6 @@
 package ru.volnenko.plugin.arch.component.techapi.builder.impl;
 
 import lombok.NonNull;
-import ru.volnenko.plugin.arch.builder.IBasicBuilder;
-import ru.volnenko.plugin.arch.builder.IVersionBuilder;
 import ru.volnenko.plugin.arch.component.techapi.ITechBuilder;
 import ru.volnenko.plugin.arch.component.techapi.builder.IFrameworkBuilder;
 import ru.volnenko.plugin.arch.component.techapi.model.IFramework;
