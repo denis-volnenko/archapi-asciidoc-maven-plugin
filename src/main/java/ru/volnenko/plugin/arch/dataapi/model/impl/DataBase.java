@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.arch.dataapi.model.IDataBase;
-import ru.volnenko.plugin.arch.basic.model.archapi.impl.ServerReference;
+import ru.volnenko.plugin.arch.archapi.model.archapi.impl.ServerReference;
 import ru.volnenko.plugin.arch.model.impl.AbstractBasicEntity;
 
 @Getter
