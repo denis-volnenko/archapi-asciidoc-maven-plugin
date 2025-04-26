@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 import ru.volnenko.plugin.arch.component.techapi.ITechComponents;
-import ru.volnenko.plugin.arch.component.techapi.model.impl.*;
+import ru.volnenko.plugin.arch.component.techapi.model.*;
 
 import java.util.Collections;
 import java.util.Map;
@@ -17,47 +17,47 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class Components implements ITechComponents {
 
-    private Map<String, Framework> frameworks;
+    private Map<String, IFramework> frameworks;
 
-    private Map<String, Language> languages;
+    private Map<String, ILanguage> languages;
 
-    private Map<String, Library> libraries;
+    private Map<String, ILibrary> libraries;
 
-    private Map<String, Platform> platforms;
+    private Map<String, IPlatform> platforms;
 
-    private Map<String, Tool> tools;
+    private Map<String, ITool> tools;
 
     @NonNull
     @Override
-    public Map<String, Framework> frameworks() {
+    public Map<String, IFramework> frameworks() {
         if (frameworks == null) return Collections.emptyMap();
         return frameworks;
     }
 
     @NonNull
     @Override
-    public Map<String, Language> languages() {
+    public Map<String, ILanguage> languages() {
         if (languages == null) return Collections.emptyMap();
         return languages;
     }
 
     @NonNull
     @Override
-    public Map<String, Library> libraries() {
+    public Map<String, ILibrary> libraries() {
         if (libraries == null) return Collections.emptyMap();
         return libraries;
     }
 
     @NonNull
     @Override
-    public Map<String, Platform> platforms() {
+    public Map<String, IPlatform> platforms() {
         if (platforms == null) return Collections.emptyMap();
         return platforms;
     }
 
     @NonNull
     @Override
-    public Map<String, Tool> tools() {
+    public Map<String, ITool> tools() {
         if (tools == null) return Collections.emptyMap();
         return tools;
     }

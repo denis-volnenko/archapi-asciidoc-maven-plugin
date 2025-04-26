@@ -4,12 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.volnenko.plugin.arch.component.techapi.model.ITool;
 import ru.volnenko.plugin.arch.model.impl.AbstractVersionEntity;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Tool extends AbstractVersionEntity {
+public final class Tool extends AbstractVersionEntity implements ITool {
 
 }

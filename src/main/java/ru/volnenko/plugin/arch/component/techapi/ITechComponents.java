@@ -1,26 +1,26 @@
 package ru.volnenko.plugin.arch.component.techapi;
 
 import lombok.NonNull;
+import ru.volnenko.plugin.arch.component.techapi.model.*;
 import ru.volnenko.plugin.arch.component.techapi.model.impl.*;
-import ru.volnenko.plugin.arch.techapi.model.impl.*;
 
 import java.util.Map;
 
 public interface ITechComponents {
 
     @NonNull
-    Map<String, Framework> frameworks();
+    Map<String, IFramework> frameworks();
 
     @NonNull
-    Map<String, Language> languages();
+    Map<String, ILanguage> languages();
 
     @NonNull
-    Map<String, Library> libraries();
+    Map<String, ILibrary> libraries();
 
     @NonNull
-    Map<String, Platform> platforms();
+    Map<String, IPlatform> platforms();
 
     @NonNull
-    Map<String, Tool> tools();
+    Map<String, ITool> tools();
 
 }
