@@ -9,7 +9,7 @@ public class TechBuilder {
     public void test() {
         ITechBuilder.create()
                 .library().description("").id("").name("").tech()
-                .tool().description("").id("").name("");
+                .tool().description("").id("").name("").tech();
     }
 
 }
