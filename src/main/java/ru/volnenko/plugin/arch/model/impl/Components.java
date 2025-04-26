@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
-import ru.volnenko.plugin.arch.techapi.ITechComponents;
-import ru.volnenko.plugin.arch.techapi.model.impl.*;
+import ru.volnenko.plugin.arch.api.techapi.ITechComponents;
+import ru.volnenko.plugin.arch.api.techapi.model.impl.*;
 
 import java.util.Collections;
 import java.util.Map;

@@ -8,7 +8,7 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import ru.volnenko.plugin.arch.archapi.generator.impl.RootBasicGenerator;
+import ru.volnenko.plugin.arch.api.archapi.generator.impl.RootBasicGenerator;
 
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.COMPILE)
 public class Generator extends AbstractMojo {
