@@ -9,9 +9,9 @@ import ru.volnenko.plugin.arch.component.archapi.builder.archapi.IRootBuilder;
 import ru.volnenko.plugin.arch.archapi.builder.archapi.*;
 import ru.volnenko.plugin.arch.component.archapi.model.IRoot;
 import ru.volnenko.plugin.arch.component.archapi.model.archapi.Root;
-import ru.volnenko.plugin.arch.component.archapi.printer.IRootPrinter;
-import ru.volnenko.plugin.arch.component.archapi.printer.impl.RootPrinter;
-import ru.volnenko.plugin.arch.component.archapi.util.MapperUtil;
+import ru.volnenko.plugin.arch.printer.IRootPrinter;
+import ru.volnenko.plugin.arch.printer.impl.RootPrinter;
+import ru.volnenko.plugin.arch.util.MapperUtil;
 
 @NoArgsConstructor
 public final class RootBuilder extends AbstractBuilder implements IRootBuilder {

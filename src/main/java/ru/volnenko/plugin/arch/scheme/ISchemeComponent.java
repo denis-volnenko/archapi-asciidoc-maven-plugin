@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.arch.component.archapi.scheme;
+package ru.volnenko.plugin.arch.scheme;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.component.archapi.model.IServer;

@@ -1,8 +1,8 @@
-package ru.volnenko.plugin.arch.component.archapi.printer.impl;
+package ru.volnenko.plugin.arch.printer.impl;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.component.archapi.builder.archapi.IRootBuilder;
-import ru.volnenko.plugin.arch.component.archapi.printer.IRootPrinter;
+import ru.volnenko.plugin.arch.printer.IRootPrinter;
 
 public final class RootPrinter implements IRootPrinter {
 

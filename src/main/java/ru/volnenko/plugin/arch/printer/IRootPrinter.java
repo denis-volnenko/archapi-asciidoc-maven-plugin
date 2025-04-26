@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.arch.component.archapi.printer;
+package ru.volnenko.plugin.arch.printer;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.component.archapi.builder.archapi.IRootBuilder;

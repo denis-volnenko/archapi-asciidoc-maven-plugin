@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.arch.component.archapi.util;
+package ru.volnenko.plugin.arch.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

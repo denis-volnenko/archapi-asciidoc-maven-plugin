@@ -2,7 +2,7 @@ package ru.volnenko.plugin.arch.component.archapi.builder.archapi;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.component.archapi.model.IRoot;
-import ru.volnenko.plugin.arch.component.archapi.printer.IRootPrinter;
+import ru.volnenko.plugin.arch.printer.IRootPrinter;
 
 public interface IRootBuilder extends IToRoot {
 
