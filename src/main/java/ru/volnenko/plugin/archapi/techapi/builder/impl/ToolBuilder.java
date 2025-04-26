@@ -2,13 +2,14 @@ package ru.volnenko.plugin.archapi.techapi.builder.impl;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.archapi.builder.IVersionBuilder;
-import ru.volnenko.plugin.archapi.builder.impl.VersionBuilder;
+import ru.volnenko.plugin.archapi.techapi.ITechBuilder;
+import ru.volnenko.plugin.archapi.techapi.builder.IToolBuilder;
 import ru.volnenko.plugin.archapi.techapi.model.impl.Tool;
 
-public final class ToolBuilder extends VersionBuilder<Tool> {
+public final class ToolBuilder extends AbstractITechBuilder<Tool> implements IToolBuilder {
 
-    public ToolBuilder() {
-        super(new Tool());
+    public ToolBuilder(@NonNull ITechBuilder techBuilder) {
+        super(new Tool(), techBuilder);
     }
 
     @NonNull
