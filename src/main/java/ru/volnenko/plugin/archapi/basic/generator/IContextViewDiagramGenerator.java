@@ -1,4 +1,0 @@
-package ru.volnenko.plugin.archapi.basic.generator;
-
-public interface IContextViewDiagramGenerator extends IGenerator {
-}
