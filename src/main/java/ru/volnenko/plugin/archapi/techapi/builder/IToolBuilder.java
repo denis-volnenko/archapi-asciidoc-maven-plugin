@@ -7,18 +7,18 @@ public interface IToolBuilder extends IVersionBuilder, ITech {
 
     @NonNull
     @Override
-    IToolBuilder id(String id);
+    IToolBuilder id(@NonNull String id);
 
     @NonNull
     @Override
-    IToolBuilder name(String name);
+    IToolBuilder name(@NonNull String name);
 
     @NonNull
     @Override
-    IToolBuilder description(String description);
+    IToolBuilder description(@NonNull String description);
 
     @NonNull
     @Override
-    IVersionBuilder version(String version);
+    IVersionBuilder version(@NonNull String version);
 
 }

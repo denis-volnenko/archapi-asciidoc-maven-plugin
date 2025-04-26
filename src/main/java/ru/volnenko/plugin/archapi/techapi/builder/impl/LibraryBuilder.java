@@ -13,28 +13,28 @@ public final class LibraryBuilder extends AbstractITechBuilder<Library> implemen
 
     @NonNull
     @Override
-    public ILibraryBuilder id(String id) {
+    public ILibraryBuilder id(@NonNull final String id) {
         super.id(id);
         return this;
     }
 
     @NonNull
     @Override
-    public ILibraryBuilder name(String name) {
+    public ILibraryBuilder name(@NonNull final String name) {
         super.name(name);
         return this;
     }
 
     @NonNull
     @Override
-    public ILibraryBuilder description(String description) {
+    public ILibraryBuilder description(@NonNull final String description) {
         super.description(description);
         return this;
     }
 
     @NonNull
     @Override
-    public ILibraryBuilder version(String version) {
+    public ILibraryBuilder version(@NonNull final String version) {
          super.version(version);
         return this;
     }

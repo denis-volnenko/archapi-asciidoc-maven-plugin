@@ -5,12 +5,12 @@ import lombok.NonNull;
 public interface IBasicBuilder {
 
     @NonNull
-    IBasicBuilder id(String id);
+    IBasicBuilder id(@NonNull String id);
 
     @NonNull
-    IBasicBuilder name(String name);
+    IBasicBuilder name(@NonNull String name);
 
     @NonNull
-    IBasicBuilder description(String description);
+    IBasicBuilder description(@NonNull String description);
 
 }

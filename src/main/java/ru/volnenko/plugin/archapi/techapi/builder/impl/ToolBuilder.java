@@ -14,29 +14,30 @@ public final class ToolBuilder extends AbstractITechBuilder<Tool> implements ITo
 
     @NonNull
     @Override
-    public ToolBuilder id(String id) {
+    public ToolBuilder id(@NonNull final String id) {
          super.id(id);
          return this;
     }
 
     @NonNull
     @Override
-    public ToolBuilder name(String name) {
+    public ToolBuilder name(@NonNull final String name) {
         super.name(name);
         return this;
     }
 
     @NonNull
     @Override
-    public ToolBuilder description(String description) {
+    public ToolBuilder description(@NonNull final String description) {
         super.description(description);
         return this;
     }
 
     @NonNull
     @Override
-    public IVersionBuilder version(String version) {
+    public IVersionBuilder version(@NonNull final String version) {
         super.version(version);
         return this;
     }
+
 }

@@ -5,6 +5,6 @@ import lombok.NonNull;
 public interface IVersionBuilder extends IBasicBuilder {
 
     @NonNull
-    IVersionBuilder version(String version);
+    IVersionBuilder version(@NonNull String version);
 
 }

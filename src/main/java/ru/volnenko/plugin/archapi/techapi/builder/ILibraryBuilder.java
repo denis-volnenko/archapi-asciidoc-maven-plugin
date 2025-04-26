@@ -7,18 +7,18 @@ public interface ILibraryBuilder extends IVersionBuilder, ITech {
 
     @NonNull
     @Override
-    ILibraryBuilder id(String id);
+    ILibraryBuilder id(@NonNull String id);
 
     @NonNull
     @Override
-    ILibraryBuilder name(String name);
+    ILibraryBuilder name(@NonNull String name);
 
     @NonNull
     @Override
-    ILibraryBuilder description(String description);
+    ILibraryBuilder description(@NonNull String description);
 
     @NonNull
     @Override
-    ILibraryBuilder version(String version);
+    ILibraryBuilder version(@NonNull String version);
 
 }
