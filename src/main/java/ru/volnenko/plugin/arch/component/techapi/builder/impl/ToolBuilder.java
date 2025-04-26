@@ -9,7 +9,7 @@ import ru.volnenko.plugin.arch.builder.IVersionBuilder;
 
 public final class ToolBuilder extends AbstractITechBuilder<ITool> implements IToolBuilder {
 
-    public ToolBuilder(@NonNull ITechBuilder techBuilder) {
+    public ToolBuilder(@NonNull final ITechBuilder techBuilder) {
         super(new Tool(), techBuilder);
     }
 
