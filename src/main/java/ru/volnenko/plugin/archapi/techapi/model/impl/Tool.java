@@ -5,11 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.archapi.model.impl.AbstractBasicEntity;
+import ru.volnenko.plugin.archapi.model.impl.AbstractVersionEntity;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Tool extends AbstractBasicEntity {
+public final class Tool extends AbstractVersionEntity {
 
 }
