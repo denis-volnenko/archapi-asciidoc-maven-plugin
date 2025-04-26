@@ -1,7 +1,7 @@
 package ru.volnenko.plugin.arch.builder;
 
 import org.junit.Test;
-import ru.volnenko.plugin.arch.api.techapi.ITechBuilder;
+import ru.volnenko.plugin.arch.component.techapi.ITechBuilder;
 
 public class TechBuilder {
 
