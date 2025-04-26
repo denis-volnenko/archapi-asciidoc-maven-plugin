@@ -2,7 +2,6 @@ package ru.volnenko.plugin.arch.component.techapi;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.component.techapi.model.*;
-import ru.volnenko.plugin.arch.component.techapi.model.impl.*;
 
 import java.util.Map;
 
