@@ -4,7 +4,7 @@ public final class Connection extends AbstractEnvironmentModel {
 
     private int port;
 
-    private String protocol;
+    private Reference protocol;
 
     private Source source;
 

@@ -8,7 +8,7 @@ public class AbstractEnvironmentModel extends AbstractModel {
 
     private List<EnvironmentReference> environments;
 
-    private AccessType accessType;
+    private Access access;
 
     private Views views;
 
