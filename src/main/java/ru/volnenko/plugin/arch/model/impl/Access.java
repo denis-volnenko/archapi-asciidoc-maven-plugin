@@ -2,7 +2,7 @@ package ru.volnenko.plugin.arch.model.impl;
 
 import ru.volnenko.plugin.arch.enumerated.AccessType;
 
-public class Access {
+public final class Access {
 
     private AccessType type;
 

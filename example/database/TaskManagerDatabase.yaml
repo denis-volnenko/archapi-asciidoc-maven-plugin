@@ -1,0 +1,14 @@
+components:
+  databases:
+    task-manager-db:
+      name: task_manager
+      description: Postgresql 15 PRO
+      view:
+        context:
+          enabled: false
+        logical:
+          enabled: true
+        physical:
+          enabled: true
+      access:
+        type: INTERNAL

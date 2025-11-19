@@ -1,0 +1,12 @@
+components:
+  balancers:
+    nlbint:
+      name: nlbint
+      access:
+        type: INTERNAL
+  services:
+    task-manager-service:
+      name: Task Manager
+      description: Java, Spring Boot
+      access:
+        type: INTERNAL
