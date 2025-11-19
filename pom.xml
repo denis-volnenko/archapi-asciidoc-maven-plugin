@@ -11,7 +11,7 @@
 
     <name>Archapi Asciidoc Maven Plugin</name>
     <url>https://maven.volnenko.ru/sites/archapi-asciidoc-maven-plugin/</url>
-
+    <description></description>
     <scm>
         <url>git@github.com:denis-volnenko/archapi-asciidoc-maven-plugin.git</url>
     </scm>
