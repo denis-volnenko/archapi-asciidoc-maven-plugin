@@ -1,6 +1,0 @@
-components:
-  servers:
-    postgres-15-pro:
-      type: rdbms
-      name: Postgres 15 PRO
-      description: Бесплатный сервер ОРСУБД

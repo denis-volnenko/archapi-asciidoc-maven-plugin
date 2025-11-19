@@ -1,6 +1,0 @@
----
-components:
-  services:
-    task-manager-service:
-      id: task-manager
-      name: Task Manager

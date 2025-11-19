@@ -1,6 +1,0 @@
-components:
-  servers:
-    etcd:
-      type: nosql
-      name: etcd
-      description: Примитивное но при этом высоконадёжное распределённое хранилище для пар ключ-значение.
