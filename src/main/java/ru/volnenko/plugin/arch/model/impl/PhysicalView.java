@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.arch.model.impl;
 
-public class PhysicalView {
+public final class PhysicalView {
 
     private Boolean enabled;
 

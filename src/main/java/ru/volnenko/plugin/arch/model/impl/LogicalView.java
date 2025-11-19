@@ -1,6 +1,6 @@
 package ru.volnenko.plugin.arch.model.impl;
 
-public class LogicalView {
+public final class LogicalView {
 
     private Boolean enabled;
 
