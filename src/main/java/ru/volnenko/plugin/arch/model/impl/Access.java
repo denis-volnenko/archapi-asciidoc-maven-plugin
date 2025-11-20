@@ -5,12 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.arch.enumerated.AccessType;
+import ru.volnenko.plugin.arch.model.IAccess;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Access {
+public final class Access implements IAccess {
 
     private AccessType type;
 

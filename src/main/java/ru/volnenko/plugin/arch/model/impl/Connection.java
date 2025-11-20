@@ -20,4 +20,5 @@ public final class Connection extends AbstractEnvironmentModel {
     private Target target;
 
     private ConnectionLayout layout;
+
 }

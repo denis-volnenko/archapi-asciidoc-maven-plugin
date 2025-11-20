@@ -12,6 +12,8 @@ import ru.volnenko.plugin.arch.model.IRoot;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class Root implements IRoot {
 
+    private String archapi = "1.0.0";
+
     private Components components;
 
 }
