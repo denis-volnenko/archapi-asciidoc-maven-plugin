@@ -1,5 +1,7 @@
 package ru.volnenko.plugin.arch.model.impl;
 
-public final class Balancer extends AbstractEnvironmentModel {
+import ru.volnenko.plugin.arch.model.IBalancer;
+
+public final class Balancer extends AbstractEnvironmentModel implements IBalancer {
 
 }

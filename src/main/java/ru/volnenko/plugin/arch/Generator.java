@@ -8,7 +8,6 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import ru.volnenko.plugin.arch.component.archapi.generator.impl.RootBasicGenerator;
 
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.COMPILE)
 public class Generator extends AbstractMojo {
@@ -53,13 +52,10 @@ public class Generator extends AbstractMojo {
     @Parameter(property = "physicViewEnabled")
     private boolean physicViewEnabled = true;
 
-    @NonNull
-    private final RootBasicGenerator rootBasicGenerator = new RootBasicGenerator();
 
     @Override
     @SneakyThrows
     public void execute() {
-        System.out.println(rootBasicGenerator.generate());
     }
 
     public static void main(String[] args) {
