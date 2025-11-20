@@ -27,4 +27,6 @@ public final class Components {
 
     private Map<String, Vocabulary> vocabularies;
 
+    private Map<String, User> users;
+
 }
