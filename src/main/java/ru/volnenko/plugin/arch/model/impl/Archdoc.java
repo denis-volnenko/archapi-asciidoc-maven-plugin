@@ -1,5 +1,7 @@
 package ru.volnenko.plugin.arch.model.impl;
 
-public final class Archdoc extends AbstractModel {
+import ru.volnenko.plugin.arch.model.IArchdoc;
+
+public final class Archdoc extends AbstractModel implements IArchdoc {
 
 }
