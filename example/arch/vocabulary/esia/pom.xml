@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.volnenko.arch.vocabulary</groupId>
+    <artifactId>esia</artifactId>
+    <version>1.0.0</version>
+    <packaging>Vocabulary</packaging>
+
+    <name>ЕСИА</name>
+    <description>Единая Система Идентификации и Аутентификации.</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>ru.volnenko.maven.plugin</groupId>
+                <artifactId>archapi-asciidoc-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <extensions>true</extensions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

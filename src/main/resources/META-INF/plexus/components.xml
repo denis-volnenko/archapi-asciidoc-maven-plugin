@@ -3,12 +3,11 @@
 
         <component>
             <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
-            <role-hint>archdoc</role-hint>
+            <role-hint>Vocabulary</role-hint>
             <implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping</implementation>
             <configuration>
                 <phases>
                     <clean>org.apache.maven.plugins:maven-clean-plugin:clean</clean>
-                    <generate-resources>${project.groupId}:${project.artifactId}:${project.version}:generate</generate-resources>
                     <package>${project.groupId}:${project.artifactId}:${project.version}:package</package>
                     <install>org.apache.maven.plugins:maven-install-plugin:install</install>
                     <deploy>org.apache.maven.plugins:maven-deploy-plugin:deploy</deploy>
@@ -17,23 +16,22 @@
         </component>
         <component>
             <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
-            <role-hint>archdoc</role-hint>
+            <role-hint>Vocabulary</role-hint>
             <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
             <configuration>
-                <extension>archdoc</extension>
-                <type>archdoc</type>
-                <packaging>archdoc</packaging>
+                <extension>Vocabulary</extension>
+                <type>Vocabulary</type>
+                <packaging>Vocabulary</packaging>
             </configuration>
         </component>
 
         <component>
             <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
-            <role-hint>service</role-hint>
+            <role-hint>Service</role-hint>
             <implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping</implementation>
             <configuration>
                 <phases>
                     <clean>org.apache.maven.plugins:maven-clean-plugin:clean</clean>
-                    <generate-resources>${project.groupId}:${project.artifactId}:${project.version}:generate</generate-resources>
                     <package>${project.groupId}:${project.artifactId}:${project.version}:package</package>
                     <install>org.apache.maven.plugins:maven-install-plugin:install</install>
                     <deploy>org.apache.maven.plugins:maven-deploy-plugin:deploy</deploy>
@@ -42,12 +40,12 @@
         </component>
         <component>
             <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
-            <role-hint>service</role-hint>
+            <role-hint>Service</role-hint>
             <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
             <configuration>
-                <extension>service</extension>
-                <type>service</type>
-                <packaging>service</packaging>
+                <extension>Service</extension>
+                <type>Service</type>
+                <packaging>Service</packaging>
             </configuration>
         </component>
 
