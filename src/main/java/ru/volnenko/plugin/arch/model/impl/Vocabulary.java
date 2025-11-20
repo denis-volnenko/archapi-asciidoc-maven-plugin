@@ -12,6 +12,4 @@ import ru.volnenko.plugin.arch.model.IVocabulary;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class Vocabulary extends AbstractModel implements IVocabulary {
 
-
-
 }
