@@ -47,10 +47,10 @@ public class Generator extends AbstractMojo {
     @Parameter(property = "logicViewEnabled")
     private boolean logicViewEnabled = true;
 
-    @Getter
-    @Setter
-    @Parameter(property = "physicViewEnabled")
-    private boolean physicViewEnabled = true;
+//    @Getter
+//    @Setter
+//    @Parameter(property = "physicViewEnabled")
+//    private boolean physicViewEnabled = true;
 
 
     @Override

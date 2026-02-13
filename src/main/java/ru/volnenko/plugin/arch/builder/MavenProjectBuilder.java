@@ -7,6 +7,7 @@ import ru.volnenko.plugin.arch.model.impl.*;
 import ru.volnenko.plugin.arch.model.impl.System;
 import ru.volnenko.plugin.arch.util.MapperUtil;
 
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -48,8 +49,12 @@ public final class MavenProjectBuilder {
     @NonNull
     private static Map<String, Object> component(@NonNull MavenProject mavenProject) {
         @NonNull final Map<String, Object> component = new LinkedHashMap<>();
+        component.put("groupId", mavenProject.getGroupId());
+        component.put("artifactId", mavenProject.getArtifactId());
         component.put("name", mavenProject.getName());
         component.put("description", mavenProject.getDescription());
+        component.put("properties", new LinkedHashMap<>());
+        component.put("dependencies", Collections.emptyList());
 
         @NonNull final Map<String, Object> wrapper = new LinkedHashMap<>();
         wrapper.put(mavenProject.getArtifactId(), component);

@@ -11,6 +11,10 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class AbstractModel {
 
+    private String groupId;
+
+    private String artifactId;
+
     private String name;
 
     private String description;

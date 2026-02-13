@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.volnenko.arch.service</groupId>
-    <artifactId>task-mamanger</artifactId>
+    <artifactId>task-mananger</artifactId>
     <version>1.0.0</version>
     <packaging>Service</packaging>
 
