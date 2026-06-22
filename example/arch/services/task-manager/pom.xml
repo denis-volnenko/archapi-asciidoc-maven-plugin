@@ -9,8 +9,9 @@
     <version>1.0.0</version>
     <packaging>Service</packaging>
 
-    <name>Task Manager</name>
+    <name>TaskManagerService</name>
     <description>Сервис управления задачами и проектами.</description>
+    <url>rest</url>
 
     <build>
         <plugins>
