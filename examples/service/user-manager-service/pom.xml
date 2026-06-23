@@ -4,19 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ru.volnenko.arch.tm</groupId>
-    <artifactId>task-manager-service</artifactId>
+    <groupId>ru.volnenko.arch.um</groupId>
+    <artifactId>user-manager-service</artifactId>
     <version>1.0.0</version>
     <packaging>Service</packaging>
 
-    <url>TaskManagerService</url>
-    <name>task-manager-service</name>
-    <description>Сервис управления задачами и проектами.</description>
+    <url>UserManagerService</url>
+    <name>user-manager-service</name>
+    <description>Сервис управления пользователями и ролями.</description>
 
     <properties>
         <protocol>http</protocol>
         <port>8080</port>
-        <nodePort>308080</nodePort>
+        <nodePort>308081</nodePort>
     </properties>
 
     <dependencies>
@@ -31,18 +31,6 @@
             <artifactId>cluster-environment</artifactId>
             <version>1.0.0</version>
             <type>Environment</type>
-        </dependency>
-        <dependency>
-            <groupId>ru.volnenko.arch.um</groupId>
-            <artifactId>user-manager-service</artifactId>
-            <version>1.0.0</version>
-            <type>Service</type>
-        </dependency>
-        <dependency>
-            <groupId>ru.volnenko.arch.tm</groupId>
-            <artifactId>task-mananger</artifactId>
-            <version>1.0.0</version>
-            <type>Database</type>
         </dependency>
     </dependencies>
 

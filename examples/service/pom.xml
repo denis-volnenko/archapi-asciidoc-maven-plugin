@@ -11,6 +11,7 @@
 
     <modules>
         <module>task-manager-service</module>
+        <module>user-manager-service</module>
     </modules>
 
 </project>
