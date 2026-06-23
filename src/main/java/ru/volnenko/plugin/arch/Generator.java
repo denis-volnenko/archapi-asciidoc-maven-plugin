@@ -62,6 +62,10 @@ public class Generator extends AbstractMojo {
     @NonNull
     private final String logicalViewDiagramFilename = "src/main/asciidoc/images/logical-view.puml";
 
+    private final String logicalViewIncludeFilename = "src/main/asciidoc/images/logical-view-include.puml";
+
+    private final String contextViewIncludeFilename = "src/main/asciidoc/images/context-view-include.puml";
+
     @NonNull
     private final String vocabularyDocumentFilename = "src/main/asciidoc/include/vocabulary.adoc";
 
@@ -126,10 +130,22 @@ public class Generator extends AbstractMojo {
                 .filename(libraryDiagramFilename)
                 .execute();
 
+        GeneratorContextViewInclude.create()
+                        .root(root)
+                        .enabled(contextViewDiagramEnabled)
+                        .filename(contextViewIncludeFilename)
+                        .execute();
+
         GeneratorContextViewDiagram.create()
                 .root(root)
                 .enabled(contextViewDiagramEnabled)
                 .filename(contextViewDiagramFilename)
+                .execute();
+
+        GeneratorLogicalViewInclude.create()
+                .root(root)
+                .enabled(logicalViewDiagramEnabled)
+                .filename(logicalViewIncludeFilename)
                 .execute();
 
         GeneratorLogicalViewDiagram.create()

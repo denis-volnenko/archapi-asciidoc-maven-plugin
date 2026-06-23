@@ -22,6 +22,10 @@ public abstract class AbstractGenerator {
         return root;
     }
 
+    public boolean rewrite() {
+        return true;
+    }
+
     @NonNull
     public AbstractGenerator enabled(boolean enabled) {
         this.enabled = enabled;
@@ -49,8 +53,12 @@ public abstract class AbstractGenerator {
         @NonNull final File path = new File(parent);
         path.mkdirs();
 
-        if (!file.exists()) file.createNewFile();
-        FileUtils.fileWrite(file, generate());
+        if (!file.exists()) {
+            file.createNewFile();
+            FileUtils.fileWrite(file, generate());
+        }
+
+        if (rewrite()) FileUtils.fileWrite(file, generate());
     }
 
     @NonNull
