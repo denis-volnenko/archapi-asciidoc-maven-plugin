@@ -11,6 +11,7 @@
 
     <modules>
         <module>esia-vocabulary</module>
+        <module>fgis-situation-center-vocabulary</module>
         <module>smev-vocabulary</module>
     </modules>
 

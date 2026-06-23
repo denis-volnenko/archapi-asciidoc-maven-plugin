@@ -46,6 +46,12 @@
             <type>Vocabulary</type>
         </dependency>
         <dependency>
+            <groupId>ru.volnenko.arch.vocabulary</groupId>
+            <artifactId>fgis-situation-center-vocabulary</artifactId>
+            <version>1.0.0</version>
+            <type>Vocabulary</type>
+        </dependency>
+        <dependency>
             <groupId>ru.volnenko.arch.tm</groupId>
             <artifactId>task-mananger-database</artifactId>
             <version>1.0.0</version>
