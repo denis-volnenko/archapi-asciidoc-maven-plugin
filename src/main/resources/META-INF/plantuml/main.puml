@@ -1,0 +1,42 @@
+!SCHEME_TYPE = "CONTEXT"
+!SCHEME_LINK = "TRUE"
+
+!procedure SCHEME_LINK_ENABLE()
+!SCHEME_LINK = "TRUE"
+!endprocedure
+
+!procedure SCHEME_LINK_DISABLE()
+!SCHEME_LINK = "FALSE"
+!endprocedure
+
+!function IS_SCHEME_LINK($tags = "")
+    !if (SCHEME_LINK == "FALSE")
+        !return %false()
+    !endif
+
+    !if (%strlen($tags) > 0)
+        !return %strpos($tags, "unlink") < 0
+    !endif
+
+    !return SCHEME_LINK == "TRUE"
+!endfunction
+
+!function IS_CONTEXT_VIEW()
+!return SCHEME_TYPE == "CONTEXT"
+!endfunction
+
+!function IS_LOGICAL_VIEW()
+!return SCHEME_TYPE == "LOGICAL"
+!endfunction
+
+!procedure CONTEXT_VIEW()
+!SCHEME_TYPE = "CONTEXT"
+HIDE_STEREOTYPE()
+LAYOUT_WITH_LEGEND()
+!endprocedure
+
+!procedure LOGICAL_VIEW()
+!SCHEME_TYPE = "LOGICAL"
+LAYOUT_LANDSCAPE()
+LAYOUT_WITH_LEGEND()
+!endprocedure

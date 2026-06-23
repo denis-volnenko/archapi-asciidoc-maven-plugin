@@ -1,0 +1,1 @@
+AddElementTag("selected", $borderColor="#05759c", $borderThickness=4, $bgColor="#39bae6")

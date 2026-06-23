@@ -12,7 +12,15 @@ public class GeneratorContextViewDiagram extends AbstractGenerator {
     @NonNull
     @Override
     public String generate() {
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("@startuml").append("\n");
+        stringBuilder.append("!include base-library.puml").append("\n");
+        stringBuilder.append("left to right direction").append("\n");
+        stringBuilder.append("skinparam nodesep 50").append("\n");
+        stringBuilder.append("skinparam ranksep 100").append("\n");
+        stringBuilder.append("CONTEXT_VIEW()").append("\n").append("\n");
+        stringBuilder.append("@enduml").append("\n");
+        return stringBuilder.toString();
     }
 
 }

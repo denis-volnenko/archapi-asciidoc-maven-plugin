@@ -49,9 +49,6 @@ public abstract class AbstractGenerator {
         @NonNull final File path = new File(parent);
         path.mkdirs();
 
-        System.out.println("FILE: " + file.getAbsolutePath());
-        System.out.println("FILE: " + generate());
-
         if (!file.exists()) file.createNewFile();
         FileUtils.fileWrite(file, generate());
     }
