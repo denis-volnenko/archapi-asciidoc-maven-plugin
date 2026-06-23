@@ -4,13 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ru.volnenko.arch.vocabulary</groupId>
-    <artifactId>esia</artifactId>
+    <groupId>ru.volnenko.arch.user</groupId>
+    <artifactId>usual-user</artifactId>
     <version>1.0.0</version>
-    <packaging>Vocabulary</packaging>
+    <packaging>User</packaging>
 
-    <name>ЕСИА</name>
-    <description>Единая Система Идентификации и Аутентификации.</description>
+    <url>UserUsual</url>
+
+    <name>Пользователь</name>
+    <description>Пользователь с обычным уровнем доступа.</description>
 
     <build>
         <plugins>
