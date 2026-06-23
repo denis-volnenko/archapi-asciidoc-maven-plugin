@@ -22,6 +22,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>ru.volnenko.arch.environment</groupId>
+            <artifactId>volnenko-environment</artifactId>
+            <version>1.0.0</version>
+            <type>Environment</type>
+        </dependency>
+        <dependency>
+            <groupId>ru.volnenko.arch.environment</groupId>
+            <artifactId>cluster-environment</artifactId>
+            <version>1.0.0</version>
+            <type>Environment</type>
+        </dependency>
+        <dependency>
             <groupId>ru.volnenko.arch.nlb</groupId>
             <artifactId>nlbha-balancer</artifactId>
             <version>1.0.0</version>
