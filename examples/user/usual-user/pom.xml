@@ -12,7 +12,16 @@
     <url>UserUsual</url>
 
     <name>Пользователь</name>
-    <description>Пользователь с обычным уровнем доступа.</description>
+    <description>Пользователь с обычным уровнем доступа</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>ru.volnenko.arch.nlb</groupId>
+            <artifactId>nlbha-balancer</artifactId>
+            <version>1.0.0</version>
+            <type>Balancer</type>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

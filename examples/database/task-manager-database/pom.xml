@@ -11,10 +11,10 @@
 
     <url>TaskManagerDatabase</url>
     <name>task_manager</name>
-    <description>База данных task-manager.</description>
+    <description>База данных task-manager</description>
 
     <properties>
-        <soft>Postgresql 17 Pro (Enterprise)</soft>
+        <subtitle>Postgresql 17 Pro (Enterprise)</subtitle>
         <port>5432</port>
         <protocol>tcp</protocol>
     </properties>

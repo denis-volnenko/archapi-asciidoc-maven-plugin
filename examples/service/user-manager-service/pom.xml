@@ -11,9 +11,12 @@
 
     <url>UserManagerService</url>
     <name>user-manager-service</name>
-    <description>Сервис управления пользователями и ролями.</description>
+    <description>Сервис управления пользователями и ролями</description>
 
     <properties>
+        <title>Java 21, Spring Boot 3</title>
+        <subtitle>mesh</subtitle>
+
         <protocol>http</protocol>
         <port>8080</port>
         <nodePort>308081</nodePort>

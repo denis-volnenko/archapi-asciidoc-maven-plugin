@@ -12,7 +12,16 @@
     <url>UserAdmin</url>
 
     <name>Администратор</name>
-    <description>Пользователь с доступом администратора.</description>
+    <description>Пользователь с доступом администратора</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>ru.volnenko.arch.nlb</groupId>
+            <artifactId>nlbha-balancer</artifactId>
+            <version>1.0.0</version>
+            <type>Balancer</type>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

@@ -17,5 +17,9 @@
 |task_manager 
 |База данных task-manager. 
 
+|04. 
+|user-manager-service 
+|Сервис управления пользователями и ролями. 
+
 !===
 

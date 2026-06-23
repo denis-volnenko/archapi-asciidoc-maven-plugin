@@ -11,9 +11,12 @@
 
     <url>TaskManagerService</url>
     <name>task-manager-service</name>
-    <description>Сервис управления задачами и проектами.</description>
+    <description>Сервис управления задачами и проектами</description>
 
     <properties>
+        <title>Java 21, Spring Boot 3</title>
+        <subtitle>mesh</subtitle>
+
         <protocol>http</protocol>
         <port>8080</port>
         <nodePort>308080</nodePort>
