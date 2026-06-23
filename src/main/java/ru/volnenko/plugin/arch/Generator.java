@@ -11,9 +11,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.settings.Settings;
 import ru.volnenko.plugin.arch.builder.MavenProjectBuilder;
-import ru.volnenko.plugin.arch.generator.GeneratorArchdoc;
-import ru.volnenko.plugin.arch.generator.GeneratorComponent;
-import ru.volnenko.plugin.arch.generator.GeneratorVocabulary;
+import ru.volnenko.plugin.arch.generator.*;
 import ru.volnenko.plugin.arch.model.impl.Root;
 import ru.volnenko.plugin.arch.util.MapperUtil;
 
@@ -52,23 +50,35 @@ public class Generator extends AbstractMojo {
 
     @Getter
     @Setter
-    @Parameter(property = "archdocFilename")
-    private String archdocFilename = "src/main/asciidoc/archdoc.adoc";
-
-    @Getter
-    @Setter
     @Parameter(property = "contextViewEnabled")
     private boolean contextViewEnabled = true;
 
-    @Getter
-    @Setter
-    @Parameter(property = "contextViewDocumentFilename")
-    private String contextViewDocumentFilename = "src/main/asciidoc/include/contextView.adoc";
+    @NonNull
+    private final String archdocFilename = "src/main/asciidoc/archdoc.adoc";
+
+    @NonNull
+    private final String contextViewDiagramFilename = "src/main/asciidoc/images/context-view.puml";
+
+    @NonNull
+    private final String logicalViewDiagramFilename = "src/main/asciidoc/images/logical-view.puml";
+
+    @NonNull
+    private final String vocabularyDocumentFilename = "src/main/asciidoc/include/vocabulary.adoc";
+
+    @NonNull
+    private final String componentsDocumentFilename = "src/main/asciidoc/include/components.adoc";
+
+    private final String libraryDiagramFilename = "src/main/asciidoc/images/base-library.puml";
 
     @Getter
     @Setter
-    @Parameter(property = "contextViewDiagramFilename")
-    private String contextViewDiagramFilename = "src/main/asciidoc/images/contextView.puml";
+    @Parameter(property = "contextViewDiagramEnabled")
+    private boolean contextViewDiagramEnabled = true;
+
+    @Getter
+    @Setter
+    @Parameter(property = "logicalViewDiagramEnabled")
+    private boolean logicalViewDiagramEnabled = true;
 
     @Getter
     @Setter
@@ -82,18 +92,8 @@ public class Generator extends AbstractMojo {
 
     @Getter
     @Setter
-    @Parameter(property = "vocabularyDocumentFilename")
-    private String vocabularyDocumentFilename = "src/main/asciidoc/include/vocabulary.adoc";
-
-    @Getter
-    @Setter
     @Parameter(property = "componentsEnabled")
     private boolean componentsEnabled = true;
-
-    @Getter
-    @Setter
-    @Parameter(property = "componentsDocumentFilename")
-    private String componentsDocumentFilename = "src/main/asciidoc/include/components.adoc";
 
     @Parameter(defaultValue = "${project}", required = true, readonly = true)
     private MavenProject project;
@@ -120,8 +120,29 @@ public class Generator extends AbstractMojo {
                 .filename(componentsDocumentFilename)
                 .execute();
 
+        GeneratorLibraryDiagram.create()
+                .root(root)
+                .enabled(contextViewDiagramEnabled || logicalViewDiagramEnabled)
+                .filename(libraryDiagramFilename)
+                .execute();
+
+        GeneratorContextViewDiagram.create()
+                .root(root)
+                .enabled(contextViewDiagramEnabled)
+                .filename(contextViewDiagramFilename)
+                .execute();
+
+        GeneratorLogicalViewDiagram.create()
+                .root(root)
+                .enabled(logicalViewDiagramEnabled)
+                .filename(logicalViewDiagramFilename)
+                .execute();
+
         GeneratorArchdoc.create()
                 .root(root)
+                .logicalViewEnabled(logicViewEnabled)
+                .componentsEnabled(contextViewEnabled)
+                .vocabularyEnabled(vocabularyEnabled)
                 .enabled(archdocEnabled)
                 .filename(archdocFilename)
                 .execute();

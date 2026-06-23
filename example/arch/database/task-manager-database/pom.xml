@@ -9,6 +9,7 @@
     <version>1.0.0</version>
     <packaging>Database</packaging>
 
+    <url>TaskManagerDatabase</url>
     <name>task_manager</name>
     <description>База данных task-manager.</description>
 

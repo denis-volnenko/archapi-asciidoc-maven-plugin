@@ -9,6 +9,7 @@
     <version>1.0.0</version>
     <packaging>Service</packaging>
 
+    <url>TaskManagerService</url>
     <name>task-manager-service</name>
     <description>Сервис управления задачами и проектами.</description>
 
