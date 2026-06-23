@@ -27,7 +27,7 @@
 
         <component>
             <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
-            <role-hint>ArchDoc</role-hint>
+            <role-hint>Balancer</role-hint>
             <implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping</implementation>
             <configuration>
                 <phases>
@@ -40,12 +40,12 @@
         </component>
         <component>
             <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
-            <role-hint>ArchDoc</role-hint>
+            <role-hint>Balancer</role-hint>
             <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
             <configuration>
-                <extension>ArchDoc</extension>
-                <type>ArchDoc</type>
-                <packaging>ArchDoc</packaging>
+                <extension>Balancer</extension>
+                <type>Balancer</type>
+                <packaging>Balancer</packaging>
             </configuration>
         </component>
 
