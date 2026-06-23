@@ -8,6 +8,7 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.settings.Settings;
 
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.COMPILE)
 public class Generator extends AbstractMojo {
@@ -51,6 +52,7 @@ public class Generator extends AbstractMojo {
 //    @Setter
 //    @Parameter(property = "physicViewEnabled")
 //    private boolean physicViewEnabled = true;
+
 
 
     @Override

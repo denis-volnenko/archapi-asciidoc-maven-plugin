@@ -5,27 +5,19 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.volnenko.arch.tm</groupId>
-    <artifactId>task-manager</artifactId>
+    <artifactId>task-mananger</artifactId>
     <version>1.0.0</version>
-    <packaging>Service</packaging>
+    <packaging>Database</packaging>
 
-    <name>TaskManagerService</name>
-    <description>Сервис управления задачами и проектами.</description>
+    <name>TaskManagerDatabase</name>
+    <description>База данных task-manager.</description>
 
     <properties>
+        <soft>Postgresql 17 Pro (Enterprise)</soft>
+        <port>5432</port>
         <protocol>tcp</protocol>
-        <port>8080</port>
-        <nodePort>308080</nodePort>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>ru.volnenko.arch.tm</groupId>
-            <artifactId>task-mananger</artifactId>
-            <version>1.0.0</version>
-            <type>Database</type>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>

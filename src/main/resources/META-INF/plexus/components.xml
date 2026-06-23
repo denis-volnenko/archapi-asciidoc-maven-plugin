@@ -3,6 +3,54 @@
 
         <component>
             <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
+            <role-hint>ArchApi</role-hint>
+            <implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping</implementation>
+            <configuration>
+                <phases>
+                    <clean>org.apache.maven.plugins:maven-clean-plugin:clean</clean>
+                    <package>${project.groupId}:${project.artifactId}:${project.version}:package</package>
+                    <install>org.apache.maven.plugins:maven-install-plugin:install</install>
+                    <deploy>org.apache.maven.plugins:maven-deploy-plugin:deploy</deploy>
+                </phases>
+            </configuration>
+        </component>
+        <component>
+            <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
+            <role-hint>ArchApi</role-hint>
+            <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
+            <configuration>
+                <extension>ArchApi</extension>
+                <type>ArchApi</type>
+                <packaging>ArchApi</packaging>
+            </configuration>
+        </component>
+
+        <component>
+            <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
+            <role-hint>ArchDoc</role-hint>
+            <implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping</implementation>
+            <configuration>
+                <phases>
+                    <clean>org.apache.maven.plugins:maven-clean-plugin:clean</clean>
+                    <package>${project.groupId}:${project.artifactId}:${project.version}:package</package>
+                    <install>org.apache.maven.plugins:maven-install-plugin:install</install>
+                    <deploy>org.apache.maven.plugins:maven-deploy-plugin:deploy</deploy>
+                </phases>
+            </configuration>
+        </component>
+        <component>
+            <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
+            <role-hint>ArchDoc</role-hint>
+            <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
+            <configuration>
+                <extension>ArchDoc</extension>
+                <type>ArchDoc</type>
+                <packaging>ArchDoc</packaging>
+            </configuration>
+        </component>
+
+        <component>
+            <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
             <role-hint>Vocabulary</role-hint>
             <implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping</implementation>
             <configuration>
