@@ -9,7 +9,7 @@
     <version>1.0.0</version>
     <packaging>Service</packaging>
 
-    <name>TaskManagerService</name>
+    <name>task-manager-service</name>
     <description>Сервис управления задачами и проектами.</description>
 
     <properties>

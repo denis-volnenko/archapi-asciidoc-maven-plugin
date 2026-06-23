@@ -25,6 +25,8 @@ public final class Components {
 
     private Map<String, System> systems;
 
+    private Map<String, Queue> queues;
+
     private Map<String, Vocabulary> vocabularies;
 
     private Map<String, User> users;

@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Database extends AbstractEnvironmentModel {
+public final class Database extends AbstractModel {
 
 }

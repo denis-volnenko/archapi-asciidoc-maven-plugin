@@ -10,6 +10,6 @@ import ru.volnenko.plugin.arch.model.IService;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Service extends AbstractEnvironmentModel implements IService {
+public final class Service extends AbstractModel implements IService {
 
 }

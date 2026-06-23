@@ -10,11 +10,6 @@ import ru.volnenko.plugin.arch.model.IVocabulary;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Vocabulary extends AbstractModel implements IVocabulary, Comparable<Vocabulary> {
-
-    @Override
-    public int compareTo(Vocabulary o) {
-        return this.getName().compareTo(o.getName());
-    }
+public final class Vocabulary extends AbstractModel implements IVocabulary {
 
 }

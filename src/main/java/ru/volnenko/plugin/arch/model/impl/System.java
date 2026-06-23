@@ -10,6 +10,6 @@ import ru.volnenko.plugin.arch.model.ISystem;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class System extends AbstractEnvironmentModel implements ISystem {
+public final class System extends AbstractModel implements ISystem {
 
 }

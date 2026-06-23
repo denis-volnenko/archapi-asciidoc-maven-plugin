@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public abstract class AbstractModel {
+public abstract class AbstractModel implements Comparable<AbstractModel> {
 
     private String groupId;
 
@@ -18,5 +18,10 @@ public abstract class AbstractModel {
     private String name;
 
     private String description;
+
+    @Override
+    public int compareTo(AbstractModel o) {
+        return name.compareTo(o.getName());
+    }
 
 }
