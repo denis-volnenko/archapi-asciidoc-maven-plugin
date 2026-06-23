@@ -22,6 +22,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>ru.volnenko.arch</groupId>
+            <artifactId>user-usual</artifactId>
+            <version>1.0.0</version>
+            <type>User</type>
+        </dependency>
+        <dependency>
+            <groupId>ru.volnenko.arch</groupId>
+            <artifactId>user-admin</artifactId>
+            <version>1.0.0</version>
+            <type>User</type>
+        </dependency>
+        <dependency>
             <groupId>ru.volnenko.arch.vocabulary</groupId>
             <artifactId>esia</artifactId>
             <version>1.0.0</version>
