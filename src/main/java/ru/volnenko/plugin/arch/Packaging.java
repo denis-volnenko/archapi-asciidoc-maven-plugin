@@ -33,7 +33,7 @@ public final class Packaging extends AbstractMojo {
         @NonNull final String sourceName = project.getBuild().getFinalName() + "." + project.getPackaging();
         @NonNull final File build = new File(project.getBuild().getDirectory(), sourceName);
 
-        MavenProjectBuilder mavenProjectBuilder = new MavenProjectBuilder(settings);
+        final MavenProjectBuilder mavenProjectBuilder = new MavenProjectBuilder(settings);
         @NonNull final String yaml = mavenProjectBuilder.yaml(project);
         Files.write(build.toPath(), yaml.getBytes(StandardCharsets.UTF_8));
 

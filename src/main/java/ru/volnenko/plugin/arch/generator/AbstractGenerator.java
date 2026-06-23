@@ -1,0 +1,62 @@
+package ru.volnenko.plugin.arch.generator;
+
+import lombok.NonNull;
+import lombok.SneakyThrows;
+import org.codehaus.plexus.util.FileUtils;
+import ru.volnenko.plugin.arch.model.impl.Root;
+
+import java.io.File;
+
+public abstract class AbstractGenerator {
+
+    private boolean enabled = false;
+
+    @NonNull
+    private String filename = "file.adoc";
+
+    @NonNull
+    private Root root;
+
+    @NonNull
+    public Root root() {
+        return root;
+    }
+
+    @NonNull
+    public AbstractGenerator enabled(boolean enabled) {
+        this.enabled = enabled;
+        return this;
+    }
+
+    @NonNull
+    public AbstractGenerator filename(@NonNull final String filename) {
+        this.filename = filename;
+        return this;
+    }
+
+    @NonNull
+    public AbstractGenerator root(@NonNull final Root root) {
+        this.root = root;
+        return this;
+    }
+
+    @SneakyThrows
+    public void execute() {
+        if (!enabled) return;
+        @NonNull final File file = new File(filename);
+        @NonNull final String parent = file.getParent();
+
+        @NonNull final File path = new File(parent);
+        path.mkdirs();
+
+        System.out.println("FILE: " + file.getAbsolutePath());
+        System.out.println("FILE: " + generate());
+
+        if (!file.exists()) file.createNewFile();
+        FileUtils.fileWrite(file, generate());
+    }
+
+    @NonNull
+    public abstract String generate();
+
+}
