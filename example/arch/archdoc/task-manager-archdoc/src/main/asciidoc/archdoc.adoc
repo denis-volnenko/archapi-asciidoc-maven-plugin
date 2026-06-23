@@ -1,0 +1,8 @@
+= [Архитектурный документ]
+
+include::include/vocabulary.adoc[]
+
+== Логическое представление
+
+include::include/components.adoc[]
+
