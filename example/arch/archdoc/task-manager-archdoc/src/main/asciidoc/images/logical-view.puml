@@ -1,0 +1,9 @@
+@startuml
+!include base-library.puml
+!include logical-view-include.puml
+left to right direction
+skinparam nodesep 50
+skinparam ranksep 100
+LOGICAL_VIEW()
+
+@enduml

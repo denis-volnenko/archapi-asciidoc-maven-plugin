@@ -12,7 +12,9 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
     @NonNull
     @Override
     public String generate() {
-        return "";
+        @NonNull final StringBuilder stringBuilder = new StringBuilder();
+
+        return stringBuilder.toString();
     }
 
 }
