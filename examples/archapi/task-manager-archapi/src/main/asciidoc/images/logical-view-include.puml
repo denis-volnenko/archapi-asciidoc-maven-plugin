@@ -1,26 +1,26 @@
-Person(UserUsual, "Пользователь", "", "", "")
+Person(UserUsual, "Пользователь", "", "", $tags = "")
 
-Person(UserAdmin, "Администратор", "", "", "")
+Person(UserAdmin, "Администратор", "", "", $tags = "")
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
-		Container(TaskManagerService, "task-manager-service", "", "", "")
+		Container(TaskManagerService, "task-manager-service", "", "", $tags = "")
 	}
 }
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
-		Container(UserManagerService, "user-manager-service", "", "", "selected")
+		Container(UserManagerService, "user-manager-service", "", "", $tags = "selected")
 	}
 }
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
-		ContainerDb_Ext(TaskManagerDatabase, "task_manager", "", "", "")
+		ContainerDb_Ext(TaskManagerDatabase, "task_manager", "", "", $tags = "")
 	}
 }
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
-	Container(NlbHA, "nlbha", "", "", "selected")
+	Container(NlbHA, "nlbha", "", "", $tags = "selected")
 }
 

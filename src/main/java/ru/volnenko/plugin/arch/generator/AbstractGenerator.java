@@ -128,7 +128,7 @@ public abstract class AbstractGenerator {
                 .append("\"").append(name).append("\"").append(", ")
                 .append("\"").append(title).append("\"").append(", ")
                 .append("\"").append(subtitle).append("\"").append(", ")
-                .append("\"").append(tags).append("\"")
+                .append("$tags = \"").append(tags).append("\"")
                 .append(")").append("\n").toString();
     }
 
@@ -150,7 +150,7 @@ public abstract class AbstractGenerator {
                 .append("\"").append(name).append("\"").append(", ")
                 .append("\"").append(title).append("\"").append(", ")
                 .append("\"").append(subtitle).append("\"").append(", ")
-                .append("\"").append(tags).append("\"")
+                .append("$tags = \"").append(tags).append("\"")
                 .append(")").append("\n").toString();
     }
 
