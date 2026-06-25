@@ -63,8 +63,10 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
         String scope = root().scope(mavenProjectDto);
         if (scope == null) scope = "compile";
         String componentName = component;
-        if ("provided".equals(scope)) componentName += "_Ex";
-        stringBuilder.append(renderComponent(componentName, url, name, "", "", ""));
+        String tags = "";
+        if ("provided".equals(scope)) componentName += "_Ext";
+        if ("compile".equals(scope)) tags = "selected";
+        stringBuilder.append(renderComponent(componentName, url, name, "", "", tags));
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
     }

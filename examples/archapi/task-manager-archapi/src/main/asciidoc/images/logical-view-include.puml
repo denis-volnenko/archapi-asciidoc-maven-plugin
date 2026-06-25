@@ -10,17 +10,17 @@ Boundary(VolnenkoEnvironment, "volnenko") {
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
-		Container(UserManagerService, "user-manager-service", "", "", "")
+		Container(UserManagerService, "user-manager-service", "", "", "selected")
 	}
 }
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
-		ContainerDb(TaskManagerDatabase, "task_manager", "", "", "")
+		ContainerDb_Ext(TaskManagerDatabase, "task_manager", "", "", "")
 	}
 }
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
-	Container(NlbHA, "nlbha", "", "", "")
+	Container(NlbHA, "nlbha", "", "", "selected")
 }
 
