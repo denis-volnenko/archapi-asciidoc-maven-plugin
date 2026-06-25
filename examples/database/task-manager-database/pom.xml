@@ -19,6 +19,21 @@
         <protocol>tcp</protocol>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>ru.volnenko.arch.environment</groupId>
+            <artifactId>volnenko-environment</artifactId>
+            <version>1.0.0</version>
+            <type>Environment</type>
+        </dependency>
+        <dependency>
+            <groupId>ru.volnenko.arch.environment</groupId>
+            <artifactId>cluster-environment</artifactId>
+            <version>1.0.0</version>
+            <type>Environment</type>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

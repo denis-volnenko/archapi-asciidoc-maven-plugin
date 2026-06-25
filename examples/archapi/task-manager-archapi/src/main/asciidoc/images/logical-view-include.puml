@@ -15,6 +15,12 @@ Boundary(VolnenkoEnvironment, "volnenko") {
 }
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
+	Boundary(ClusterEnvironment, "cluster") { 
+		ContainerDb(TaskManagerDatabase, "task_manager", "", "", "")
+	}
+}
+
+Boundary(VolnenkoEnvironment, "volnenko") { 
 	Container(NlbHA, "nlbha", "", "", "")
 }
 

@@ -2,8 +2,12 @@ package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.model.impl.Components;
+import ru.volnenko.plugin.arch.model.impl.Environment;
 import ru.volnenko.plugin.arch.model.impl.Service;
 import ru.volnenko.plugin.arch.model.impl.User;
+import ru.volnenko.plugin.arch.model.maven.MavenProjectDto;
+
+import java.util.List;
 
 public final class GeneratorContextViewInclude extends AbstractGenerator {
 
@@ -22,60 +26,38 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
 
         if (components.getUsers() != null) {
             for (final User user : components.getUsers().values()) {
-                stringBuilder.append(renderUser(user.getUrl(), user.getName(), "", "", ""));
+               renderUser(stringBuilder, user);
             }
         }
 
         if (components.getServices() != null) {
-            for (final Service service : components.getServices().values()) {
-                stringBuilder.append(renderApp("Container", service.getUrl(),  service.getDescription(), "", service.getName(), ""));
+            for (@NonNull final Service item : components.getServices().values()) {
+                renderComponent("Container", stringBuilder, item);
             }
         }
 
         if (components.getSystems() != null) {
-            for (final ru.volnenko.plugin.arch.model.impl.System system: components.getSystems().values()) {
-                stringBuilder.append(renderApp("System", system.getUrl(),  system.getDescription(), "", system.getName(), ""));
+            for (final ru.volnenko.plugin.arch.model.impl.System item: components.getSystems().values()) {
+                renderComponent("System", stringBuilder, item);
             }
         }
 
         return stringBuilder.toString();
     }
 
-    @NonNull
-    private String renderUser(
-            @NonNull final String constant,
-            @NonNull final String name,
-            @NonNull final String title,
-            @NonNull final String subtitle,
-            @NonNull final String tags
-    ) {
-        return new StringBuilder()
-                .append("Person").append("(")
-                .append(constant).append(", ")
-                .append("\"").append(name).append("\"").append(", ")
-                .append("\"").append(title).append("\"").append(", ")
-                .append("\"").append(subtitle).append("\"").append(", ")
-                .append("\"").append(tags).append("\"")
-                .append(")").append("\n").append("\n").toString();
-    }
 
-    @NonNull
-    private String renderApp(
+
+    private void renderComponent(
             @NonNull final String component,
-            @NonNull final String constant,
-            @NonNull final String name,
-            @NonNull final String title,
-            @NonNull final String subtitle,
-            @NonNull final String tags
+            @NonNull final StringBuilder stringBuilder,
+            @NonNull final MavenProjectDto mavenProjectDto
     ) {
-        return new StringBuilder()
-                .append(component)
-                .append("(").append(constant).append(", ")
-                .append("\"").append(name).append("\"").append(", ")
-                .append("\"").append(title).append("\"").append(", ")
-                .append("\"").append(subtitle).append("\"").append(", ")
-                .append("\"").append(tags).append("\"")
-                .append(")").append("\n").append("\n").toString();
+        @NonNull final List<Environment> environments = boundaries(mavenProjectDto.getDependencies());
+        startBoundary(stringBuilder, environments);
+        for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
+        stringBuilder.append(renderComponent(component, mavenProjectDto.getUrl(), mavenProjectDto.getDescription(), "", mavenProjectDto.getName(), ""));
+        endBoundary(stringBuilder, environments);
+        stringBuilder.append("\n");
     }
 
 }
