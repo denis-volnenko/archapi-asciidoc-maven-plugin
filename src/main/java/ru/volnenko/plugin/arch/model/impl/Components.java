@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Collections;
 import java.util.Map;
 
 @Getter
@@ -13,22 +14,22 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class Components {
 
-    private Map<String, Connection> connections;
+    private Map<String, Connection> connections = Collections.emptyMap();
 
-    private Map<String, Environment> environments;
+    private Map<String, Environment> environments = Collections.emptyMap();
 
-    private Map<String, Balancer> balancers;
+    private Map<String, Balancer> balancers = Collections.emptyMap();
 
-    private Map<String, Database> databases;
+    private Map<String, Database> databases = Collections.emptyMap();
 
-    private Map<String, Service> services;
+    private Map<String, Service> services = Collections.emptyMap();
 
-    private Map<String, System> systems;
+    private Map<String, System> systems = Collections.emptyMap();
 
-    private Map<String, Queue> queues;
+    private Map<String, Queue> queues = Collections.emptyMap();
 
-    private Map<String, Vocabulary> vocabularies;
+    private Map<String, Vocabulary> vocabularies = Collections.emptyMap();
 
-    private Map<String, User> users;
+    private Map<String, User> users = Collections.emptyMap();
 
 }

@@ -17,6 +17,8 @@ public abstract class AbstractModel implements Comparable<AbstractModel> {
 
     private String name;
 
+    private String url;
+
     private String description;
 
     @Override

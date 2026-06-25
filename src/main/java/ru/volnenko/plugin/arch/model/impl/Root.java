@@ -14,6 +14,6 @@ public final class Root implements IRoot {
 
     private String archapi = "1.0.0";
 
-    private Components components;
+    private Components components = new Components();
 
 }
