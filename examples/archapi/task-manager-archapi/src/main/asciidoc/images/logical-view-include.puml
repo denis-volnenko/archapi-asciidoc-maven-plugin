@@ -1,0 +1,20 @@
+Person(UserUsual, "Пользователь", "", "", "")
+
+Person(UserAdmin, "Администратор", "", "", "")
+
+Boundary(VolnenkoEnvironment, "volnenko") { 
+	Boundary(ClusterEnvironment, "cluster") { 
+		Container(TaskManagerService, "task-manager-service", "", "", "")
+	}
+}
+
+Boundary(VolnenkoEnvironment, "volnenko") { 
+	Boundary(ClusterEnvironment, "cluster") { 
+		Container(UserManagerService, "user-manager-service", "", "", "")
+	}
+}
+
+Boundary(VolnenkoEnvironment, "volnenko") { 
+	Container(NlbHA, "nlbha", "", "", "")
+}
+

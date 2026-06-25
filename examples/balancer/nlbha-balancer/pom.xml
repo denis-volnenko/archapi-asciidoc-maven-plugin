@@ -13,6 +13,15 @@
     <name>nlbha</name>
     <description>Высокодоступный балансировщик нагрузки.</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>ru.volnenko.arch.environment</groupId>
+            <artifactId>volnenko-environment</artifactId>
+            <version>1.0.0</version>
+            <type>Environment</type>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
