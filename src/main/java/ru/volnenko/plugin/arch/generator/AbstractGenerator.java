@@ -107,13 +107,20 @@ public abstract class AbstractGenerator {
         @NonNull final List<Environment> environments = boundaries(user.dependencies());
         startBoundary(stringBuilder, environments);
         for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
-        stringBuilder.append(renderUser(user.url(), user.name(), "", "", ""));
+        String component = "Person";
+        String scope = root().scope(user);
+        if (scope == null) scope = "compile";
+        String tags = "";
+        if ("provided".equals(scope)) component += "_Ext";
+        if ("compile".equals(scope)) tags = "selected";
+        stringBuilder.append(renderUser(component, user.url(), user.name(), "", "", tags));
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
     }
 
     @NonNull
     protected String renderUser(
+            @NonNull final String component,
             @NonNull final String constant,
             @NonNull final String name,
             @NonNull final String title,
@@ -123,7 +130,7 @@ public abstract class AbstractGenerator {
         if (constant.isEmpty()) return "";
         if (name.isEmpty()) return "";
         return new StringBuilder()
-                .append("Person").append("(")
+                .append(component).append("(")
                 .append(constant).append(", ")
                 .append("\"").append(name).append("\"").append(", ")
                 .append("\"").append(title).append("\"").append(", ")
