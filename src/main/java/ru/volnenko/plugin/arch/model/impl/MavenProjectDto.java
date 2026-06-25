@@ -26,6 +26,8 @@ public class MavenProjectDto implements Comparable<MavenProjectDto> {
 
     private String description = "";
 
+    private String packaging = "";
+
     private Map<String, String> properties = new LinkedHashMap<>();
 
     private List<MavenDependencyDto> dependencies = new ArrayList<>();
@@ -71,6 +73,11 @@ public class MavenProjectDto implements Comparable<MavenProjectDto> {
         return name;
     }
 
+    public String packaging() {
+        if (packaging == null) return "";
+        return packaging;
+    }
+
     @NonNull
     public String description() {
         if (description == null) return "";
@@ -97,6 +104,46 @@ public class MavenProjectDto implements Comparable<MavenProjectDto> {
         final String value = properties.get("archapi.title");
         if (value == null) return "";
         return properties.get("archapi.title");
+    }
+
+    @NonNull
+    public String archapi() {
+        if (properties == null) return "";
+        final String value = properties.get("archapi.archapi");
+        if (value == null) return "";
+        return properties.get("archapi.archapi");
+    }
+
+    @NonNull
+    public String type() {
+        if (properties == null) return "";
+        final String value = properties.get("archapi.type");
+        if (value == null) return "";
+        return properties.get("archapi.type");
+    }
+
+    @NonNull
+    public String subtype() {
+        if (properties == null) return "";
+        final String value = properties.get("archapi.subtype");
+        if (value == null) return "";
+        return properties.get("archapi.subtype");
+    }
+
+    @NonNull
+    public String port() {
+        if (properties == null) return "";
+        final String value = properties.get("archapi.port");
+        if (value == null) return "";
+        return properties.get("archapi.port");
+    }
+
+    @NonNull
+    public String protocol() {
+        if (properties == null) return "";
+        final String value = properties.get("archapi.protocol");
+        if (value == null) return "";
+        return properties.get("archapi.protocol");
     }
 
 }
