@@ -46,7 +46,13 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
         @NonNull final String url = mavenProjectDto.url();
         @NonNull final String description = mavenProjectDto.description();
         @NonNull final String name = mavenProjectDto.name();
-        stringBuilder.append(renderComponent(component, url, description, "", name, ""));
+        String scope = root().scope(mavenProjectDto);
+        if (scope == null) scope = "compile";
+        String componentName = component;
+        String tags = "";
+        if ("provided".equals(scope)) componentName += "_Ext";
+        if ("compile".equals(scope)) tags = "selected";
+        stringBuilder.append(renderComponent(componentName, url, description, "", name, tags));
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
     }
