@@ -38,18 +38,21 @@
             <artifactId>nlbha-balancer</artifactId>
             <version>1.0.0</version>
             <type>Balancer</type>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.user</groupId>
             <artifactId>usual-user</artifactId>
             <version>1.0.0</version>
             <type>User</type>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.user</groupId>
             <artifactId>admin-user</artifactId>
             <version>1.0.0</version>
             <type>User</type>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.vocabulary</groupId>
@@ -74,20 +77,21 @@
             <artifactId>task-manager-database</artifactId>
             <version>1.0.0</version>
             <type>Database</type>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.tm</groupId>
             <artifactId>task-manager-service</artifactId>
             <version>1.0.0</version>
             <type>Service</type>
-            <scope>runtime</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.um</groupId>
             <artifactId>user-manager-service</artifactId>
             <version>1.0.0</version>
             <type>Service</type>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
