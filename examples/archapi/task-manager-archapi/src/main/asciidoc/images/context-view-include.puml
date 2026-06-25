@@ -8,6 +8,7 @@ Boundary(VolnenkoEnvironment, "volnenko") {
 	}
 }
 
+
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
 		Container(UserManagerService, "Сервис управления пользователями и ролями", "", "user-manager-service", "")

@@ -2,7 +2,7 @@ package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.model.impl.*;
-import ru.volnenko.plugin.arch.model.maven.MavenProjectDto;
+import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
 import ru.volnenko.plugin.arch.util.StringUtil;
 
 import java.util.ArrayList;

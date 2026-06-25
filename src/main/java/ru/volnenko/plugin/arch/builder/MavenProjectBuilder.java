@@ -13,13 +13,12 @@ import org.apache.maven.settings.Settings;
 import ru.volnenko.plugin.arch.model.impl.*;
 import ru.volnenko.plugin.arch.model.impl.Queue;
 import ru.volnenko.plugin.arch.model.impl.System;
-import ru.volnenko.plugin.arch.model.maven.MavenDependencyDto;
-import ru.volnenko.plugin.arch.model.maven.MavenProjectDto;
+import ru.volnenko.plugin.arch.model.impl.MavenDependencyDto;
+import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
 import ru.volnenko.plugin.arch.util.MapperUtil;
 
 import java.io.File;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public final class MavenProjectBuilder {
 

@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.arch.model.maven;
+package ru.volnenko.plugin.arch.model.impl;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 import org.apache.maven.model.Dependency;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,6 +25,14 @@ public class MavenDependencyDto {
     private String type = "";
 
     private String scope = "";
+
+    private List<MavenExclusionDto> exclusions = new ArrayList<>();
+
+    @NonNull
+    public List<MavenExclusionDto> exclusions() {
+        if (exclusions == null) exclusions = new ArrayList<>();
+        return exclusions;
+    }
 
     @NonNull
     public String scope() {

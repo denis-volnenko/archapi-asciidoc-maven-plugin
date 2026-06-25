@@ -7,7 +7,7 @@ import ru.volnenko.plugin.arch.model.impl.Components;
 import ru.volnenko.plugin.arch.model.impl.Environment;
 import ru.volnenko.plugin.arch.model.impl.Root;
 import ru.volnenko.plugin.arch.model.impl.User;
-import ru.volnenko.plugin.arch.model.maven.MavenDependencyDto;
+import ru.volnenko.plugin.arch.model.impl.MavenDependencyDto;
 import ru.volnenko.plugin.arch.util.StringUtil;
 
 import java.io.File;

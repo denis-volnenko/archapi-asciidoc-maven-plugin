@@ -5,7 +5,7 @@ import ru.volnenko.plugin.arch.model.impl.Components;
 import ru.volnenko.plugin.arch.model.impl.Environment;
 import ru.volnenko.plugin.arch.model.impl.Service;
 import ru.volnenko.plugin.arch.model.impl.User;
-import ru.volnenko.plugin.arch.model.maven.MavenProjectDto;
+import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
 
 import java.util.List;
 

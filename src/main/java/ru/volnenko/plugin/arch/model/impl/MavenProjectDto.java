@@ -1,4 +1,4 @@
-package ru.volnenko.plugin.arch.model.maven;
+package ru.volnenko.plugin.arch.model.impl;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;

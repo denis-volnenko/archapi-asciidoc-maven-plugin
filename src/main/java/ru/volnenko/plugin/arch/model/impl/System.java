@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.arch.model.ISystem;
-import ru.volnenko.plugin.arch.model.maven.MavenProjectDto;
 
 @Getter
 @Setter
