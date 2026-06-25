@@ -71,10 +71,12 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
             @NonNull final StringBuilder stringBuilder,
             @NonNull final MavenProjectDto mavenProjectDto
     ) {
-        @NonNull final List<Environment> environments = boundaries(mavenProjectDto.getDependencies());
+        @NonNull final List<Environment> environments = boundaries(mavenProjectDto.dependencies());
         startBoundary(stringBuilder, environments);
         for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
-        stringBuilder.append(renderComponent(component, mavenProjectDto.url(), mavenProjectDto.name(), "", "", ""));
+        @NonNull final String url = mavenProjectDto.url();
+        @NonNull final String name = mavenProjectDto.name();
+        stringBuilder.append(renderComponent(component, url, name, "", "", ""));
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
     }

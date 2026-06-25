@@ -56,14 +56,14 @@ public final class GeneratorArchdoc extends AbstractGenerator {
 
     @NonNull
     @Override
-    public GeneratorArchdoc root(@NonNull Root root) {
+    public GeneratorArchdoc root(@NonNull final Root root) {
         super.root(root);
         return this;
     }
 
     @NonNull
     @Override
-    public GeneratorArchdoc enabled(boolean enabled) {
+    public GeneratorArchdoc enabled(final boolean enabled) {
         super.enabled(enabled);
         return this;
     }

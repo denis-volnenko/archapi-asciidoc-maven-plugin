@@ -27,21 +27,19 @@ public final class GeneratorComponent extends AbstractGenerator {
         stringBuilder.append("|№ ").append("|Название ").append("|Описание ").append("\n").append("\n");
 
         @NonNull final List<MavenProjectDto> models = new ArrayList<>();
-        final Components components = root().getComponents();
-        if (components != null) {
-            if (components.getServices() != null) models.addAll(components.getServices().values());
-            if (components.getDatabases() != null) models.addAll(components.getDatabases().values());
-            if (components.getBalancers() != null) models.addAll(components.getBalancers().values());
-            if (components.getSystems() != null) models.addAll(components.getSystems().values());
-            if (components.getQueues() != null) models.addAll(components.getQueues().values());
-        }
+        @NonNull final Components components = root().components();
+        if (components.getServices() != null) models.addAll(components.getServices().values());
+        if (components.getDatabases() != null) models.addAll(components.getDatabases().values());
+        if (components.getBalancers() != null) models.addAll(components.getBalancers().values());
+        if (components.getSystems() != null) models.addAll(components.getSystems().values());
+        if (components.getQueues() != null) models.addAll(components.getQueues().values());
 
         int index = 1;
         Collections.sort(models);
-        for (final MavenProjectDto model : models) {
+        for (@NonNull final MavenProjectDto model : models) {
             stringBuilder.append("|").append(StringUtil.format(index)).append(". ").append("\n");
-            stringBuilder.append("|").append(model.getName()).append(" ").append("\n");
-            stringBuilder.append("|").append(model.getDescription()).append(" ").append("\n");
+            stringBuilder.append("|").append(model.name()).append(" ").append("\n");
+            stringBuilder.append("|").append(model.description()).append(" ").append("\n");
             stringBuilder.append("\n");
             index++;
         }
@@ -52,7 +50,7 @@ public final class GeneratorComponent extends AbstractGenerator {
 
     @NonNull
     @Override
-    public GeneratorComponent root(@NonNull Root root) {
+    public GeneratorComponent root(@NonNull final Root root) {
         super.root(root);
         return this;
     }

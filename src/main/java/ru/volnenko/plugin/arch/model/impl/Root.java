@@ -3,6 +3,7 @@ package ru.volnenko.plugin.arch.model.impl;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import ru.volnenko.plugin.arch.model.IRoot;
 
@@ -15,5 +16,11 @@ public final class Root implements IRoot {
     private String archapi = "1.0.0";
 
     private Components components = new Components();
+
+    @NonNull
+    public Components components() {
+        if (components == null) components = new Components();
+        return components;
+    }
 
 }

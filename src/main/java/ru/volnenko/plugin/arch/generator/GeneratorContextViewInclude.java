@@ -20,12 +20,10 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
     @Override
     public String generate() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
-
-        final Components components = root().getComponents();
-        if (components == null) return "";
+        @NonNull final Components components = root().components();
 
         if (components.getUsers() != null) {
-            for (final User user : components.getUsers().values()) {
+            for (@NonNull final User user : components.getUsers().values()) {
                renderUser(stringBuilder, user);
             }
         }
@@ -37,7 +35,7 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
         }
 
         if (components.getSystems() != null) {
-            for (final ru.volnenko.plugin.arch.model.impl.System item: components.getSystems().values()) {
+            for (@NonNull final ru.volnenko.plugin.arch.model.impl.System item: components.getSystems().values()) {
                 renderComponent("System", stringBuilder, item);
             }
         }
@@ -53,7 +51,10 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
         @NonNull final List<Environment> environments = boundaries(mavenProjectDto.getDependencies());
         startBoundary(stringBuilder, environments);
         for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
-        stringBuilder.append(renderComponent(component, mavenProjectDto.getUrl(), mavenProjectDto.getDescription(), "", mavenProjectDto.getName(), ""));
+        @NonNull final String url = mavenProjectDto.url();
+        @NonNull final String description = mavenProjectDto.description();
+        @NonNull final String name = mavenProjectDto.name();
+        stringBuilder.append(renderComponent(component, url, description, "", name, ""));
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
     }

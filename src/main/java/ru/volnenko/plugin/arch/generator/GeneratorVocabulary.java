@@ -33,8 +33,8 @@ public final class GeneratorVocabulary extends AbstractGenerator {
             for (final Vocabulary vocabulary : list) {
                 if (vocabulary == null) continue;
                 stringBuilder.append("|").append(StringUtil.format(index)).append(". ").append("\n");
-                stringBuilder.append("|").append(vocabulary.getName()).append(" ").append("\n");
-                stringBuilder.append("|").append(vocabulary.getDescription()).append(" ").append("\n");
+                stringBuilder.append("|").append(vocabulary.name()).append(" ").append("\n");
+                stringBuilder.append("|").append(vocabulary.description()).append(" ").append("\n");
                 stringBuilder.append("\n");
                 index++;
             }
