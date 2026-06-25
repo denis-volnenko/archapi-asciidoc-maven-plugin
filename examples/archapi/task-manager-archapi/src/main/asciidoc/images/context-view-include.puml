@@ -1,4 +1,8 @@
-Container(TaskManagerService, "Сервис управления задачами и проектами.", "", "task-manager-service")
+Person(UserUsual, "Пользователь", "", "", "")
 
-Container(UserManagerService, "Сервис управления пользователями и ролями.", "", "user-manager-service")
+Person(UserAdmin, "Администратор", "", "", "")
+
+Container(TaskManagerService, "Сервис управления задачами и проектами", "", "task-manager-service", "")
+
+Container(UserManagerService, "Сервис управления пользователями и ролями", "", "user-manager-service", "")
 

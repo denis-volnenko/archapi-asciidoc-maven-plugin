@@ -4,8 +4,10 @@ import lombok.NonNull;
 import lombok.SneakyThrows;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.arch.model.impl.Root;
+import ru.volnenko.plugin.arch.util.StringUtil;
 
 import java.io.File;
+import java.io.InputStream;
 
 public abstract class AbstractGenerator {
 
@@ -63,5 +65,10 @@ public abstract class AbstractGenerator {
 
     @NonNull
     public abstract String generate();
+
+    protected String resource(String name) {
+        final InputStream inputStream = getClass().getClassLoader().getResourceAsStream(name);
+        return StringUtil.format(inputStream);
+    }
 
 }

@@ -22,11 +22,6 @@ public class GeneratorLibraryDiagram extends AbstractGenerator {
         return stringBuilder.toString();
     }
 
-    private String resource(String name) {
-        final InputStream inputStream = getClass().getClassLoader().getResourceAsStream(name);
-        return StringUtil.format(inputStream);
-    }
-
     public static void main(String[] args) {
         final InputStream inputStream = ClassLoader.getSystemResourceAsStream("META-INF/plantuml/main.puml");
         System.out.println(StringUtil.format(inputStream));
