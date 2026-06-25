@@ -45,14 +45,14 @@
             <artifactId>usual-user</artifactId>
             <version>1.0.0</version>
             <type>User</type>
-            <scope>provided</scope>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.user</groupId>
             <artifactId>admin-user</artifactId>
             <version>1.0.0</version>
             <type>User</type>
-            <scope>provided</scope>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.vocabulary</groupId>

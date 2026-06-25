@@ -1,6 +1,6 @@
-Person_Ext(UserUsual, "Пользователь", "", "", $tags = "")
+Person(UserUsual, "Пользователь", "", "", $tags = "")
 
-Person_Ext(UserAdmin, "Администратор", "", "", $tags = "")
+Person(UserAdmin, "Администратор", "", "", $tags = "")
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
