@@ -43,7 +43,7 @@
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.tm</groupId>
-            <artifactId>task-mananger</artifactId>
+            <artifactId>task-manager-database</artifactId>
             <version>1.0.0</version>
             <type>Database</type>
         </dependency>
