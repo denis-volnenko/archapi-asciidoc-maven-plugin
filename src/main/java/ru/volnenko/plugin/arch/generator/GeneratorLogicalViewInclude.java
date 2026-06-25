@@ -1,7 +1,6 @@
 package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
-import ru.volnenko.plugin.arch.model.impl.Components;
 import ru.volnenko.plugin.arch.model.impl.Environment;
 import ru.volnenko.plugin.arch.model.impl.Service;
 import ru.volnenko.plugin.arch.model.impl.User;
@@ -24,43 +23,28 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
     public String generate() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
 
-        final Components components = root().getComponents();
-        if (components == null) return "";
-
-        if (components.getUsers() != null) {
-            for (final User user : components.getUsers().values()) {
-                renderUser(stringBuilder, user);
-            }
+        for (final User user : root().users()) {
+            renderUser(stringBuilder, user);
         }
 
-        if (components.getServices() != null) {
-            for (@NonNull final Service item : components.getServices().values()) {
-                renderComponent("Container", stringBuilder, item);
-            }
+        for (@NonNull final Service item : root().services()) {
+            renderComponent("Container", stringBuilder, item);
         }
 
-        if (components.getSystems() != null) {
-            for (final ru.volnenko.plugin.arch.model.impl.System item: components.getSystems().values()) {
-                renderComponent("System", stringBuilder, item);
-            }
+        for (final ru.volnenko.plugin.arch.model.impl.System item: root().systems()) {
+            renderComponent("System", stringBuilder, item);
         }
 
-        if (components.getDatabases() != null) {
-            for (final ru.volnenko.plugin.arch.model.impl.Database item: components.getDatabases().values()) {
-                renderComponent("ContainerDb", stringBuilder, item);
-            }
+        for (final ru.volnenko.plugin.arch.model.impl.Database item: root().databases()) {
+            renderComponent("ContainerDb", stringBuilder, item);
         }
 
-        if (components.getQueues() != null) {
-            for (final ru.volnenko.plugin.arch.model.impl.Queue item: components.getQueues().values()) {
-                renderComponent("Queue", stringBuilder, item);
-            }
+        for (final ru.volnenko.plugin.arch.model.impl.Queue item: root().queues()) {
+            renderComponent("Queue", stringBuilder, item);
         }
 
-        if (components.getBalancers() != null) {
-            for (final ru.volnenko.plugin.arch.model.impl.Balancer item: components.getBalancers().values()) {
-                renderComponent("Container", stringBuilder, item);
-            }
+        for (final ru.volnenko.plugin.arch.model.impl.Balancer item: root().balancers()) {
+            renderComponent("Container", stringBuilder, item);
         }
 
         return stringBuilder.toString();

@@ -7,6 +7,9 @@ import lombok.NonNull;
 import lombok.Setter;
 import ru.volnenko.plugin.arch.model.IRoot;
 
+import java.util.Collection;
+import java.util.Map;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,6 +24,46 @@ public final class Root implements IRoot {
     public Components components() {
         if (components == null) components = new Components();
         return components;
+    }
+
+    @NonNull
+    public Collection<Environment> environments() {
+        return getComponents().environments().values();
+    }
+
+    @NonNull
+    public Collection<Balancer> balancers() {
+        return getComponents().balancers().values();
+    }
+
+    @NonNull
+    public Collection<Database> databases() {
+        return getComponents().databases().values();
+    }
+
+    @NonNull
+    public Collection<Service> services() {
+        return getComponents().services().values();
+    }
+
+    @NonNull
+    public Collection<System> systems() {
+        return getComponents().systems().values();
+    }
+
+    @NonNull
+    public Collection<Queue> queues() {
+        return getComponents().queues().values();
+    }
+
+    @NonNull
+    public Collection<User> users() {
+        return getComponents().users().values();
+    }
+
+    @NonNull
+    public Collection<Vocabulary> vocabularies() {
+        return getComponents().vocabularies().values();
     }
 
 }

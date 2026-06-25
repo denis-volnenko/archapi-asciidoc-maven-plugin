@@ -1,7 +1,6 @@
 package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
-import ru.volnenko.plugin.arch.model.impl.Components;
 import ru.volnenko.plugin.arch.model.impl.Environment;
 import ru.volnenko.plugin.arch.model.impl.Service;
 import ru.volnenko.plugin.arch.model.impl.User;
@@ -20,24 +19,17 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
     @Override
     public String generate() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
-        @NonNull final Components components = root().components();
 
-        if (components.getUsers() != null) {
-            for (@NonNull final User user : components.getUsers().values()) {
-               renderUser(stringBuilder, user);
-            }
+        for (@NonNull final User user : root().users()) {
+           renderUser(stringBuilder, user);
         }
 
-        if (components.getServices() != null) {
-            for (@NonNull final Service item : components.getServices().values()) {
-                renderComponent("Container", stringBuilder, item);
-            }
+        for (@NonNull final Service item :  root().services()) {
+            renderComponent("Container", stringBuilder, item);
         }
 
-        if (components.getSystems() != null) {
-            for (@NonNull final ru.volnenko.plugin.arch.model.impl.System item: components.getSystems().values()) {
-                renderComponent("System", stringBuilder, item);
-            }
+        for (@NonNull final ru.volnenko.plugin.arch.model.impl.System item: root().systems()) {
+            renderComponent("System", stringBuilder, item);
         }
 
         return stringBuilder.toString();
@@ -48,7 +40,7 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
             @NonNull final StringBuilder stringBuilder,
             @NonNull final MavenProjectDto mavenProjectDto
     ) {
-        @NonNull final List<Environment> environments = boundaries(mavenProjectDto.getDependencies());
+        @NonNull final List<Environment> environments = boundaries(mavenProjectDto.dependencies());
         startBoundary(stringBuilder, environments);
         for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
         @NonNull final String url = mavenProjectDto.url();
