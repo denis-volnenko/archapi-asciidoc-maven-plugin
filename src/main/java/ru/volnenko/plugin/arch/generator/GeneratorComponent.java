@@ -2,6 +2,7 @@ package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.model.impl.*;
+import ru.volnenko.plugin.arch.model.maven.MavenProjectDto;
 import ru.volnenko.plugin.arch.util.StringUtil;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public final class GeneratorComponent extends AbstractGenerator {
         stringBuilder.append("!===").append("\n").append("\n");
         stringBuilder.append("|№ ").append("|Название ").append("|Описание ").append("\n").append("\n");
 
-        @NonNull final List<AbstractModel> models = new ArrayList<>();
+        @NonNull final List<MavenProjectDto> models = new ArrayList<>();
         final Components components = root().getComponents();
         if (components != null) {
             if (components.getServices() != null) models.addAll(components.getServices().values());
@@ -37,7 +38,7 @@ public final class GeneratorComponent extends AbstractGenerator {
 
         int index = 1;
         Collections.sort(models);
-        for (final AbstractModel model : models) {
+        for (final MavenProjectDto model : models) {
             stringBuilder.append("|").append(StringUtil.format(index)).append(". ").append("\n");
             stringBuilder.append("|").append(model.getName()).append(" ").append("\n");
             stringBuilder.append("|").append(model.getDescription()).append(" ").append("\n");

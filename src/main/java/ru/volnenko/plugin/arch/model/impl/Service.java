@@ -5,11 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.volnenko.plugin.arch.model.IService;
+import ru.volnenko.plugin.arch.model.maven.MavenProjectDto;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Service extends AbstractModel implements IService {
+public final class Service extends MavenProjectDto implements IService {
 
 }

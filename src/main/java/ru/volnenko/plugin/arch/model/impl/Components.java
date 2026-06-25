@@ -14,8 +14,6 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class Components {
 
-    private Map<String, Connection> connections = Collections.emptyMap();
-
     private Map<String, Environment> environments = Collections.emptyMap();
 
     private Map<String, Balancer> balancers = Collections.emptyMap();

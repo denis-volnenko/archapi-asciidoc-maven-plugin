@@ -71,4 +71,5 @@ public abstract class AbstractGenerator {
         return StringUtil.format(inputStream);
     }
 
+
 }

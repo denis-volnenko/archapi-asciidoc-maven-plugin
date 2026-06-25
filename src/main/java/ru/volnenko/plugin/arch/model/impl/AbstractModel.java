@@ -21,6 +21,7 @@ public abstract class AbstractModel implements Comparable<AbstractModel> {
 
     private String description;
 
+
     @Override
     public int compareTo(AbstractModel o) {
         return name.compareTo(o.getName());

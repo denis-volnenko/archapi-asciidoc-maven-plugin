@@ -37,7 +37,6 @@ public final class MavenProjectBuilder {
 
     static {
         registry(ArchApi.class, "archapi");
-        registry(ArchDoc.class, "archdocs");
         registry(Balancer.class, "balancers");
         registry(Database.class, "databases");
         registry(Service.class, "services");
@@ -46,14 +45,13 @@ public final class MavenProjectBuilder {
         registry(User.class, "users");
         registry(Queue.class, "queues");
         registry(Environment.class, "environments");
-        registry(Connection.class, "connections");
     }
 
     public MavenProjectBuilder(@NonNull Settings settings) {
         this.settings = settings;
     }
 
-    private static <T extends AbstractModel> void registry(final Class<T> clazz, final String plural) {
+    private static <T extends MavenProjectDto> void registry(final Class<T> clazz, final String plural) {
         MAP.put(clazz.getSimpleName(), clazz);
         PLURALS.put(clazz.getSimpleName(), plural);
     }

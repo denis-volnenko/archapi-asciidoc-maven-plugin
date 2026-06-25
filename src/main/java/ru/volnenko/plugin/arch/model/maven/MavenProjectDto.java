@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.volnenko.plugin.arch.model.impl.AbstractModel;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.Map;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MavenProjectDto {
+public class MavenProjectDto implements Comparable<MavenProjectDto> {
 
     private String groupId;
 
@@ -29,5 +30,10 @@ public class MavenProjectDto {
     private Map<String, String> properties;
 
     private List<MavenDependencyDto> dependencies;
+
+    @Override
+    public int compareTo(MavenProjectDto o) {
+        return name.compareTo(o.getName());
+    }
 
 }
