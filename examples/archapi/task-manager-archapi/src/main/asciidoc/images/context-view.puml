@@ -6,6 +6,8 @@ skinparam nodesep 50
 skinparam ranksep 100
 CONTEXT_VIEW()
 
-'Rel(UserAdmin, TaskManagerService, "22")
+Rel(UserAdmin, UserManagerService, "Управление пользователями.")
+Rel(UserUsual, TaskManagerService, "Управление задачами.")
+Rel_L(TaskManagerService, UserManagerService, "Авторизация пользователей.")
 
 @enduml
