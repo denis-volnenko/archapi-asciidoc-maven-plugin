@@ -16,6 +16,8 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class Components {
 
+    private Map<String, ArchApi> archapi = new LinkedHashMap<>();
+
     private Map<String, Environment> environments = new LinkedHashMap<>();
 
     private Map<String, Balancer> balancers = new LinkedHashMap<>();
@@ -31,6 +33,12 @@ public final class Components {
     private Map<String, Vocabulary> vocabularies = new LinkedHashMap<>();
 
     private Map<String, User> users = new LinkedHashMap<>();
+
+    @NonNull
+    public Map<String, ArchApi> archapi() {
+        if (archapi == null) archapi = new LinkedHashMap<>();
+        return archapi;
+    }
 
     @NonNull
     public Map<String, Environment> environments() {

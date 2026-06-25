@@ -74,12 +74,14 @@
             <artifactId>task-manager-database</artifactId>
             <version>1.0.0</version>
             <type>Database</type>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.tm</groupId>
             <artifactId>task-manager-service</artifactId>
             <version>1.0.0</version>
             <type>Service</type>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.um</groupId>

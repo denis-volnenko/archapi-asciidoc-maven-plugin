@@ -71,6 +71,8 @@ public final class MavenProjectBuilder {
         component.put("artifactId", mavenProject.getArtifactId());
         component.put("name", mavenProject.getName());
         component.put("url", mavenProject.getUrl());
+        component.put("version", mavenProject.getVersion());
+        component.put("packaging", mavenProject.getPackaging());
         component.put("description", mavenProject.getDescription());
         component.put("properties", mavenProject.getProperties());
         component.put("dependencies", dep(mavenProject.getDependencies()));
