@@ -104,10 +104,10 @@ public abstract class AbstractGenerator {
             @NonNull final StringBuilder stringBuilder,
             @NonNull final User user
     ) {
-        @NonNull final List<Environment> environments = boundaries(user.getDependencies());
+        @NonNull final List<Environment> environments = boundaries(user.dependencies());
         startBoundary(stringBuilder, environments);
         for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
-        stringBuilder.append(renderUser(user.getUrl(), user.getName(), "", "", ""));
+        stringBuilder.append(renderUser(user.url(), user.name(), "", "", ""));
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
     }
@@ -120,6 +120,8 @@ public abstract class AbstractGenerator {
             @NonNull final String subtitle,
             @NonNull final String tags
     ) {
+        if (constant.isEmpty()) return "";
+        if (name.isEmpty()) return "";
         return new StringBuilder()
                 .append("Person").append("(")
                 .append(constant).append(", ")
@@ -139,6 +141,9 @@ public abstract class AbstractGenerator {
             @NonNull final String subtitle,
             @NonNull final String tags
     ) {
+        if (component.isEmpty()) return "";
+        if (constant.isEmpty()) return "";
+        if (name.isEmpty()) return "";
         return new StringBuilder()
                 .append(component)
                 .append("(").append(constant).append(", ")
@@ -154,7 +159,7 @@ public abstract class AbstractGenerator {
         for (final Environment environment : environments) {
             if (environment == null) continue;
             for (int i = 0; i < index; i++) stringBuilder.append("\t");
-            stringBuilder.append("Boundary(" + environment.getUrl() + ", \"" + environment.getName() + "\"" + ") { ").append("\n");
+            stringBuilder.append("Boundary(" + environment.url() + ", \"" + environment.name() + "\"" + ") { ").append("\n");
             index++;
         }
     }

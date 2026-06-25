@@ -1,2 +1,4 @@
-package ru.volnenko.plugin.arch.model;public interface IDatabase {
+package ru.volnenko.plugin.arch.model;
+
+public interface IDatabase {
 }

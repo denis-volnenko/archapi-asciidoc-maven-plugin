@@ -3,6 +3,7 @@ package ru.volnenko.plugin.arch.model.maven;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import org.apache.maven.model.Dependency;
 
@@ -12,17 +13,47 @@ import org.apache.maven.model.Dependency;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MavenDependencyDto {
 
-    private String groupId;
+    private String groupId = "";
 
-    private String artifactId;
+    private String artifactId = "";
 
-    private String version;
+    private String version = "";
 
-    private String type;
+    private String type = "";
 
-    private String scope;
+    private String scope = "";
 
-    public MavenDependencyDto(Dependency dependency) {
+    @NonNull
+    public String scope() {
+        if (scope == null) return "";
+        return scope;
+    }
+
+    @NonNull
+    public String type() {
+        if (type == null) return "";
+        return type;
+    }
+
+    @NonNull
+    public String version() {
+        if (version == null) return "";
+        return version;
+    }
+
+    @NonNull
+    public String groupId() {
+        if (groupId == null) return "";
+        return groupId;
+    }
+
+    @NonNull
+    public String artifactId() {
+        if (artifactId == null) return "";
+        return artifactId;
+    }
+
+    public MavenDependencyDto(final Dependency dependency) {
         groupId = dependency.getGroupId();
         artifactId = dependency.getArtifactId();
         version = dependency.getVersion();

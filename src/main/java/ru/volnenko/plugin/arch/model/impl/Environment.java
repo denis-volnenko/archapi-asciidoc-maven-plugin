@@ -4,12 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.volnenko.plugin.arch.model.IEnvironment;
 import ru.volnenko.plugin.arch.model.maven.MavenProjectDto;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Environment extends MavenProjectDto {
+public final class Environment extends MavenProjectDto implements IEnvironment {
 
 }

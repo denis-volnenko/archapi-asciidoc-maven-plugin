@@ -91,7 +91,7 @@ public final class MavenProjectBuilder {
 
     @NonNull
     @SneakyThrows
-    public <T extends AbstractModel> JsonNode getDependencyComponents(
+    public <T extends MavenProjectDto> JsonNode getDependencyComponents(
             Set<DefaultArtifact> dependencyArtifacts
     ) {
         List<String> files = new ArrayList<>();
