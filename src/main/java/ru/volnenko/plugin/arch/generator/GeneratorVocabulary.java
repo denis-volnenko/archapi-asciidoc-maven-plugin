@@ -23,7 +23,7 @@ public final class GeneratorVocabulary extends AbstractGenerator {
         stringBuilder.append("== Термины и определения").append("\n").append("\n");
 
         stringBuilder.append("[cols=\"0,30,70\"]").append("\n");
-        stringBuilder.append("!===").append("\n").append("\n");
+        stringBuilder.append("!===").append("\n");
         stringBuilder.append("|№ ").append("|Название ").append("|Описание ").append("\n").append("\n");
 
         if (root().getComponents() != null && root().getComponents().getVocabularies() != null) {
