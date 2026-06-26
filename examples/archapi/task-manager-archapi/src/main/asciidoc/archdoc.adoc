@@ -4,5 +4,7 @@ include::include/vocabulary.adoc[]
 
 == Логическое представление
 
+image::images/logical-view.svg[]
+
 include::include/components.adoc[]
 
