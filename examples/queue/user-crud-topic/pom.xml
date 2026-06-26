@@ -16,6 +16,7 @@
     <properties>
         <archapi.protocol>tcp</archapi.protocol>
         <archapi.title>Apache Kafka, default</archapi.title>
+        <archapi.comment>Топик crud-операций по пользователям.</archapi.comment>
     </properties>
 
     <dependencies>
