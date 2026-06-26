@@ -3,12 +3,10 @@ package ru.volnenko.plugin.arch.generator;
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.model.ICoordinate;
 import ru.volnenko.plugin.arch.model.impl.*;
+import ru.volnenko.plugin.arch.model.impl.Queue;
 
 import java.lang.System;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public final class GeneratorLogicalViewInclude extends AbstractGenerator {
 
@@ -21,11 +19,15 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
     }
 
     private void dependencies(
-            @NonNull final Map<ICoordinate, ICoordinate> dependencies,
+            @NonNull final Map<ICoordinate, Set<ICoordinate>> dependencies,
             @NonNull final MavenProjectDto mavenProjectDto
     ) {
+        @NonNull final MavenCoordinateDto key = new MavenCoordinateDto(mavenProjectDto);
+        if (!dependencies.containsKey(key)) dependencies.put(key, new LinkedHashSet<>());
+        @NonNull final Set<ICoordinate> set = dependencies.get(key);
         for (@NonNull final MavenDependencyDto mavenDependencyDto: mavenProjectDto.dependencies()) {
-            dependencies.put(new MavenCoordinateDto(mavenProjectDto), new MavenCoordinateDto(mavenDependencyDto));
+            set.add(new MavenCoordinateDto(mavenDependencyDto));
+            dependencies.put(key, set);
         }
     }
 
@@ -33,7 +35,7 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
     @Override
     public String generate() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
-        @NonNull final Map<ICoordinate, ICoordinate> dependencies = new LinkedHashMap<>();
+        @NonNull final Map<ICoordinate, Set<ICoordinate>> dependencies = new LinkedHashMap<>();
         @NonNull final Map<ICoordinate, MavenProjectDto> variables = new LinkedHashMap<>();
 
         for (final User user : root().users()) {
@@ -73,32 +75,33 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
 
     private void renderDependencies(
             @NonNull final StringBuilder stringBuilder,
-            @NonNull final Map<ICoordinate, ICoordinate> dependencies,
+            @NonNull final Map<ICoordinate, Set<ICoordinate>> dependencies,
             @NonNull final Map<ICoordinate, MavenProjectDto> variables
     ) {
-        @NonNull final Set<Map.Entry<ICoordinate, ICoordinate>> set = dependencies.entrySet();
-        for (@NonNull final Map.Entry<ICoordinate, ICoordinate> entry : set) {
+        @NonNull final Set<Map.Entry<ICoordinate, Set<ICoordinate>>> set = dependencies.entrySet();
+        for (@NonNull final Map.Entry<ICoordinate, Set<ICoordinate>> entry : set) {
             @NonNull final ICoordinate source = entry.getKey();
-            @NonNull final ICoordinate target = entry.getValue();
-            final MavenProjectDto sourceRef = variables.get(source);
-            final MavenProjectDto targetRef = variables.get(target);
-            if (sourceRef == null) continue;
-            if (targetRef == null) continue;
+            for (@NonNull final ICoordinate target: entry.getValue()) {
+                final MavenProjectDto sourceRef = variables.get(source);
+                final MavenProjectDto targetRef = variables.get(target);
+                if (sourceRef == null) continue;
+                if (targetRef == null) continue;
 
-            @NonNull String protocol = targetRef.protocol();
+                @NonNull String protocol = targetRef.protocol();
 
-            if (sourceRef.packaging().startsWith("User")) {
-                if (!sourceRef.protocol().isEmpty()) {
-                    protocol = sourceRef.protocol();
+                if (sourceRef.packaging().startsWith("User")) {
+                    if (!sourceRef.protocol().isEmpty()) {
+                        protocol = sourceRef.protocol();
+                    }
                 }
-            }
 
-            stringBuilder
-                    .append("Rel(")
-                    .append(sourceRef.url()).append(", ")
-                    .append(targetRef.url()).append(", ")
-                    .append("\"").append(protocol).append("\"")
-                    .append(")").append("\n");
+                stringBuilder
+                        .append("Rel(")
+                        .append(sourceRef.url()).append(", ")
+                        .append(targetRef.url()).append(", ")
+                        .append("\"").append(protocol).append("\"")
+                        .append(")").append("\n");
+            }
         }
     }
 
