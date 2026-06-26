@@ -3,9 +3,6 @@ package ru.volnenko.plugin.arch.generator;
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.model.ICoordinate;
 import ru.volnenko.plugin.arch.model.impl.*;
-import ru.volnenko.plugin.arch.model.impl.Queue;
-
-import java.lang.System;
 import java.util.*;
 
 public final class GeneratorLogicalViewInclude extends AbstractGenerator {
@@ -113,7 +110,6 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
     ) {
         @NonNull final List<Environment> environments = boundaries(mavenProjectDto.dependencies());
         startBoundary(stringBuilder, environments);
-        for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
         @NonNull final String url = mavenProjectDto.url();
         @NonNull final String name = mavenProjectDto.name();
         String scope = root().scope(mavenProjectDto);
@@ -122,7 +118,15 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
         String tags = "";
         if ("provided".equals(scope)) componentName += "_Ext";
         if ("compile".equals(scope)) tags = "selected";
+
+        for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
         stringBuilder.append(renderComponent(componentName, url, name, mavenProjectDto.title(), mavenProjectDto.subtitle(), tags));
+
+        if (!mavenProjectDto.comment().isEmpty()) {
+            for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
+            stringBuilder.append("note right: ").append(mavenProjectDto.comment()).append("\n");
+        }
+
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
         variables.put(new MavenCoordinateDto(mavenProjectDto), mavenProjectDto);

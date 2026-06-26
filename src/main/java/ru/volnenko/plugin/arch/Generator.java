@@ -62,8 +62,16 @@ public class Generator extends AbstractMojo {
     @NonNull
     private final String logicalViewDiagramFilename = "src/main/asciidoc/images/logical-view.puml";
 
+    @NonNull
+    private final String logicalViewCompileFilename = "src/main/asciidoc/images/logical-view.svg";
+
+    @NonNull
+    private final String contextViewCompileFilename = "src/main/asciidoc/images/context-view.svg";
+
+    @NonNull
     private final String logicalViewIncludeFilename = "src/main/asciidoc/images/logical-view-include.puml";
 
+    @NonNull
     private final String contextViewIncludeFilename = "src/main/asciidoc/images/context-view-include.puml";
 
     @NonNull

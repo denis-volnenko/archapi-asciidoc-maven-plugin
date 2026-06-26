@@ -21,6 +21,11 @@ public final class GeneratorLogicalViewDiagram extends AbstractGenerator {
         stringBuilder.append("skinparam ranksep 100").append("\n");
         stringBuilder.append("LOGICAL_VIEW()").append("\n").append("\n");
         stringBuilder.append("@enduml").append("\n");
+
+//        @NonNull final SourceStringReader reader = new SourceStringReader(stringBuilder.toString());
+//        @NonNull final FileOutputStream output = new FileOutputStream(new File(path.getAbsolutePath() + "/" + filename + ".svg"));
+//        reader.generateImage(output, new FileFormatOption(FileFormat.SVG, false));
+
         return stringBuilder.toString();
     }
 

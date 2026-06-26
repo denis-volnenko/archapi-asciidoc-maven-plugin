@@ -34,8 +34,6 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
 
     private List<MavenDependencyDto> dependencies = new ArrayList<>();
 
-
-
     @NonNull
     public List<MavenDependencyDto> dependencies() {
         if (dependencies == null) dependencies = new ArrayList<>();
@@ -156,6 +154,14 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
         final String value = properties.get("archapi.protocol");
         if (value == null) return "";
         return properties.get("archapi.protocol");
+    }
+
+    @NonNull
+    public String comment() {
+        if (properties == null) return "";
+        final String value = properties.get("archapi.comment");
+        if (value == null) return "";
+        return properties.get("archapi.comment");
     }
 
 }
