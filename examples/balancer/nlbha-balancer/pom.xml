@@ -15,7 +15,7 @@
 
     <properties>
         <archapi.protocol>http</archapi.protocol>
-        <archapi.subtitle>haproxy</archapi.subtitle>
+        <archapi.title>haproxy</archapi.title>
     </properties>
 
     <dependencies>
