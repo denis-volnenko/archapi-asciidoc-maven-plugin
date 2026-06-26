@@ -94,7 +94,7 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
             }
 
             stringBuilder
-                    .append("Ref(")
+                    .append("Rel(")
                     .append(sourceRef.url()).append(", ")
                     .append(targetRef.url()).append(", ")
                     .append("\"").append(protocol).append("\"")
