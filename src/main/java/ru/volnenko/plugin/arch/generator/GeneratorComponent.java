@@ -37,6 +37,8 @@ public final class GeneratorComponent extends AbstractGenerator {
         int index = 1;
         Collections.sort(models);
         for (@NonNull final MavenProjectDto model : models) {
+            final Boolean logicalViewEnabled = model.logicalViewEnabled();
+            if (logicalViewEnabled != null && !logicalViewEnabled) continue;
             stringBuilder.append("|").append(StringUtil.format(index)).append(". ").append("\n");
             stringBuilder.append("|").append(model.name()).append(" ").append("\n");
             stringBuilder.append("|").append(model.description()).append(" ").append("\n");

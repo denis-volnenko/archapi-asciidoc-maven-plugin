@@ -23,14 +23,14 @@ Boundary(VolnenkoEnvironment, "volnenko") {
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
 		ContainerQueue(UserCrudTopic, "userCrudTopic", "Apache Kafka, default", "", $tags = "")
-		note right: Топик crud-операций по пользователям.
+		note right: Топик crud-операций по пользователям
 	}
 }
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
 		ContainerQueue(TaskCrudTopic, "taskCrudTopic", "Apache Kafka, default", "", $tags = "selected")
-		note right: Топик crud-операций по задачам.
+		note right: Топик crud-операций по задачам
 	}
 }
 

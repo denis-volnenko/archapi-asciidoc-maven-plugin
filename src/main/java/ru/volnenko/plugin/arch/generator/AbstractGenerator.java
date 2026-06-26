@@ -102,8 +102,11 @@ public abstract class AbstractGenerator {
     protected void renderUser(
             @NonNull final StringBuilder stringBuilder,
             @NonNull final User user,
-            @NonNull final Map<ICoordinate, MavenProjectDto> variables
+            @NonNull final Map<ICoordinate, MavenProjectDto> variables,
+            final Boolean viewEnabled
     ) {
+        if (viewEnabled != null && !viewEnabled) return;
+
         @NonNull final List<Environment> environments = boundaries(user.dependencies());
         startBoundary(stringBuilder, environments);
         for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");

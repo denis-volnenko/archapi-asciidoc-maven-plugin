@@ -36,7 +36,7 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
         @NonNull final Map<ICoordinate, MavenProjectDto> variables = new LinkedHashMap<>();
 
         for (final User user : root().users()) {
-            renderUser(stringBuilder, user, variables);
+            renderUser(stringBuilder, user, variables, user.logicalViewEnabled());
             dependencies(dependencies, user);
         }
 
@@ -82,6 +82,10 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
                 final MavenProjectDto sourceRef = variables.get(source);
                 final MavenProjectDto targetRef = variables.get(target);
                 if (sourceRef == null) continue;
+
+                final Boolean logicalViewEnabled = sourceRef.logicalViewEnabled();
+                if (logicalViewEnabled != null && !logicalViewEnabled) continue;
+
                 if (targetRef == null) continue;
 
                 @NonNull String protocol = targetRef.protocol();
@@ -108,6 +112,9 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
             @NonNull final MavenProjectDto mavenProjectDto,
             @NonNull final Map<ICoordinate, MavenProjectDto> variables
     ) {
+        final Boolean logicalViewEnabled = mavenProjectDto.logicalViewEnabled();
+        if (logicalViewEnabled != null && !logicalViewEnabled) return;
+
         @NonNull final List<Environment> environments = boundaries(mavenProjectDto.dependencies());
         startBoundary(stringBuilder, environments);
         @NonNull final String url = mavenProjectDto.url();

@@ -26,7 +26,7 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
         @NonNull final Map<ICoordinate, MavenProjectDto> variables = new LinkedHashMap<>();
 
         for (@NonNull final User user : root().users()) {
-           renderUser(stringBuilder, user, variables);
+           renderUser(stringBuilder, user, variables, user.contextViewEnabled());
         }
 
         for (@NonNull final Service item :  root().services()) {
@@ -45,6 +45,9 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
             @NonNull final StringBuilder stringBuilder,
             @NonNull final MavenProjectDto mavenProjectDto
     ) {
+        final Boolean contextViewEnabled = mavenProjectDto.contextViewEnabled();
+        if (contextViewEnabled != null && !contextViewEnabled) return;
+
         @NonNull final List<Environment> environments = boundaries(mavenProjectDto.dependencies());
         startBoundary(stringBuilder, environments);
         for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
