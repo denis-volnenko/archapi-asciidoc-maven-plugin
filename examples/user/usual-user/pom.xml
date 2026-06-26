@@ -14,6 +14,10 @@
     <name>Пользователь</name>
     <description>Пользователь с обычным уровнем доступа</description>
 
+    <properties>
+        <archapi.protocol>https</archapi.protocol>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>ru.volnenko.arch.nlb</groupId>

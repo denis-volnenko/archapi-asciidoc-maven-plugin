@@ -84,11 +84,20 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
             final MavenProjectDto targetRef = variables.get(target);
             if (sourceRef == null) continue;
             if (targetRef == null) continue;
+
+            @NonNull String protocol = targetRef.protocol();
+
+            if (sourceRef.packaging().startsWith("User")) {
+                if (!sourceRef.protocol().isEmpty()) {
+                    protocol = sourceRef.protocol();
+                }
+            }
+
             stringBuilder
                     .append("Ref(")
                     .append(sourceRef.url()).append(", ")
                     .append(targetRef.url()).append(", ")
-                    .append("\"").append(targetRef.protocol()).append("\"")
+                    .append("\"").append(protocol).append("\"")
                     .append(")").append("\n");
         }
     }
