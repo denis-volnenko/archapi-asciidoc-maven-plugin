@@ -100,6 +100,7 @@
             <artifactId>user-crud-topic</artifactId>
             <version>1.0.0</version>
             <type>Queue</type>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.queue</groupId>

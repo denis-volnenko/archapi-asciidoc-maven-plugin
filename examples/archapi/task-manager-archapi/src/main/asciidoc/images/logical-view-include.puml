@@ -20,9 +20,17 @@ Boundary(VolnenkoEnvironment, "volnenko") {
 	}
 }
 
-ContainerQueue(UserCrudTopic, "userCrudTopic", "", "", $tags = "selected")
+Boundary(VolnenkoEnvironment, "volnenko") { 
+	Boundary(ClusterEnvironment, "cluster") { 
+		ContainerQueue(UserCrudTopic, "userCrudTopic", "Apache Kafka, default", "", $tags = "")
+	}
+}
 
-ContainerQueue(TaskCrudTopic, "taskCrudTopic", "", "", $tags = "selected")
+Boundary(VolnenkoEnvironment, "volnenko") { 
+	Boundary(ClusterEnvironment, "cluster") { 
+		ContainerQueue(TaskCrudTopic, "taskCrudTopic", "Apache Kafka, default", "", $tags = "selected")
+	}
+}
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Container_Ext(NlbHA, "nlbha", "haproxy", "", $tags = "")
