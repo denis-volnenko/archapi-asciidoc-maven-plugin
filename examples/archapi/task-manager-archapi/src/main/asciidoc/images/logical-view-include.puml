@@ -25,7 +25,7 @@ ContainerQueue(UserCrudTopic, "userCrudTopic", "", "", $tags = "selected")
 ContainerQueue(TaskCrudTopic, "taskCrudTopic", "", "", $tags = "selected")
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
-	Container_Ext(NlbHA, "nlbha", "", "", $tags = "")
+	Container_Ext(NlbHA, "nlbha", "haproxy", "", $tags = "")
 }
 
 Rel(UserUsual, NlbHA, "https")
