@@ -177,6 +177,7 @@ public class Generator extends AbstractMojo {
 
         GeneratorArchdoc.create()
                 .root(root)
+                .contextViewEnabled(contextViewEnabled)
                 .logicalViewEnabled(logicViewEnabled)
                 .componentsEnabled(contextViewEnabled)
                 .vocabularyEnabled(vocabularyEnabled)

@@ -1,6 +1,12 @@
 package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
+import lombok.SneakyThrows;
+import net.sourceforge.plantuml.FileFormat;
+import net.sourceforge.plantuml.FileFormatOption;
+import net.sourceforge.plantuml.SourceFileReader;
+
+import java.io.File;
 
 public final class GeneratorContextViewCompile {
 
@@ -35,8 +41,13 @@ public final class GeneratorContextViewCompile {
         return this;
     }
 
+    @SneakyThrows
     public void execute() {
-
+        if (!enabled) return;
+        @NonNull final File file = new File(source);
+        @NonNull final FileFormatOption option = new FileFormatOption(FileFormat.SVG);
+        @NonNull final SourceFileReader reader = new SourceFileReader(file, new File("."), option);
+        reader.getGeneratedImages();
     }
 
 }

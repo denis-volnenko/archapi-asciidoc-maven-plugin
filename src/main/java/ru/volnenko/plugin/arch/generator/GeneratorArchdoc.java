@@ -9,7 +9,15 @@ public final class GeneratorArchdoc extends AbstractGenerator {
 
     private boolean componentsEnabled = false;
 
+    private boolean contextViewEnabled = false;
+
     private boolean logicalViewEnabled = false;
+
+    @NonNull
+    public GeneratorArchdoc contextViewEnabled(boolean contextViewEnabled) {
+        this.contextViewEnabled = contextViewEnabled;
+        return this;
+    }
 
     @NonNull
     public GeneratorArchdoc logicalViewEnabled(boolean logicalViewEnabled) {
@@ -38,14 +46,25 @@ public final class GeneratorArchdoc extends AbstractGenerator {
     @Override
     public String generate() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("= [Архитектурный документ]").append("\n").append("\n");
+        stringBuilder.append("= [Архитектурный документ]").append("\n")
+                .append(":sectnums:").append("\n")
+                .append(":toc:").append("\n")
+                .append(":toc-title: Оглавление").append("\n")
+                .append("\n");
+
 
         if (vocabularyEnabled) {
             stringBuilder.append("include::include/vocabulary.adoc[]").append("\n").append("\n");
         }
 
+        if (contextViewEnabled) {
+            stringBuilder.append("== Контекстное представление").append("\n").append("\n");
+            stringBuilder.append("image::images/context-view.svg[]").append("\n").append("\n");
+        }
+
         if (logicalViewEnabled) {
             stringBuilder.append("== Логическое представление").append("\n").append("\n");
+            stringBuilder.append("image::images/logical-view.svg[]").append("\n").append("\n");
             if (componentsEnabled) {
                 stringBuilder.append("include::include/components.adoc[]").append("\n").append("\n");
             }

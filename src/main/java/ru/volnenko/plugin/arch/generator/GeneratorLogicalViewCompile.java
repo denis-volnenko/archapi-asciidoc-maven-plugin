@@ -5,8 +5,6 @@ import lombok.SneakyThrows;
 import net.sourceforge.plantuml.FileFormat;
 import net.sourceforge.plantuml.FileFormatOption;
 import net.sourceforge.plantuml.SourceFileReader;
-//import net.sourceforge.plantuml.*;
-//import net.sourceforge.plantuml.FileFormat;
 
 import java.io.File;
 
@@ -46,21 +44,10 @@ public final class GeneratorLogicalViewCompile {
     @SneakyThrows
     public void execute() {
         if (!enabled) return;
-//        @NonNull final String value = new String(Files.readAllBytes(Paths.get(source)));
-        File file = new File(source);
-//        @NonNull final SourceFileReader reader = new SourceFileReader(new File(source));
-        FileFormatOption option = new FileFormatOption(FileFormat.SVG);
-        SourceFileReader reader = null;
-//        try {
-         reader = new SourceFileReader(file, new File("."), option);
-            reader.getGeneratedImages();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        @NonNull final SourceStringReader reader = new SourceStringReader(value);
-//        reader.
-//        @NonNull final FileOutputStream output = new FileOutputStream(target);
-//        reader.get(output, new FileFormatOption(FileFormat.SVG, false));
+        @NonNull final File file = new File(source);
+        @NonNull final FileFormatOption option = new FileFormatOption(FileFormat.SVG);
+        @NonNull final SourceFileReader reader = new SourceFileReader(file, new File("."), option);
+        reader.getGeneratedImages();
     }
 
 }
