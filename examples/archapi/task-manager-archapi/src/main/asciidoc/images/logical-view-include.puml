@@ -4,19 +4,19 @@ Person(UserAdmin, "Администратор", "", "", $tags = "")
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
-		Container(TaskManagerService, "task-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "selected")
+		Container(TaskManagerService, "task-manager-service", "", "", $tags = "selected")
 	}
 }
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
-		Container(UserManagerService, "user-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "")
+		Container(UserManagerService, "user-manager-service", "", "", $tags = "")
 	}
 }
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
-		ContainerDb(TaskManagerDatabase, "task_manager", "", "Postgresql 17 Pro (Enterprise)", $tags = "selected")
+		ContainerDb(TaskManagerDatabase, "task_manager", "", "", $tags = "selected")
 	}
 }
 
