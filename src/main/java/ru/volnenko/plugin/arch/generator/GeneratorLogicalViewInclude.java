@@ -59,7 +59,7 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
         }
 
         for (final ru.volnenko.plugin.arch.model.impl.Queue item: root().queues()) {
-            renderComponent("Queue", stringBuilder, item, variables);
+            renderComponent("ContainerQueue", stringBuilder, item, variables);
             dependencies(dependencies, item);
         }
 

@@ -20,6 +20,10 @@ Boundary(VolnenkoEnvironment, "volnenko") {
 	}
 }
 
+ContainerQueue(UserCrudTopic, "userCrudTopic", "", "", $tags = "selected")
+
+ContainerQueue(TaskCrudTopic, "taskCrudTopic", "", "", $tags = "selected")
+
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Container_Ext(NlbHA, "nlbha", "", "", $tags = "")
 }
@@ -28,5 +32,7 @@ Rel(UserUsual, NlbHA, "https")
 Rel(UserAdmin, NlbHA, "https")
 Rel(TaskManagerService, UserManagerService, "http")
 Rel(TaskManagerService, TaskManagerDatabase, "tcp")
+Rel(TaskManagerService, TaskCrudTopic, "")
+Rel(UserManagerService, UserCrudTopic, "")
 Rel(NlbHA, UserManagerService, "http")
 Rel(NlbHA, TaskManagerService, "http")

@@ -95,6 +95,18 @@
             <type>Service</type>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>ru.volnenko.arch.queue</groupId>
+            <artifactId>user-crud-topic</artifactId>
+            <version>1.0.0</version>
+            <type>Queue</type>
+        </dependency>
+        <dependency>
+            <groupId>ru.volnenko.arch.queue</groupId>
+            <artifactId>task-crud-topic</artifactId>
+            <version>1.0.0</version>
+            <type>Queue</type>
+        </dependency>
     </dependencies>
 
 </project>

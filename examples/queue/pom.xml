@@ -5,19 +5,13 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.volnenko.arch</groupId>
-    <artifactId>examples</artifactId>
+    <artifactId>queue</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>balancer</module>
-        <module>database</module>
-        <module>environment</module>
-        <module>queue</module>
-        <module>service</module>
-        <module>user</module>
-        <module>vocabulary</module>
-        <module>archapi</module>
+        <module>task-crud-topic</module>
+        <module>user-crud-topic</module>
     </modules>
 
 </project>

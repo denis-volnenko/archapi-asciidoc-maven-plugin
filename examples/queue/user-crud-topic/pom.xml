@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.volnenko.arch.queue</groupId>
+    <artifactId>user-crud-topic</artifactId>
+    <version>1.0.0</version>
+    <packaging>Queue</packaging>
+
+    <url>UserCrudTopic</url>
+    <name>userCrudTopic</name>
+    <description>Топик crud-операций по пользователям.</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>ru.volnenko.maven.plugin</groupId>
+                <artifactId>archapi-asciidoc-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <extensions>true</extensions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
