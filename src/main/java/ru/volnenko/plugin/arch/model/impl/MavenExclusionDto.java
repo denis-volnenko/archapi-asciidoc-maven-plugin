@@ -5,12 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+import ru.volnenko.plugin.arch.model.IArtifactId;
+import ru.volnenko.plugin.arch.model.IGroupId;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MavenExclusionDto {
+public class MavenExclusionDto implements IGroupId, IArtifactId {
 
     private String groupId = "";
 

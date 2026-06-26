@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 import org.apache.maven.model.Dependency;
+import ru.volnenko.plugin.arch.model.ICoordinate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MavenDependencyDto {
+public class MavenDependencyDto implements ICoordinate {
 
     private String groupId = "";
 
@@ -27,6 +28,11 @@ public class MavenDependencyDto {
     private String scope = "";
 
     private List<MavenExclusionDto> exclusions = new ArrayList<>();
+
+    @NonNull
+    public ICoordinate coordinate() {
+        return this;
+    }
 
     @NonNull
     public List<MavenExclusionDto> exclusions() {

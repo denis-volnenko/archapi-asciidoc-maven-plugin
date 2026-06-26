@@ -1,12 +1,15 @@
 package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
+import ru.volnenko.plugin.arch.model.ICoordinate;
 import ru.volnenko.plugin.arch.model.impl.Environment;
 import ru.volnenko.plugin.arch.model.impl.Service;
 import ru.volnenko.plugin.arch.model.impl.User;
 import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public final class GeneratorContextViewInclude extends AbstractGenerator {
 
@@ -15,13 +18,15 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
         return new GeneratorContextViewInclude();
     }
 
+
     @NonNull
     @Override
     public String generate() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
+        @NonNull final Map<ICoordinate, MavenProjectDto> variables = new LinkedHashMap<>();
 
         for (@NonNull final User user : root().users()) {
-           renderUser(stringBuilder, user);
+           renderUser(stringBuilder, user, variables);
         }
 
         for (@NonNull final Service item :  root().services()) {

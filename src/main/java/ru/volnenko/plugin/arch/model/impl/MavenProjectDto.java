@@ -1,10 +1,12 @@
 package ru.volnenko.plugin.arch.model.impl;
 
+import com.ctreber.acearth.util.Coordinate;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+import ru.volnenko.plugin.arch.model.ICoordinate;
 
 import java.util.*;
 
@@ -12,7 +14,7 @@ import java.util.*;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MavenProjectDto implements Comparable<MavenProjectDto> {
+public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate {
 
     private String groupId = "";
 
@@ -32,6 +34,8 @@ public class MavenProjectDto implements Comparable<MavenProjectDto> {
 
     private List<MavenDependencyDto> dependencies = new ArrayList<>();
 
+
+
     @NonNull
     public List<MavenDependencyDto> dependencies() {
         if (dependencies == null) dependencies = new ArrayList<>();
@@ -47,6 +51,11 @@ public class MavenProjectDto implements Comparable<MavenProjectDto> {
     @Override
     public int compareTo(MavenProjectDto o) {
         return name.compareTo(o.getName());
+    }
+
+    @NonNull
+    public ICoordinate coordinate() {
+        return this;
     }
 
     @NonNull
@@ -116,10 +125,13 @@ public class MavenProjectDto implements Comparable<MavenProjectDto> {
 
     @NonNull
     public String type() {
-        if (properties == null) return "";
-        final String value = properties.get("archapi.type");
-        if (value == null) return "";
-        return properties.get("archapi.type");
+        if (packaging == null || "pom".equals(packaging)) {
+            if (properties == null) return "";
+            final String value = properties.get("archapi.type");
+            if (value == null) return "";
+            return properties.get("archapi.type");
+        }
+        return packaging;
     }
 
     @NonNull

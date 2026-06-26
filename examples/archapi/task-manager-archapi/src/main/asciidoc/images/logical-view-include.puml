@@ -24,3 +24,6 @@ Boundary(VolnenkoEnvironment, "volnenko") {
 	Container_Ext(NlbHA, "nlbha", "", "", $tags = "")
 }
 
+Ref(UserUsual, NlbHA, "http")
+Ref(UserAdmin, NlbHA, "http")
+Ref(TaskManagerService, TaskManagerDatabase, "tcp")

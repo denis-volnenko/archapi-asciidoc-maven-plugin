@@ -13,6 +13,10 @@
     <name>nlbha</name>
     <description>Высокодоступный балансировщик нагрузки.</description>
 
+    <properties>
+        <archapi.protocol>http</archapi.protocol>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>ru.volnenko.arch.environment</groupId>

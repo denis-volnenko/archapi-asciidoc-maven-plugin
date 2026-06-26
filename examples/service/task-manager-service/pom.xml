@@ -14,12 +14,12 @@
     <description>Сервис управления задачами и проектами</description>
 
     <properties>
-        <title>Java 21, Spring Boot 3</title>
-        <subtitle>mesh</subtitle>
+        <archapi.title>Java 21, Spring Boot 3</archapi.title>
+        <archapi.subtitle>mesh</archapi.subtitle>
 
-        <protocol>http</protocol>
-        <port>8080</port>
-        <nodePort>308080</nodePort>
+        <archapi.protocol>http</archapi.protocol>
+        <archapi.port>8080</archapi.port>
+        <archapi.nodePort>308080</archapi.nodePort>
     </properties>
 
     <dependencies>

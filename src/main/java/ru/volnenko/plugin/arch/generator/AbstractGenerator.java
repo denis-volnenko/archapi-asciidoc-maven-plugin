@@ -3,11 +3,8 @@ package ru.volnenko.plugin.arch.generator;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import org.codehaus.plexus.util.FileUtils;
-import ru.volnenko.plugin.arch.model.impl.Components;
-import ru.volnenko.plugin.arch.model.impl.Environment;
-import ru.volnenko.plugin.arch.model.impl.Root;
-import ru.volnenko.plugin.arch.model.impl.User;
-import ru.volnenko.plugin.arch.model.impl.MavenDependencyDto;
+import ru.volnenko.plugin.arch.model.ICoordinate;
+import ru.volnenko.plugin.arch.model.impl.*;
 import ru.volnenko.plugin.arch.util.StringUtil;
 
 import java.io.File;
@@ -102,7 +99,8 @@ public abstract class AbstractGenerator {
 
     protected void renderUser(
             @NonNull final StringBuilder stringBuilder,
-            @NonNull final User user
+            @NonNull final User user,
+            @NonNull final Map<ICoordinate, MavenProjectDto> variables
     ) {
         @NonNull final List<Environment> environments = boundaries(user.dependencies());
         startBoundary(stringBuilder, environments);
@@ -116,6 +114,7 @@ public abstract class AbstractGenerator {
         stringBuilder.append(renderUser(component, user.url(), user.name(), "", "", tags));
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
+        variables.put(new MavenCoordinateDto(user), user);
     }
 
     @NonNull

@@ -14,9 +14,9 @@
     <description>База данных task-manager</description>
 
     <properties>
-        <subtitle>Postgresql 17 Pro (Enterprise)</subtitle>
-        <port>5432</port>
-        <protocol>tcp</protocol>
+        <archapi.subtitle>Postgresql 17 Pro (Enterprise)</archapi.subtitle>
+        <archapi.port>5432</archapi.port>
+        <archapi.protocol>tcp</archapi.protocol>
     </properties>
 
     <dependencies>
