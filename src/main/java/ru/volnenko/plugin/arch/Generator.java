@@ -80,6 +80,7 @@ public class Generator extends AbstractMojo {
     @NonNull
     private final String componentsDocumentFilename = "src/main/asciidoc/include/components.adoc";
 
+    @NonNull
     private final String libraryDiagramFilename = "src/main/asciidoc/images/base-library.puml";
 
     @Getter
@@ -150,6 +151,12 @@ public class Generator extends AbstractMojo {
                 .filename(contextViewDiagramFilename)
                 .execute();
 
+        GeneratorContextViewCompile.create()
+                .enabled(logicalViewDiagramEnabled)
+                .source(contextViewDiagramFilename)
+                .target(contextViewCompileFilename)
+                .execute();
+
         GeneratorLogicalViewInclude.create()
                 .root(root)
                 .enabled(logicalViewDiagramEnabled)
@@ -160,6 +167,12 @@ public class Generator extends AbstractMojo {
                 .root(root)
                 .enabled(logicalViewDiagramEnabled)
                 .filename(logicalViewDiagramFilename)
+                .execute();
+
+        GeneratorLogicalViewCompile.create()
+                .enabled(logicalViewDiagramEnabled)
+                .source(logicalViewDiagramFilename)
+                .target(logicalViewCompileFilename)
                 .execute();
 
         GeneratorArchdoc.create()

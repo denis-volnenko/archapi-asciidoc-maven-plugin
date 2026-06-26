@@ -75,6 +75,8 @@ public abstract class AbstractGenerator {
         return StringUtil.format(inputStream);
     }
 
+
+
     @NonNull
     protected List<Environment> boundaries(@NonNull List<MavenDependencyDto> dependencies) {
         @NonNull final List<Environment> result = new ArrayList<>();
@@ -178,7 +180,5 @@ public abstract class AbstractGenerator {
             index--;
         }
     }
-
-
 
 }

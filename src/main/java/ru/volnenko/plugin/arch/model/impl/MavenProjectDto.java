@@ -1,6 +1,5 @@
 package ru.volnenko.plugin.arch.model.impl;
 
-import com.ctreber.acearth.util.Coordinate;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
