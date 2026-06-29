@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Exclusion;
 import ru.volnenko.plugin.arch.model.ICoordinate;
 
 import java.util.ArrayList;
@@ -76,6 +77,15 @@ public class MavenDependencyDto implements ICoordinate {
         version = dependency.getVersion();
         type = dependency.getType();
         scope = dependency.getScope();
+
+        if (dependency.getExclusions() != null) {
+            exclusions = new ArrayList<>();
+            for (@NonNull final Exclusion exclusion : dependency.getExclusions()) {
+                exclusions.add(new MavenExclusionDto(exclusion));
+            }
+        }
     }
+
+
 
 }

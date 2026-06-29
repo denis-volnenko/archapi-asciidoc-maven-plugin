@@ -3,6 +3,7 @@ package ru.volnenko.plugin.arch.generator;
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.model.ICoordinate;
 import ru.volnenko.plugin.arch.model.impl.*;
+
 import java.util.*;
 
 public final class GeneratorLogicalViewInclude extends AbstractGenerator {
@@ -17,6 +18,7 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
 
     private void dependencies(
             @NonNull final Map<ICoordinate, Set<ICoordinate>> dependencies,
+            @NonNull final Set<MavenExclusion> exclusions,
             @NonNull final MavenProjectDto mavenProjectDto
     ) {
         @NonNull final MavenCoordinateDto key = new MavenCoordinateDto(mavenProjectDto);
@@ -26,6 +28,9 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
             set.add(new MavenCoordinateDto(mavenDependencyDto));
             dependencies.put(key, set);
         }
+        for (@NonNull final MavenExclusionDto mavenExclusionDto: root().exclusions(mavenProjectDto)) {
+            exclusions.add(new MavenExclusion(mavenProjectDto, mavenExclusionDto));
+        }
     }
 
     @NonNull
@@ -34,38 +39,39 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
         @NonNull final Map<ICoordinate, Set<ICoordinate>> dependencies = new LinkedHashMap<>();
         @NonNull final Map<ICoordinate, MavenProjectDto> variables = new LinkedHashMap<>();
+        @NonNull final Set<MavenExclusion> exclusions = new LinkedHashSet<>();
 
         for (final User user : root().users()) {
             renderUser(stringBuilder, user, variables, user.logicalViewEnabled());
-            dependencies(dependencies, user);
+            dependencies(dependencies, exclusions, user);
         }
 
         for (@NonNull final Service item : root().services()) {
             renderComponent("Container", stringBuilder, item, variables);
-            dependencies(dependencies, item);
+            dependencies(dependencies, exclusions, item);
         }
 
         for (final ru.volnenko.plugin.arch.model.impl.System item: root().systems()) {
             renderComponent("System", stringBuilder, item, variables);
-            dependencies(dependencies, item);
+            dependencies(dependencies, exclusions, item);
         }
 
         for (final ru.volnenko.plugin.arch.model.impl.Database item: root().databases()) {
             renderComponent("ContainerDb", stringBuilder, item, variables);
-            dependencies(dependencies, item);
+            dependencies(dependencies, exclusions, item);
         }
 
         for (final ru.volnenko.plugin.arch.model.impl.Queue item: root().queues()) {
             renderComponent("ContainerQueue", stringBuilder, item, variables);
-            dependencies(dependencies, item);
+            dependencies(dependencies, exclusions, item);
         }
 
         for (final ru.volnenko.plugin.arch.model.impl.Balancer item: root().balancers()) {
             renderComponent("Container", stringBuilder, item, variables);
-            dependencies(dependencies, item);
+            dependencies(dependencies, exclusions,item);
         }
 
-        renderDependencies(stringBuilder, dependencies, variables);
+        renderDependencies(stringBuilder, dependencies, exclusions, variables);
 
         return stringBuilder.toString();
     }
@@ -73,6 +79,7 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
     private void renderDependencies(
             @NonNull final StringBuilder stringBuilder,
             @NonNull final Map<ICoordinate, Set<ICoordinate>> dependencies,
+            @NonNull final Set<MavenExclusion> exclusions,
             @NonNull final Map<ICoordinate, MavenProjectDto> variables
     ) {
         @NonNull final Set<Map.Entry<ICoordinate, Set<ICoordinate>>> set = dependencies.entrySet();
@@ -95,6 +102,8 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
                         protocol = sourceRef.protocol();
                     }
                 }
+
+                if (exclusions.contains(new MavenExclusion(sourceRef, targetRef))) continue;
 
                 stringBuilder
                         .append("Rel(")

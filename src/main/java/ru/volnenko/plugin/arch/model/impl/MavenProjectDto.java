@@ -177,4 +177,17 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
         return properties.get("archapi.logical.view.enabled").equals("true");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MavenProjectDto that = (MavenProjectDto) o;
+        return Objects.equals(groupId, that.groupId) && Objects.equals(artifactId, that.artifactId) && Objects.equals(version, that.version) && Objects.equals(packaging, that.packaging);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(groupId, artifactId, version, packaging);
+    }
+
 }

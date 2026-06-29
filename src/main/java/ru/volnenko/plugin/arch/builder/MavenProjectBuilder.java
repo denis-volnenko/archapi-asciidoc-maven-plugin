@@ -27,7 +27,6 @@ public final class MavenProjectBuilder {
 
     private YAMLMapper yamlMapper = new YAMLMapper();
 
-
     @NonNull
     private static Map<String, Class> MAP = new LinkedHashMap<>();
 

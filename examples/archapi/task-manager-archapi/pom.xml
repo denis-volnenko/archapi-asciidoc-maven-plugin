@@ -41,6 +41,12 @@
             <version>1.0.0</version>
             <type>Balancer</type>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>ru.volnenko.arch.um</groupId>
+                    <artifactId>user-manager-service</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>ru.volnenko.arch.user</groupId>
