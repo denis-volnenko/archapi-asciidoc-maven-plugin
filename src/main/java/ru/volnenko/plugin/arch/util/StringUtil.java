@@ -54,7 +54,7 @@ public final class StringUtil {
         return value
                 .replaceAll("\n", "")
                 .replaceAll("\\n", "")
-                .replace("\"", "")
+                .replaceAll("\"", "")
                 .replaceAll("\t", "");
     }
 
