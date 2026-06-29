@@ -53,6 +53,7 @@ public final class StringUtil {
         if (value == null || value.isEmpty()) return "";
         return value
                 .replaceAll("\n", "")
+                .replaceAll("\\n", "")
                 .replace("\"", "")
                 .replaceAll("\t", "");
     }
