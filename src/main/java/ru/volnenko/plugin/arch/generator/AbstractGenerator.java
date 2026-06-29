@@ -90,7 +90,7 @@ public abstract class AbstractGenerator {
         for (final MavenDependencyDto dependency: dependencies) {
             if (dependency == null) continue;
             if ("Environment".equals(dependency.getType())) {
-                final Environment environment = environments.get(dependency.getArtifactId());
+                final Environment environment = environments.get(dependency.getGroupId() + ":" + dependency.getArtifactId());
                 if (environment == null) continue;
                 result.add(environment);
             }
