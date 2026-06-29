@@ -48,4 +48,13 @@ public final class StringUtil {
                 .collect(Collectors.joining(System.lineSeparator()));
     }
 
+    @NonNull
+    public static String prepare(String value) {
+        if (value == null || value.isEmpty()) return "";
+        return value
+                .replaceAll("\n", "")
+                .replace("\"", "")
+                .replaceAll("\t", "");
+    }
+
 }

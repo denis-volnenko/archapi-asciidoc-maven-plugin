@@ -31,6 +31,26 @@ public final class Root implements IRoot {
         return scope(mavenProjectDto.groupId(), mavenProjectDto.artifactId(), mavenProjectDto.version(), mavenProjectDto.packaging());
     }
 
+    public boolean isScopeTest(final MavenProjectDto mavenProjectDto) {
+        final String scope = scope(mavenProjectDto);
+        return "test".equals(scope);
+    }
+
+    public boolean isScopeCompile(final MavenProjectDto mavenProjectDto) {
+        final String scope = scope(mavenProjectDto);
+        return "compile".equals(scope);
+    }
+
+    public boolean isScopeRuntime(final MavenProjectDto mavenProjectDto) {
+        final String scope = scope(mavenProjectDto);
+        return "runtime".equals(scope);
+    }
+
+    public boolean isScopeProvided(final MavenProjectDto mavenProjectDto) {
+        final String scope = scope(mavenProjectDto);
+        return "provided".equals(scope);
+    }
+
     public String scope(
         final String groupId,
         final String artifactId,
