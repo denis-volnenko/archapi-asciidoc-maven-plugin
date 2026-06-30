@@ -43,7 +43,9 @@ public final class GeneratorComponent extends AbstractGenerator {
             if (logicalViewEnabled != null && !logicalViewEnabled) continue;
             stringBuilder.append("|").append(StringUtil.format(index)).append(". ").append("\n");
             stringBuilder.append("|").append(prepare(model.name())).append(" ").append("\n");
-            stringBuilder.append("|").append(prepare(model.description())).append(" ").append("\n");
+            @NonNull String text = model.description();
+            if (!model.comment().isEmpty()) text = model.comment();
+            stringBuilder.append("|").append(prepare(text)).append(" ").append("\n");
             stringBuilder.append("\n");
             index++;
         }
