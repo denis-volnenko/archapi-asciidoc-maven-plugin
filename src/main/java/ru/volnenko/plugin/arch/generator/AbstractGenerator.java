@@ -116,7 +116,7 @@ public abstract class AbstractGenerator {
         String tags = "";
         if ("provided".equals(scope)) component += "_Ext";
         if ("compile".equals(scope)) tags = "selected";
-        stringBuilder.append(renderUser(component, user.url(), user.name(), "", "", tags));
+        stringBuilder.append(renderUser(component, user.url(), user.name(), user.title(), user.subtitle(), tags));
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
         variables.put(new MavenCoordinateDto(user), user);
