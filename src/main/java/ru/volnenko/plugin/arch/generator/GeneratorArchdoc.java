@@ -38,7 +38,7 @@ public final class GeneratorArchdoc extends AbstractGenerator {
     @Override
     public String generate() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("= [Архитектурный документ]").append("\n").append("\n");
+        stringBuilder.append("= [Архитектурный документ] ").append(root().name()).append("\n").append("\n");
 
         if (vocabularyEnabled) {
             stringBuilder.append("include::include/vocabulary.adoc[]").append("\n").append("\n");

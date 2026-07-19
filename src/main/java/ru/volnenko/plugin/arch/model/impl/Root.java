@@ -18,7 +18,19 @@ public final class Root implements IRoot {
 
     private String archapi = "1.0.0";
 
+    private String name = "";
+
+    private String description = "";
+
+    private String url = "";
+
     private Components components = new Components();
+
+    @NonNull
+    public String name() {
+        if (name == null) return "";
+        return name;
+    }
 
     @NonNull
     public Components components() {

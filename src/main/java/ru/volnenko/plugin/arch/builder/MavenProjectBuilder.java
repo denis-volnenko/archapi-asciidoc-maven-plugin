@@ -16,6 +16,7 @@ import ru.volnenko.plugin.arch.model.impl.System;
 import ru.volnenko.plugin.arch.model.impl.MavenDependencyDto;
 import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
 import ru.volnenko.plugin.arch.util.MapperUtil;
+import ru.volnenko.plugin.arch.util.StringUtil;
 
 import java.io.File;
 import java.util.*;
@@ -131,6 +132,11 @@ public final class MavenProjectBuilder {
 
         if ("ArchApi".equals(type)) {
             result.put("archapi", "1.0.0");
+
+            result.put("name", StringUtil.format(mavenProject.getName()));
+            result.put("description", StringUtil.format(mavenProject.getDescription()));
+            result.put("url", StringUtil.format(mavenProject.getUrl()));
+
             result.put("components", pluralMap);
             JsonNode root = MapperUtil.json().readTree(
                     MapperUtil.json().writeValueAsString(result)

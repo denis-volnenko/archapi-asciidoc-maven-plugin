@@ -70,7 +70,10 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
 
         renderDependencies(stringBuilder, dependencies, variables);
 
-        return stringBuilder.toString();
+        @NonNull final String result = stringBuilder.toString();
+        if (result.isEmpty()) stringBuilder.append("\n\n");
+
+        return result;
     }
 
     private void renderDependencies(
