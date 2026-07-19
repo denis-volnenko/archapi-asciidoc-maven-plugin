@@ -1,6 +1,8 @@
 package ru.volnenko.plugin.arch;
 
+import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 import lombok.SneakyThrows;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.AbstractMojo;
@@ -10,6 +12,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.settings.Settings;
 import ru.volnenko.plugin.arch.builder.MavenProjectBuilder;
+import ru.volnenko.plugin.arch.component.PomDeployer;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;
@@ -23,6 +26,16 @@ public final class Packaging extends AbstractMojo {
 
     @Parameter(defaultValue = "${settings}", required = true, readonly = true)
     private Settings settings;
+
+    @Getter
+    @Setter
+    @Parameter(property = "archapiUrl", defaultValue = "http://localhost:8080")
+    public String archapiUrl = "http://localhost:8080";
+
+    @Getter
+    @Setter
+    @Parameter(property = "archapiEnabled", defaultValue = "false")
+    public Boolean archapiEnabled = false;
 
     @Override
     @SneakyThrows
@@ -39,6 +52,12 @@ public final class Packaging extends AbstractMojo {
 
         @NonNull final Artifact artifact =  project.getArtifact();
         artifact.setFile(build);
+
+        PomDeployer.create()
+                .archapiUrl(archapiUrl)
+                .archapiEnabled(archapiEnabled)
+                .mavenProject(project)
+                .execute();
     }
 
 }

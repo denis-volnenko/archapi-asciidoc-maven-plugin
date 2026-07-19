@@ -16,7 +16,7 @@ import ru.volnenko.plugin.arch.model.impl.Root;
 import ru.volnenko.plugin.arch.util.MapperUtil;
 
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.COMPILE)
-public class Generator extends AbstractMojo {
+public final class Generator extends AbstractMojo {
 
     @NonNull
     public static Generator create() {

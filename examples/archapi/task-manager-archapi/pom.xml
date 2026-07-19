@@ -18,6 +18,9 @@
                 <artifactId>archapi-asciidoc-maven-plugin</artifactId>
                 <version>1.0.0</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <archapiEnabled>true</archapiEnabled>
+                </configuration>
             </plugin>
         </plugins>
     </build>
