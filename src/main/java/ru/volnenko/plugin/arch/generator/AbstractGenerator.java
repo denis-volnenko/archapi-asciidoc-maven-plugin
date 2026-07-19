@@ -75,6 +75,8 @@ public abstract class AbstractGenerator {
         return StringUtil.format(inputStream);
     }
 
+
+
     @NonNull
     protected List<Environment> boundaries(@NonNull List<MavenDependencyDto> dependencies) {
         @NonNull final List<Environment> result = new ArrayList<>();
@@ -88,7 +90,7 @@ public abstract class AbstractGenerator {
         for (final MavenDependencyDto dependency: dependencies) {
             if (dependency == null) continue;
             if ("Environment".equals(dependency.getType())) {
-                final Environment environment = environments.get(dependency.getArtifactId());
+                final Environment environment = environments.get(dependency.getGroupId() + ":" + dependency.getArtifactId());
                 if (environment == null) continue;
                 result.add(environment);
             }
@@ -100,8 +102,11 @@ public abstract class AbstractGenerator {
     protected void renderUser(
             @NonNull final StringBuilder stringBuilder,
             @NonNull final User user,
-            @NonNull final Map<ICoordinate, MavenProjectDto> variables
+            @NonNull final Map<ICoordinate, MavenProjectDto> variables,
+            final Boolean viewEnabled
     ) {
+        if (viewEnabled != null && !viewEnabled) return;
+
         @NonNull final List<Environment> environments = boundaries(user.dependencies());
         startBoundary(stringBuilder, environments);
         for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
@@ -111,7 +116,7 @@ public abstract class AbstractGenerator {
         String tags = "";
         if ("provided".equals(scope)) component += "_Ext";
         if ("compile".equals(scope)) tags = "selected";
-        stringBuilder.append(renderUser(component, user.url(), user.name(), "", "", tags));
+        stringBuilder.append(renderUser(component, user.url(), user.name(), user.title(), user.subtitle(), tags));
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
         variables.put(new MavenCoordinateDto(user), user);
@@ -178,7 +183,5 @@ public abstract class AbstractGenerator {
             index--;
         }
     }
-
-
 
 }

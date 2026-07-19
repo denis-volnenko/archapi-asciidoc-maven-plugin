@@ -16,6 +16,8 @@
 
     <properties>
         <archapi.protocol>https</archapi.protocol>
+        <archapi.logical.view.enabled>true</archapi.logical.view.enabled>
+        <archapi.context.view.enabled>true</archapi.context.view.enabled>
     </properties>
 
     <dependencies>

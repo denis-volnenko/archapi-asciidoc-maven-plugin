@@ -62,8 +62,16 @@ public class Generator extends AbstractMojo {
     @NonNull
     private final String logicalViewDiagramFilename = "src/main/asciidoc/images/logical-view.puml";
 
+    @NonNull
+    private final String logicalViewCompileFilename = "src/main/asciidoc/images/logical-view.svg";
+
+    @NonNull
+    private final String contextViewCompileFilename = "src/main/asciidoc/images/context-view.svg";
+
+    @NonNull
     private final String logicalViewIncludeFilename = "src/main/asciidoc/images/logical-view-include.puml";
 
+    @NonNull
     private final String contextViewIncludeFilename = "src/main/asciidoc/images/context-view-include.puml";
 
     @NonNull
@@ -72,6 +80,7 @@ public class Generator extends AbstractMojo {
     @NonNull
     private final String componentsDocumentFilename = "src/main/asciidoc/include/components.adoc";
 
+    @NonNull
     private final String libraryDiagramFilename = "src/main/asciidoc/images/base-library.puml";
 
     @Getter
@@ -142,6 +151,12 @@ public class Generator extends AbstractMojo {
                 .filename(contextViewDiagramFilename)
                 .execute();
 
+        GeneratorContextViewCompile.create()
+                .enabled(logicalViewDiagramEnabled)
+                .source(contextViewDiagramFilename)
+                .target(contextViewCompileFilename)
+                .execute();
+
         GeneratorLogicalViewInclude.create()
                 .root(root)
                 .enabled(logicalViewDiagramEnabled)
@@ -154,8 +169,15 @@ public class Generator extends AbstractMojo {
                 .filename(logicalViewDiagramFilename)
                 .execute();
 
+        GeneratorLogicalViewCompile.create()
+                .enabled(logicalViewDiagramEnabled)
+                .source(logicalViewDiagramFilename)
+                .target(logicalViewCompileFilename)
+                .execute();
+
         GeneratorArchdoc.create()
                 .root(root)
+                .contextViewEnabled(contextViewEnabled)
                 .logicalViewEnabled(logicViewEnabled)
                 .componentsEnabled(contextViewEnabled)
                 .vocabularyEnabled(vocabularyEnabled)

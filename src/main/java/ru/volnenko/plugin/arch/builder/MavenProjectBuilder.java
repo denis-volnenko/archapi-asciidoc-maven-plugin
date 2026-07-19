@@ -28,7 +28,6 @@ public final class MavenProjectBuilder {
 
     private YAMLMapper yamlMapper = new YAMLMapper();
 
-
     @NonNull
     private static Map<String, Class> MAP = new LinkedHashMap<>();
 
@@ -79,7 +78,7 @@ public final class MavenProjectBuilder {
         component.put("dependencies", dep(mavenProject.getDependencies()));
 
         @NonNull final Map<String, Object> wrapper = new LinkedHashMap<>();
-        wrapper.put(mavenProject.getArtifactId(), component);
+        wrapper.put(mavenProject.getGroupId() + ":" +mavenProject.getArtifactId(), component);
         return wrapper;
     }
 

@@ -23,12 +23,14 @@ Boundary(VolnenkoEnvironment, "volnenko") {
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
 		ContainerQueue(UserCrudTopic, "userCrudTopic", "Apache Kafka, default", "", $tags = "")
+		note right: Топик crud-операций по пользователям
 	}
 }
 
 Boundary(VolnenkoEnvironment, "volnenko") { 
 	Boundary(ClusterEnvironment, "cluster") { 
 		ContainerQueue(TaskCrudTopic, "taskCrudTopic", "Apache Kafka, default", "", $tags = "selected")
+		note right: Топик crud-операций по задачам
 	}
 }
 
@@ -42,5 +44,4 @@ Rel(TaskManagerService, UserManagerService, "http")
 Rel(TaskManagerService, TaskManagerDatabase, "tcp")
 Rel(TaskManagerService, TaskCrudTopic, "tcp")
 Rel(UserManagerService, UserCrudTopic, "tcp")
-Rel(NlbHA, UserManagerService, "http")
 Rel(NlbHA, TaskManagerService, "http")

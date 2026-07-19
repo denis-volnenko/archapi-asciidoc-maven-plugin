@@ -1,6 +1,5 @@
 package ru.volnenko.plugin.arch.model.impl;
 
-import com.ctreber.acearth.util.Coordinate;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,8 +32,6 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
     private Map<String, String> properties = new LinkedHashMap<>();
 
     private List<MavenDependencyDto> dependencies = new ArrayList<>();
-
-
 
     @NonNull
     public List<MavenDependencyDto> dependencies() {
@@ -156,6 +153,41 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
         final String value = properties.get("archapi.protocol");
         if (value == null) return "";
         return properties.get("archapi.protocol");
+    }
+
+    @NonNull
+    public String comment() {
+        if (properties == null) return "";
+        final String value = properties.get("archapi.comment");
+        if (value == null) return "";
+        return properties.get("archapi.comment");
+    }
+
+    public Boolean contextViewEnabled() {
+        if (properties == null) return null;
+        final String value = properties.get("archapi.context.view.enabled");
+        if (value == null) return null;
+        return properties.get("archapi.context.view.enabled").equals("true");
+    }
+
+    public Boolean logicalViewEnabled() {
+        if (properties == null) return null;
+        final String value = properties.get("archapi.logical.view.enabled");
+        if (value == null) return null;
+        return properties.get("archapi.logical.view.enabled").equals("true");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MavenProjectDto that = (MavenProjectDto) o;
+        return Objects.equals(groupId, that.groupId) && Objects.equals(artifactId, that.artifactId) && Objects.equals(version, that.version) && Objects.equals(packaging, that.packaging);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(groupId, artifactId, version, packaging);
     }
 
 }

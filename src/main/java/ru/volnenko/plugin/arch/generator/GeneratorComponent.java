@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static ru.volnenko.plugin.arch.util.StringUtil.prepare;
+
 public final class GeneratorComponent extends AbstractGenerator {
 
     @NonNull
@@ -37,9 +39,13 @@ public final class GeneratorComponent extends AbstractGenerator {
         int index = 1;
         Collections.sort(models);
         for (@NonNull final MavenProjectDto model : models) {
+            final Boolean logicalViewEnabled = model.logicalViewEnabled();
+            if (logicalViewEnabled != null && !logicalViewEnabled) continue;
             stringBuilder.append("|").append(StringUtil.format(index)).append(". ").append("\n");
-            stringBuilder.append("|").append(model.name()).append(" ").append("\n");
-            stringBuilder.append("|").append(model.description()).append(" ").append("\n");
+            stringBuilder.append("|").append(prepare(model.name())).append(" ").append("\n");
+            @NonNull String text = model.description();
+            if (!model.comment().isEmpty()) text = model.comment();
+            stringBuilder.append("|").append(prepare(text)).append(" ").append("\n");
             stringBuilder.append("\n");
             index++;
         }
