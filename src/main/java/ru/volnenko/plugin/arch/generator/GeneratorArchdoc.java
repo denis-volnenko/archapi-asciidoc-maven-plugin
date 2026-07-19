@@ -46,7 +46,7 @@ public final class GeneratorArchdoc extends AbstractGenerator {
     @Override
     public String generate() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("= [Архитектурный документ]").append("\n")
+        stringBuilder.append("= [Архитектурный документ] ").append(root().name()).append("\n")
                 .append(":sectnums:").append("\n")
                 .append(":toc:").append("\n")
                 .append(":toc-title: Оглавление").append("\n")

@@ -2,41 +2,17 @@ Person(UserUsual, "Пользователь", "", "", $tags = "")
 
 Person(UserAdmin, "Администратор", "", "", $tags = "")
 
-Boundary(VolnenkoEnvironment, "volnenko") { 
-	Boundary(ClusterEnvironment, "cluster") { 
-		Container(TaskManagerService, "task-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "selected")
-	}
-}
+Container(TaskManagerService, "task-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "selected")
 
-Boundary(VolnenkoEnvironment, "volnenko") { 
-	Boundary(ClusterEnvironment, "cluster") { 
-		Container(UserManagerService, "user-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "")
-	}
-}
+Container(UserManagerService, "user-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "")
 
-Boundary(VolnenkoEnvironment, "volnenko") { 
-	Boundary(ClusterEnvironment, "cluster") { 
-		ContainerDb(TaskManagerDatabase, "task_manager", "", "Postgresql 17 Pro (Enterprise)", $tags = "selected")
-	}
-}
+ContainerDb(TaskManagerDatabase, "task_manager", "", "Postgresql 17 Pro (Enterprise)", $tags = "selected")
 
-Boundary(VolnenkoEnvironment, "volnenko") { 
-	Boundary(ClusterEnvironment, "cluster") { 
-		ContainerQueue(UserCrudTopic, "userCrudTopic", "Apache Kafka, default", "", $tags = "")
-		note right: Топик crud-операций по пользователям
-	}
-}
+ContainerQueue(UserCrudTopic, "userCrudTopic", "Apache Kafka, default", "", $tags = "")
 
-Boundary(VolnenkoEnvironment, "volnenko") { 
-	Boundary(ClusterEnvironment, "cluster") { 
-		ContainerQueue(TaskCrudTopic, "taskCrudTopic", "Apache Kafka, default", "", $tags = "selected")
-		note right: Топик crud-операций по задачам
-	}
-}
+ContainerQueue(TaskCrudTopic, "taskCrudTopic", "Apache Kafka, default", "", $tags = "selected")
 
-Boundary(VolnenkoEnvironment, "volnenko") { 
-	Container_Ext(NlbHA, "nlbha", "haproxy", "", $tags = "")
-}
+Container_Ext(NlbHA, "nlbha", "haproxy", "", $tags = "")
 
 Rel(UserUsual, NlbHA, "https")
 Rel(UserAdmin, NlbHA, "https")

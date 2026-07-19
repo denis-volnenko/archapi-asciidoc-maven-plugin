@@ -1,17 +1,11 @@
-= [Архитектурный документ]
+= [Архитектурный документ] task-manager
 :sectnums:
 :toc:
 :toc-title: Оглавление
 
 include::include/vocabulary.adoc[]
 
-== Контекстное представление
-
-image::images/context-view.svg[]
-
 == Логическое представление
-
-image::images/logical-view.svg[]
 
 include::include/components.adoc[]
 

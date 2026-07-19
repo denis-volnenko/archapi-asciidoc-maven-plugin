@@ -2,15 +2,7 @@ Person(UserUsual, "Пользователь", "", "", $tags = "")
 
 Person(UserAdmin, "Администратор", "", "", $tags = "")
 
-Boundary(VolnenkoEnvironment, "volnenko") { 
-	Boundary(ClusterEnvironment, "cluster") { 
-		Container(TaskManagerService, "Сервис управления задачами и проектами", "", "task-manager-service", $tags = "selected")
-	}
-}
+Container(TaskManagerService, "Сервис управления задачами и проектами", "", "task-manager-service", $tags = "selected")
 
-Boundary(VolnenkoEnvironment, "volnenko") { 
-	Boundary(ClusterEnvironment, "cluster") { 
-		Container(UserManagerService, "Сервис управления пользователями и ролями", "", "user-manager-service", $tags = "")
-	}
-}
+Container(UserManagerService, "Сервис управления пользователями и ролями", "", "user-manager-service", $tags = "")
 
