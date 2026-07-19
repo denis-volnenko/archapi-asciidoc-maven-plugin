@@ -4,7 +4,7 @@ Person(UserAdmin, "Администратор", "", "", $tags = "")
 
 Container(TaskManagerService, "task-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "selected")
 
-Container(UserManagerService, "user-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "")
+Container(UserManagerService, "user-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "selected")
 
 ContainerDb(TaskManagerDatabase, "task_manager", "", "Postgresql 17 Pro (Enterprise)", $tags = "selected")
 
