@@ -57,8 +57,14 @@ public final class GeneratorArchdoc extends AbstractGenerator {
             stringBuilder.append("include::include/vocabulary.adoc[]").append("\n").append("\n");
         }
 
+        if (contextViewEnabled) {
+            stringBuilder.append("== Контекстное представление").append("\n").append("\n");
+            stringBuilder.append("image::images/context-view.svg[]").append("\n").append("\n");
+        }
+
         if (logicalViewEnabled) {
             stringBuilder.append("== Логическое представление").append("\n").append("\n");
+            stringBuilder.append("image::images/logical-view.svg[]").append("\n").append("\n");
             if (componentsEnabled) {
                 stringBuilder.append("include::include/components.adoc[]").append("\n").append("\n");
             }
