@@ -4,22 +4,18 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
-import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
-import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.net.URIBuilder;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
-import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.project.MavenProject;
 import ru.volnenko.plugin.arch.model.PomDto;
 import ru.volnenko.plugin.arch.util.MapperUtil;
 
@@ -174,7 +170,11 @@ public final class Dependency extends AbstractGenerator {
                                     }
 
                                     System.out.println("Dependency added and pom.xml saved successfully!");
-                                    if (authRefresh) generate();
+                                    if (authRefresh) {
+                                        System.out.println("Generate start...");
+                                        generate();
+                                        System.out.println("Generate finish...");
+                                    }
 
                                 } catch (Exception e) {
                                     System.err.println("Error processing the POM file: " + e.getMessage());
