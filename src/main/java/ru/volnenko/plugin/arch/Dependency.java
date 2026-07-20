@@ -65,20 +65,22 @@ public final class Dependency extends AbstractGenerator {
     }
 
     private void menuWelcome() {
-        while (true) {
-            System.out.println();
-            System.out.println("Auto refresh ArchDoc on change?");
-            System.out.println();
+        if ("ArchApi".equals(project.getPackaging())) {
+            while (true) {
+                System.out.println();
+                System.out.println("Auto refresh ArchDoc on change?");
+                System.out.println();
 
-            System.out.println("1. Enabled");
-            System.out.println("2. Disabled");
+                System.out.println("1. Enabled");
+                System.out.println("2. Disabled");
 
-            System.out.println();
-            String cmd = scanner.nextLine();
-            if ("".equals(cmd)) System.exit(0);
+                System.out.println();
+                String cmd = scanner.nextLine();
+                if ("".equals(cmd)) System.exit(0);
 
-            authRefresh = "1".equals(cmd);
-            break;
+                authRefresh = "1".equals(cmd);
+                break;
+            }
         }
         menuComponent();
     }
