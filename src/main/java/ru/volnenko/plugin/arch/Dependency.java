@@ -151,7 +151,21 @@ public final class Dependency extends AbstractGenerator {
                                     continue;
                                 }
 
-                                System.out.println("Added " + pomDto.getGroupId() + ":" +pomDto.getArtifactId());
+                                System.out.println();
+                                String scope = "compile";
+                                System.out.println("Select scope:");
+
+                                System.out.println("1. compile");
+                                System.out.println("2. runtime");
+                                System.out.println("3. provided");
+                                System.out.println("4. test");
+
+                                String scopeCmd = scanner.nextLine();
+                                if ("1".equals(scopeCmd))  scope = "compile";
+                                if ("2".equals(scopeCmd))  scope = "runtime";
+                                if ("3".equals(scopeCmd))  scope = "provided";
+                                if ("4".equals(scopeCmd))  scope = "test";
+                                System.out.println();
 
                                 File pomFile = new File("pom.xml"); // Path to target pom.xml
 
@@ -166,6 +180,7 @@ public final class Dependency extends AbstractGenerator {
                                     dependency.setType(pomDto.getType());
                                     dependency.setVersion(pomDto.getVersion());
                                     dependency.setArtifactId(pomDto.getArtifactId());
+                                    dependency.setScope(scope);
 
                                     // 3. Add the dependency to the Maven Model object
                                     model.addDependency(dependency);
