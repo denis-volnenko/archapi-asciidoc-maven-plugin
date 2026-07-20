@@ -33,10 +33,7 @@ import java.util.*;
 
 
 @Mojo(name = "dependency")
-public class Dependency extends AbstractMojo {
-
-    @Parameter(defaultValue = "${project}", required = true, readonly = false)
-    private MavenProject project;
+public final class Dependency extends AbstractGenerator {
 
     final String[] component = {"ArchApi", "Balancer", "Database", "Environment", "System", "Queue", "Service", "User"};
 
@@ -52,6 +49,8 @@ public class Dependency extends AbstractMojo {
     @Setter
     @Parameter(property = "archapiUrl", defaultValue = "http://localhost:8080")
     public String archapiUrl = "http://localhost:8080";
+
+    private boolean authRefresh = false;
 
     {
         components.addAll(Arrays.asList(component));
@@ -69,7 +68,27 @@ public class Dependency extends AbstractMojo {
         }
     }
 
-    public void execute() throws MojoExecutionException, MojoFailureException {
+    private void menuWelcome() {
+        while (true) {
+            System.out.println();
+            System.out.println("Auto refresh ArchDoc on change?");
+            System.out.println();
+
+            System.out.println("1. Enabled");
+            System.out.println("2. Disabled");
+
+            System.out.println();
+            String cmd = scanner.nextLine();
+            if ("".equals(cmd)) System.exit(0);
+
+            authRefresh = "1".equals(cmd);
+            if ("gen".equals(cmd)) generate();
+            break;
+        }
+        menuComponent();
+    }
+
+    private void menuComponent() {
         System.out.println();
         System.out.println("Select component: ");
         System.out.println();
@@ -135,11 +154,11 @@ public class Dependency extends AbstractMojo {
 
                                 try {
                                     // 1. Read and parse the existing POM file
-                                    MavenXpp3Reader reader = new MavenXpp3Reader();
-                                    Model model = reader.read(new FileReader(pomFile));
+                                    final MavenXpp3Reader reader = new MavenXpp3Reader();
+                                    final Model model = reader.read(new FileReader(pomFile));
 
                                     // 2. Define the new dependency details
-                                    org.apache.maven.model.Dependency dependency = new org.apache.maven.model.Dependency();
+                                    final org.apache.maven.model.Dependency dependency = new org.apache.maven.model.Dependency();
                                     dependency.setGroupId(pomDto.getGroupId());
                                     dependency.setType(pomDto.getType());
                                     dependency.setVersion(pomDto.getVersion());
@@ -149,19 +168,18 @@ public class Dependency extends AbstractMojo {
                                     model.addDependency(dependency);
 
                                     // 4. Save and write the updated Model back to disk
-                                    MavenXpp3Writer writer = new MavenXpp3Writer();
+                                    final MavenXpp3Writer writer = new MavenXpp3Writer();
                                     try (FileWriter fileWriter = new FileWriter(pomFile)) {
                                         writer.write(fileWriter, model);
                                     }
 
                                     System.out.println("Dependency added and pom.xml saved successfully!");
+                                    if (authRefresh) generate();
 
                                 } catch (Exception e) {
                                     System.err.println("Error processing the POM file: " + e.getMessage());
                                     e.printStackTrace();
                                 }
-
-
 
                                 System.out.println();
                                 break;
@@ -182,6 +200,8 @@ public class Dependency extends AbstractMojo {
         }
     }
 
-
+    public void execute() throws MojoExecutionException, MojoFailureException {
+        menuWelcome();
+    }
 
 }

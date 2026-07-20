@@ -12,7 +12,7 @@ import ru.volnenko.plugin.arch.component.PomDeployer;
 
 
 @Mojo(name = "deploy", defaultPhase = LifecyclePhase.PACKAGE)
-public final class Deploy extends AbstractMojo {
+public final class Deploy extends AbstractGenerator {
 
     @Parameter(defaultValue = "${project}", required = true, readonly = true)
     private MavenProject project;

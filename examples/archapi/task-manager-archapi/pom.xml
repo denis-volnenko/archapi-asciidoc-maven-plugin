@@ -88,12 +88,6 @@
       <type>Queue</type>
     </dependency>
     <dependency>
-      <groupId>ru.volnenko.arch.tm</groupId>
-      <artifactId>task-manager-service</artifactId>
-      <version>1.0.0</version>
-      <type>Service</type>
-    </dependency>
-    <dependency>
       <groupId>ru.volnenko.arch.um</groupId>
       <artifactId>user-manager-service</artifactId>
       <version>1.0.0</version>
