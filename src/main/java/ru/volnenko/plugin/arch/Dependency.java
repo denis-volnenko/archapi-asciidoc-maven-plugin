@@ -78,7 +78,6 @@ public final class Dependency extends AbstractGenerator {
             if ("".equals(cmd)) System.exit(0);
 
             authRefresh = "1".equals(cmd);
-            if ("gen".equals(cmd)) generate();
             break;
         }
         menuComponent();
@@ -96,6 +95,8 @@ public final class Dependency extends AbstractGenerator {
             System.out.println();
             String cmd = scanner.nextLine();
             if ("".equals(cmd)) System.exit(0);
+            if ("G".equals(cmd)) generateDoc();
+
             System.out.println();
 
             final String type = commands.get(cmd);
@@ -134,7 +135,10 @@ public final class Dependency extends AbstractGenerator {
                                 index++;
                             }
 
-                            if (lastResult.isEmpty()) continue;
+                            if (lastResult.isEmpty()) {
+                                System.out.println("Not selected...");
+                                continue;
+                            }
                             System.out.println("Select " + type + "...");
 
                             while (true) {
@@ -142,7 +146,10 @@ public final class Dependency extends AbstractGenerator {
                                 if ("".equals(selected)) break;
 
                                 PomDto pomDto = lastResult.get(selected);
-                                if (pomDto == null) continue;
+                                if (pomDto == null) {
+                                    System.out.println("Not selected...");
+                                    continue;
+                                }
 
                                 System.out.println("Added " + pomDto.getGroupId() + ":" +pomDto.getArtifactId());
 
@@ -170,11 +177,7 @@ public final class Dependency extends AbstractGenerator {
                                     }
 
                                     System.out.println("Dependency added and pom.xml saved successfully!");
-                                    if (authRefresh) {
-                                        System.out.println("Generate start...");
-                                        generate();
-                                        System.out.println("Generate finish...");
-                                    }
+                                    generateDoc();
 
                                 } catch (Exception e) {
                                     System.out.println("Error! " + e.getMessage());
@@ -197,6 +200,14 @@ public final class Dependency extends AbstractGenerator {
                 }
             }
 
+        }
+    }
+
+    public void generateDoc() {
+        if (authRefresh) {
+            System.out.println("Generate start...");
+            generate();
+            System.out.println("Generate finish...");
         }
     }
 
