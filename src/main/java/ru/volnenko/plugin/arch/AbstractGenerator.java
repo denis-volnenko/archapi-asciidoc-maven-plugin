@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.SneakyThrows;
+import org.apache.maven.model.Model;
+import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
@@ -12,6 +14,9 @@ import ru.volnenko.plugin.arch.builder.MavenProjectBuilder;
 import ru.volnenko.plugin.arch.generator.*;
 import ru.volnenko.plugin.arch.model.impl.Root;
 import ru.volnenko.plugin.arch.util.MapperUtil;
+
+import java.io.File;
+import java.io.FileReader;
 
 public abstract class AbstractGenerator  extends AbstractMojo {
 
@@ -100,16 +105,25 @@ public abstract class AbstractGenerator  extends AbstractMojo {
     @Parameter(property = "componentsEnabled")
     protected boolean componentsEnabled = true;
 
-    @Parameter(defaultValue = "${project}", required = true, readonly = true)
+    @Parameter(defaultValue = "${project}", required = true)
     protected MavenProject project;
 
-    @Parameter(defaultValue = "${settings}", required = true, readonly = true)
+    @Parameter(defaultValue = "${settings}", required = true)
     protected Settings settings;
+
+    @NonNull
+    @SneakyThrows
+    private Model model() {
+        final File pomFile = new File("pom.xml"); // Path to target pom.xml
+        final MavenXpp3Reader reader = new MavenXpp3Reader();
+        final Model model = reader.read(new FileReader(pomFile));
+        return model;
+    }
 
     @SneakyThrows
     public void generate() {
         @NonNull final MavenProjectBuilder mavenProjectBuilder = new MavenProjectBuilder(settings);
-        @NonNull final String yaml = mavenProjectBuilder.yaml(project);
+        @NonNull final String yaml = mavenProjectBuilder.yaml(model());
         @NonNull final Root root = MapperUtil.yaml().readValue(yaml, Root.class);
 
         GeneratorVocabulary.create()

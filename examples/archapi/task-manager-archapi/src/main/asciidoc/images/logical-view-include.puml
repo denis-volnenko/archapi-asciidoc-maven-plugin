@@ -2,9 +2,9 @@ Person(UserUsual, "Пользователь", "", "", $tags = "")
 
 Person(UserAdmin, "Администратор", "", "", $tags = "")
 
-Container(TaskManagerService, "task-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "selected")
-
 Container(UserManagerService, "user-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "selected")
+
+Container(TaskManagerService, "task-manager-service", "Java 21, Spring Boot 3", "mesh", $tags = "selected")
 
 ContainerDb(TaskManagerDatabase, "task_manager", "", "Postgresql 17 Pro (Enterprise)", $tags = "selected")
 
@@ -16,8 +16,8 @@ Container_Ext(NlbHA, "nlbha", "haproxy", "", $tags = "")
 
 Rel(UserUsual, NlbHA, "https")
 Rel(UserAdmin, NlbHA, "https")
+Rel(UserManagerService, UserCrudTopic, "tcp")
 Rel(TaskManagerService, UserManagerService, "http")
 Rel(TaskManagerService, TaskManagerDatabase, "tcp")
 Rel(TaskManagerService, TaskCrudTopic, "tcp")
-Rel(UserManagerService, UserCrudTopic, "tcp")
 Rel(NlbHA, TaskManagerService, "http")

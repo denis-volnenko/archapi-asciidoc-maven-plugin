@@ -8,6 +8,7 @@ import lombok.NonNull;
 import lombok.SneakyThrows;
 import org.apache.maven.artifact.DefaultArtifact;
 import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Model;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.settings.Settings;
 import ru.volnenko.plugin.arch.model.impl.*;
@@ -25,8 +26,6 @@ public final class MavenProjectBuilder {
 
     @NonNull
     private Settings settings;
-
-    private YAMLMapper yamlMapper = new YAMLMapper();
 
     @NonNull
     private static Map<String, Class> MAP = new LinkedHashMap<>();
@@ -65,7 +64,7 @@ public final class MavenProjectBuilder {
     }
 
     @NonNull
-    private Map<String, Object> component(@NonNull MavenProject mavenProject) {
+    private Map<String, Object> component(@NonNull Model mavenProject) {
         @NonNull final Map<String, Object> component = new LinkedHashMap<>();
         component.put("groupId", mavenProject.getGroupId());
         component.put("artifactId", mavenProject.getArtifactId());
@@ -93,18 +92,11 @@ public final class MavenProjectBuilder {
     @NonNull
     @SneakyThrows
     public <T extends MavenProjectDto> JsonNode getDependencyComponents(
-            Set<DefaultArtifact> dependencyArtifacts
+            List<Dependency> dependencies
     ) {
         List<String> files = new ArrayList<>();
-        for (final Object dependencyObject: dependencyArtifacts) {
-            if (dependencyObject == null) continue;
-
-            @NonNull final DefaultArtifact dependency = (DefaultArtifact) dependencyObject;
-//            final String plural = plural(dependency.getType());
-//            if (!result.containsKey(plural)) result.put(plural, new LinkedHashMap<>());
-//            LinkedHashMap<String, Object> map = (LinkedHashMap<String, Object>) result.get(plural);
-
-//            if (!"compile".equalsIgnoreCase(dependency.getScope())) continue;
+        for (final Dependency dependency: dependencies) {
+            if (dependency == null) continue;
                 String classifier = dependency.getClassifier();
                 if (classifier == null) classifier = "";
                 else classifier = "-" + classifier;
@@ -121,26 +113,26 @@ public final class MavenProjectBuilder {
 
     @NonNull
     @SneakyThrows
-    public String yaml(MavenProject mavenProject) {
+    public String yaml(Model model) {
         @NonNull final Map<String, Object> result = new LinkedHashMap<>();
-        @NonNull final String type = mavenProject.getPackaging();
+        @NonNull final String type = model.getPackaging();
         @NonNull final String plural = plural(type);
 
         @NonNull final Map<String, Object> pluralMap = new LinkedHashMap<>();
-        pluralMap.put(plural, component(mavenProject));
+        pluralMap.put(plural, component(model));
 
         if ("ArchApi".equals(type)) {
             result.put("archapi", "1.0.0");
 
-            result.put("name", StringUtil.format(mavenProject.getName()));
-            result.put("description", StringUtil.format(mavenProject.getDescription()));
-            result.put("url", StringUtil.format(mavenProject.getUrl()));
+            result.put("name", StringUtil.format(model.getName()));
+            result.put("description", StringUtil.format(model.getDescription()));
+            result.put("url", StringUtil.format(model.getUrl()));
 
             result.put("components", pluralMap);
             JsonNode root = MapperUtil.json().readTree(
                     MapperUtil.json().writeValueAsString(result)
             );
-            JsonNode dependencies = getDependencyComponents(mavenProject.getDependencyArtifacts());
+            JsonNode dependencies = getDependencyComponents(model.getDependencies());
             JsonNode node = JsonMerge.merge(root, dependencies);
             return MapperUtil.yaml().writeValueAsString(node);
         }

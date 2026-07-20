@@ -177,8 +177,8 @@ public final class Dependency extends AbstractGenerator {
                                     }
 
                                 } catch (Exception e) {
+                                    System.out.println("Error! " + e.getMessage());
                                     System.err.println("Error processing the POM file: " + e.getMessage());
-                                    e.printStackTrace();
                                 }
 
                                 System.out.println();
@@ -186,14 +186,14 @@ public final class Dependency extends AbstractGenerator {
                             }
 
                         } catch (Exception e) {
-
+                            System.out.println("Error! " + e.getMessage());
                         }
                     } catch (IOException e) {
-
+                        System.out.println("Error! " + e.getMessage());
                     }
 
                 } catch (URISyntaxException e) {
-
+                    System.out.println("Error! " + e.getMessage());
                 }
             }
 

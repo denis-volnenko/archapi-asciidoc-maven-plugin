@@ -5,6 +5,8 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.SneakyThrows;
 import org.apache.maven.artifact.Artifact;
+import org.apache.maven.model.Model;
+import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -15,6 +17,7 @@ import ru.volnenko.plugin.arch.builder.MavenProjectBuilder;
 import ru.volnenko.plugin.arch.component.PomDeployer;
 
 import java.io.File;
+import java.io.FileReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
@@ -37,6 +40,15 @@ public final class Packaging extends AbstractMojo {
     @Parameter(property = "archapiEnabled", defaultValue = "false")
     public Boolean archapiEnabled = false;
 
+    @NonNull
+    @SneakyThrows
+    private Model model() {
+        final File pomFile = new File("pom.xml"); // Path to target pom.xml
+        final MavenXpp3Reader reader = new MavenXpp3Reader();
+        final Model model = reader.read(new FileReader(pomFile));
+        return model;
+    }
+
     @Override
     @SneakyThrows
     public void execute() {
@@ -47,10 +59,10 @@ public final class Packaging extends AbstractMojo {
         @NonNull final File build = new File(project.getBuild().getDirectory(), sourceName);
 
         final MavenProjectBuilder mavenProjectBuilder = new MavenProjectBuilder(settings);
-        @NonNull final String yaml = mavenProjectBuilder.yaml(project);
+        @NonNull final String yaml = mavenProjectBuilder.yaml(model());
         Files.write(build.toPath(), yaml.getBytes(StandardCharsets.UTF_8));
 
-        @NonNull final Artifact artifact =  project.getArtifact();
+        @NonNull final Artifact artifact = project.getArtifact();
         artifact.setFile(build);
 
         PomDeployer.create()
