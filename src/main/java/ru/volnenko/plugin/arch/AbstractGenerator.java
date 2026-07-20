@@ -122,6 +122,9 @@ public abstract class AbstractGenerator  extends AbstractMojo {
 
     @SneakyThrows
     public void generate() {
+        @NonNull final Model model = model();
+        if (!"ArchApi".equals(model.getPackaging())) return;
+
         @NonNull final MavenProjectBuilder mavenProjectBuilder = new MavenProjectBuilder(settings);
         @NonNull final String yaml = mavenProjectBuilder.yaml(model());
         @NonNull final Root root = MapperUtil.yaml().readValue(yaml, Root.class);

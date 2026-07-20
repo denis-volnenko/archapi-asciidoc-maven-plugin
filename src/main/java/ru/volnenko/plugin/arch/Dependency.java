@@ -31,9 +31,10 @@ import java.util.*;
 @Mojo(name = "dependency")
 public final class Dependency extends AbstractGenerator {
 
-    final String[] component = {"ArchApi", "Balancer", "Database", "Environment", "System", "Queue", "Service", "User"};
+    @NonNull
+    private final String[] component = {"ArchApi", "Balancer", "Database", "Environment", "System", "Queue", "Service", "User", "Vocabulary" };
 
-    final List<String> components = new ArrayList<>();
+    private final List<String> components = new ArrayList<>();
 
     private Scanner scanner = new Scanner(System.in);
 
@@ -97,8 +98,6 @@ public final class Dependency extends AbstractGenerator {
             System.out.println();
             String cmd = scanner.nextLine();
             if ("".equals(cmd)) System.exit(0);
-            if ("G".equals(cmd)) generateDoc();
-
             System.out.println();
 
             final String type = commands.get(cmd);
@@ -155,7 +154,7 @@ public final class Dependency extends AbstractGenerator {
 
                                 System.out.println();
                                 String scope = "compile";
-                                System.out.println("Select scope:");
+                                System.out.println("Select Scope:");
 
                                 System.out.println("1. compile");
                                 System.out.println("2. runtime");
