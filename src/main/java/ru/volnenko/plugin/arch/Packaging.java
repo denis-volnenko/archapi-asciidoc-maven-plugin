@@ -43,7 +43,7 @@ public final class Packaging extends AbstractMojo {
     @NonNull
     @SneakyThrows
     private Model model() {
-        final File pomFile = new File("pom.xml"); // Path to target pom.xml
+        final File pomFile = project.getFile();// Path to target pom.xml
         final MavenXpp3Reader reader = new MavenXpp3Reader();
         final Model model = reader.read(new FileReader(pomFile));
         return model;
@@ -54,6 +54,7 @@ public final class Packaging extends AbstractMojo {
     public void execute() {
         @NonNull final File buildPath = new File(project.getBuild().getDirectory());
         buildPath.mkdirs();
+
 
         @NonNull final String sourceName = project.getBuild().getFinalName() + "." + project.getPackaging();
         @NonNull final File build = new File(project.getBuild().getDirectory(), sourceName);

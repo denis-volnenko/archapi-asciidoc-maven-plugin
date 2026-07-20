@@ -114,7 +114,7 @@ public abstract class AbstractGenerator  extends AbstractMojo {
     @NonNull
     @SneakyThrows
     private Model model() {
-        final File pomFile = new File("pom.xml"); // Path to target pom.xml
+        final File pomFile = project.getFile(); // Path to target pom.xml
         final MavenXpp3Reader reader = new MavenXpp3Reader();
         final Model model = reader.read(new FileReader(pomFile));
         return model;
