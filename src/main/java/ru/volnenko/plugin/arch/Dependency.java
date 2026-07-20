@@ -3,6 +3,8 @@ package ru.volnenko.plugin.arch;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import lombok.SneakyThrows;
+import org.apache.commons.lang3.reflect.FieldUtils;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
@@ -17,6 +19,7 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import ru.volnenko.plugin.arch.model.PomDto;
+import ru.volnenko.plugin.arch.util.FileUtil;
 import ru.volnenko.plugin.arch.util.MapperUtil;
 
 import java.io.File;
@@ -26,6 +29,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
+import java.util.function.Predicate;
 
 
 @Mojo(name = "dependency")
@@ -175,16 +179,30 @@ public final class Dependency extends AbstractGenerator {
                                     final MavenXpp3Reader reader = new MavenXpp3Reader();
                                     final Model model = reader.read(new FileReader(pomFile));
 
-                                    // 2. Define the new dependency details
-                                    final org.apache.maven.model.Dependency dependency = new org.apache.maven.model.Dependency();
-                                    dependency.setGroupId(pomDto.getGroupId());
-                                    dependency.setType(pomDto.getType());
-                                    dependency.setVersion(pomDto.getVersion());
-                                    dependency.setArtifactId(pomDto.getArtifactId());
-                                    dependency.setScope(scope);
+                                    long count = model.getDependencies().stream().filter(new Predicate<org.apache.maven.model.Dependency>() {
+                                        @Override
+                                        public boolean test(org.apache.maven.model.Dependency dependency) {
+                                            return pomDto.getGroupId().equals(dependency.getGroupId()) &&
+                                            pomDto.getArtifactId().equals(dependency.getArtifactId()) &&
+                                            pomDto.getType().equals(dependency.getType());
+                                        }
+                                    }).count();
 
-                                    // 3. Add the dependency to the Maven Model object
-                                    model.addDependency(dependency);
+                                    if (count < 1) {
+                                        // 2. Define the new dependency details
+                                        final org.apache.maven.model.Dependency dependency = new org.apache.maven.model.Dependency();
+                                        dependency.setGroupId(pomDto.getGroupId());
+                                        dependency.setType(pomDto.getType());
+                                        dependency.setVersion(pomDto.getVersion());
+                                        dependency.setArtifactId(pomDto.getArtifactId());
+                                        dependency.setScope(scope);
+
+                                        // 3. Add the dependency to the Maven Model object
+                                        model.addDependency(dependency);
+                                    } else {
+                                        System.out.println("Dependency already exists./");
+                                        break;
+                                    }
 
                                     // 4. Save and write the updated Model back to disk
                                     final MavenXpp3Writer writer = new MavenXpp3Writer();
@@ -192,6 +210,7 @@ public final class Dependency extends AbstractGenerator {
                                         writer.write(fileWriter, model);
                                     }
 
+                                    FileUtil.reformat(project.getFile());
                                     System.out.println("Dependency added and pom.xml saved successfully!");
                                     generateDoc();
 
@@ -230,5 +249,6 @@ public final class Dependency extends AbstractGenerator {
     public void execute() throws MojoExecutionException, MojoFailureException {
         menuWelcome();
     }
+
 
 }

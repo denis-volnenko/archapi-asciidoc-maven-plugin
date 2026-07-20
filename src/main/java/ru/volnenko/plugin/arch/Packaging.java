@@ -7,19 +7,28 @@ import lombok.SneakyThrows;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
+import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.settings.Settings;
+import org.dom4j.DocumentHelper;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.XMLWriter;
 import ru.volnenko.plugin.arch.builder.MavenProjectBuilder;
 import ru.volnenko.plugin.arch.component.PomDeployer;
 
-import java.io.File;
-import java.io.FileReader;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @Mojo(name = "package", defaultPhase = LifecyclePhase.PACKAGE)
 public final class Packaging extends AbstractMojo {
@@ -55,7 +64,6 @@ public final class Packaging extends AbstractMojo {
         @NonNull final File buildPath = new File(project.getBuild().getDirectory());
         buildPath.mkdirs();
 
-
         @NonNull final String sourceName = project.getBuild().getFinalName() + "." + project.getPackaging();
         @NonNull final File build = new File(project.getBuild().getDirectory(), sourceName);
 
@@ -72,5 +80,6 @@ public final class Packaging extends AbstractMojo {
                 .mavenProject(project)
                 .execute();
     }
+
 
 }

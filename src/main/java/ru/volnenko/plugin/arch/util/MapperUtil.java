@@ -2,6 +2,7 @@ package ru.volnenko.plugin.arch.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import lombok.NonNull;
 
@@ -13,9 +14,13 @@ public final class MapperUtil {
     @NonNull
     private static final ObjectMapper YAML = new YAMLMapper();
 
+    @NonNull
+    private static final XmlMapper XML = new XmlMapper();
+
     static {
         JSON.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         YAML.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+//        XML.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 //        JSON.registerModule(new JSONPModule());
 //        YAML.registerModule(new JSONPModule());
 //        JSON.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
