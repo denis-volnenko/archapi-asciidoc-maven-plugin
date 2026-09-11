@@ -49,6 +49,7 @@ public final class FileUtil {
         try {
             OutputFormat format = OutputFormat.createPrettyPrint();
             format.setIndentSize(indent);
+            format.setNewLineAfterDeclaration(false);
             format.setSuppressDeclaration(skipDeclaration);
             format.setEncoding("UTF-8");
 

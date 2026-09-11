@@ -80,14 +80,14 @@ public class PomDeployer {
         @NonNull final StringEntity entity = new StringEntity(jsonPayload, ContentType.APPLICATION_JSON);
 
         httpPost.setEntity(entity);
-        try (CloseableHttpClient httpClient = HttpClients.createDefault();
+        try (final CloseableHttpClient httpClient = HttpClients.createDefault();
              CloseableHttpResponse response = httpClient.execute(httpPost)) {
-            System.out.println("Response Code: " + response.getCode());
-            HttpEntity responseEntity = response.getEntity();
-            if (responseEntity != null) {
-                System.out.println("Response Body: " + EntityUtils.toString(responseEntity));
-            }
-        } catch (Exception e) {
+             System.out.println("Response Code: " + response.getCode());
+             HttpEntity responseEntity = response.getEntity();
+             if (responseEntity != null) {
+                 System.out.println("Response Body: " + EntityUtils.toString(responseEntity));
+             }
+        } catch (final Exception e) {
             e.printStackTrace();
         }
     }
