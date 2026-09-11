@@ -32,6 +32,11 @@ public abstract class AbstractGenerator  extends AbstractMojo {
 
     @Getter
     @Setter
+    @Parameter(property = "headerComponentEnabled")
+    protected boolean headerComponentEnabled = true;
+
+    @Getter
+    @Setter
     @Parameter(property = "headerSecondEnabled")
     protected boolean headerSecondEnabled = true;
 
@@ -138,6 +143,7 @@ public abstract class AbstractGenerator  extends AbstractMojo {
         GeneratorComponent.create()
                 .root(root)
                 .enabled(componentsEnabled)
+                .headerComponentEnabled(headerComponentEnabled)
                 .filename(componentsDocumentFilename)
                 .execute();
 

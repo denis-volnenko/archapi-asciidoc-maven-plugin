@@ -13,19 +13,28 @@ import static ru.volnenko.plugin.arch.util.StringUtil.prepare;
 
 public final class GeneratorComponent extends AbstractGenerator {
 
+    private boolean headerComponentEnabled = true;
+
     @NonNull
     public static GeneratorComponent create() {
         return new GeneratorComponent();
     }
 
     @NonNull
+    public GeneratorComponent headerComponentEnabled(boolean value) {
+        headerComponentEnabled = value;
+        return this;
+    }
+
+    @NonNull
     @Override
     public String generate() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
+        if (headerComponentEnabled)
         stringBuilder.append("== Архитектурно значимые компоненты").append("\n").append("\n");
 
         stringBuilder.append("[cols=\"0,30,70\"]").append("\n");
-        stringBuilder.append("!===").append("\n").append("\n");
+        stringBuilder.append("!===").append("\n");
         stringBuilder.append("|№ ").append("|Название ").append("|Описание ").append("\n").append("\n");
 
         @NonNull final List<MavenProjectDto> models = new ArrayList<>();
