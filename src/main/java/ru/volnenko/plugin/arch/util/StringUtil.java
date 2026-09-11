@@ -52,10 +52,11 @@ public final class StringUtil {
     public static String prepare(String value) {
         if (value == null || value.isEmpty()) return "";
         return value
-                .replaceAll("\n", "")
-                .replaceAll("\\n", "")
-                .replaceAll("\"", "")
-                .replaceAll("\t", "");
+                .replace("\\n", "")
+                .replace("\n", "")
+                .replace("\"", "")
+                .replace("\t", "")
+                .replace("  ", " ");
     }
 
     public static void main(String[] args) {
