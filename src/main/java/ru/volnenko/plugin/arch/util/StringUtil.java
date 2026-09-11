@@ -58,4 +58,8 @@ public final class StringUtil {
                 .replaceAll("\t", "");
     }
 
+    public static void main(String[] args) {
+        System.out.println(prepare("Service \n Test"));
+    }
+
 }

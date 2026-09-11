@@ -163,6 +163,13 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
         return properties.get("archapi.comment");
     }
 
+    public Boolean componentViewEnabled() {
+        if (properties == null) return null;
+        final String value = properties.get("archapi.component.view.enabled");
+        if (value == null) return null;
+        return properties.get("archapi.component.view.enabled").equals("true");
+    }
+
     public Boolean contextViewEnabled() {
         if (properties == null) return null;
         final String value = properties.get("archapi.context.view.enabled");
