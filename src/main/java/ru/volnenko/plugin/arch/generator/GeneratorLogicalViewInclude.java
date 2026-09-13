@@ -111,7 +111,7 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
 
                 @NonNull final String sourceRefUrl = sourceRef.url();
                 @NonNull final String targetRefUrl = targetRef.url();
-                final String referenceType = archApi.referenceType(sourceRefUrl, targetRefUrl);
+                final String referenceType = archApi.logicalViewReferenceType(sourceRefUrl, targetRefUrl);
 
                 String type = "Rel";
                 if ("UP".equals(referenceType)) type = "Rel_U";

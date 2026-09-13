@@ -155,10 +155,10 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
         return properties.get("archapi.protocol");
     }
 
-    public String referenceType(@NonNull final String source, @NonNull final String target) {
+    public String logicalViewReferenceType(@NonNull final String source, @NonNull final String target) {
         if (source.isEmpty() || target.isEmpty()) return null;
         @NonNull final StringBuilder sb = new StringBuilder();
-        sb.append("archapi.reference.");
+        sb.append("archapi.logical.view.reference.");
         sb.append(source).append(".");
         sb.append(target).append(".");
         sb.append("type");
@@ -166,10 +166,10 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
         return properties.get(key);
     }
 
-    public String referenceDistance(@NonNull final String source, @NonNull final String target) {
+    public String logicalViewReferenceDistance(@NonNull final String source, @NonNull final String target) {
         if (source.isEmpty() || target.isEmpty()) return null;
         @NonNull final StringBuilder sb = new StringBuilder();
-        sb.append("archapi.reference.");
+        sb.append("archapi.logical.view.reference.");
         sb.append(source).append(".");
         sb.append(target).append(".");
         sb.append("distance");
