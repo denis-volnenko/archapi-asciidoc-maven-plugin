@@ -68,7 +68,7 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
 
         for (final ru.volnenko.plugin.arch.model.impl.Balancer item: root().balancers()) {
             renderComponent("Container", stringBuilder, item, variables);
-            dependencies(dependencies, exclusions,item);
+            dependencies(dependencies, exclusions, item);
         }
 
         renderDependencies(stringBuilder, dependencies, exclusions, variables);
@@ -85,6 +85,7 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
             @NonNull final Set<MavenExclusion> exclusions,
             @NonNull final Map<ICoordinate, MavenProjectDto> variables
     ) {
+        @NonNull ArchApi archApi = root().components().getArchApi();
         @NonNull final Set<Map.Entry<ICoordinate, Set<ICoordinate>>> set = dependencies.entrySet();
         for (@NonNull final Map.Entry<ICoordinate, Set<ICoordinate>> entry : set) {
             @NonNull final ICoordinate source = entry.getKey();
@@ -108,10 +109,20 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
 
                 if (exclusions.contains(new MavenExclusion(sourceRef, targetRef))) continue;
 
+                @NonNull final String sourceRefUrl = sourceRef.url();
+                @NonNull final String targetRefUrl = targetRef.url();
+                final String referenceType = archApi.referenceType(sourceRefUrl, targetRefUrl);
+
+                String type = "Rel";
+                if ("UP".equals(referenceType)) type = "Rel_U";
+                if ("DOWN".equals(referenceType)) type = "Rel_D";
+                if ("LEFT".equals(referenceType)) type = "Rel_L";
+                if ("RIGHT".equals(referenceType)) type = "Rel_R";
+
                 stringBuilder
-                        .append("Rel(")
-                        .append(sourceRef.url()).append(", ")
-                        .append(targetRef.url()).append(", ")
+                        .append(type).append("(")
+                        .append(sourceRefUrl).append(", ")
+                        .append(targetRefUrl).append(", ")
                         .append("\"").append(protocol).append("\"")
                         .append(")").append("\n");
             }

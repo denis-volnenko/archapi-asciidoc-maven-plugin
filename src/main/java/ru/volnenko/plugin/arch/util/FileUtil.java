@@ -7,6 +7,7 @@ import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
 import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
@@ -18,6 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Comparator;
+import java.util.List;
 
 public final class FileUtil {
 
@@ -47,13 +49,28 @@ public final class FileUtil {
 
     public static String prettyPrintByDom4j(String xmlString, int indent, boolean skipDeclaration) {
         try {
-            OutputFormat format = OutputFormat.createPrettyPrint();
+            @NonNull final OutputFormat format = OutputFormat.createPrettyPrint();
             format.setIndentSize(indent);
             format.setNewLineAfterDeclaration(false);
             format.setSuppressDeclaration(skipDeclaration);
             format.setEncoding("UTF-8");
 
             org.dom4j.Document document = DocumentHelper.parseText(xmlString);
+            final Element properties = document.getRootElement().element("properties");
+            if (properties != null) {
+                @NonNull final List<Element> elements = properties.elements();
+                elements.sort(new Comparator<Element>() {
+                    @Override
+                    public int compare(@NonNull Element t1, @NonNull Element t2) {
+                        return t1.getName().compareTo(t2.getName());
+                    }
+                });
+
+                properties.clearContent();
+                for (@NonNull final Element element : elements) {
+                    properties.add(element);
+                }
+            }
             StringWriter sw = new StringWriter();
             XMLWriter writer = new XMLWriter(sw, format);
             writer.write(document);

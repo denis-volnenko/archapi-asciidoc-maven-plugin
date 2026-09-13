@@ -155,6 +155,28 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
         return properties.get("archapi.protocol");
     }
 
+    public String referenceType(@NonNull final String source, @NonNull final String target) {
+        if (source.isEmpty() || target.isEmpty()) return null;
+        @NonNull final StringBuilder sb = new StringBuilder();
+        sb.append("archapi.reference.");
+        sb.append(source).append(".");
+        sb.append(target).append(".");
+        sb.append("type");
+        @NonNull final String key = sb.toString();
+        return properties.get(key);
+    }
+
+    public String referenceDistance(@NonNull final String source, @NonNull final String target) {
+        if (source.isEmpty() || target.isEmpty()) return null;
+        @NonNull final StringBuilder sb = new StringBuilder();
+        sb.append("archapi.reference.");
+        sb.append(source).append(".");
+        sb.append(target).append(".");
+        sb.append("distance");
+        @NonNull final String key = sb.toString();
+        return properties.get(key);
+    }
+
     @NonNull
     public String comment() {
         if (properties == null) return "";

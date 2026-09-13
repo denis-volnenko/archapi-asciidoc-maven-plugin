@@ -40,6 +40,10 @@ public final class Components {
         return archapi;
     }
 
+    public ArchApi getArchApi() {
+       return archapi.values().stream().findFirst().orElse(null);
+    }
+
     @NonNull
     public Map<String, Environment> environments() {
         if (environments == null) environments = new LinkedHashMap<>();

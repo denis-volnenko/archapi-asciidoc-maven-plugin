@@ -5,7 +5,10 @@
     <artifactId>task-mananger-archapi</artifactId>  
     <version>1.0.0</version>  
     <packaging>ArchApi</packaging>  
-    <name>task-manager</name>  
+    <name>task-manager</name>
+    <properties>
+        <archapi.reference.TaskManagerService.TaskManagerDatabase.type>DOWN</archapi.reference.TaskManagerService.TaskManagerDatabase.type>
+    </properties>
     <dependencies> 
         <dependency> 
             <groupId>ru.volnenko.arch.nlb</groupId>  

@@ -3,8 +3,6 @@ package ru.volnenko.plugin.arch;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
-import lombok.SneakyThrows;
-import org.apache.commons.lang3.reflect.FieldUtils;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
@@ -38,13 +36,17 @@ public final class Dependency extends AbstractGenerator {
     @NonNull
     private final String[] component = {"ArchApi", "Balancer", "Database", "Environment", "System", "Queue", "Service", "User", "Vocabulary" };
 
+    @NonNull
     private final List<String> components = new ArrayList<>();
 
+    @NonNull
     private Scanner scanner = new Scanner(System.in);
 
-    Map<String, String> commands = new LinkedHashMap<>();
+    @NonNull
+    private Map<String, String> commands = new LinkedHashMap<>();
 
-    Map<String, PomDto> lastResult = new LinkedHashMap<>();
+    @NonNull
+    private Map<String, PomDto> lastResult = new LinkedHashMap<>();
 
     @Getter
     @Setter
@@ -249,6 +251,5 @@ public final class Dependency extends AbstractGenerator {
     public void execute() throws MojoExecutionException, MojoFailureException {
         menuWelcome();
     }
-
 
 }
