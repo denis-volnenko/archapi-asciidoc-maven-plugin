@@ -65,6 +65,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
     @NonNull
     private static String boundary(@NonNull final Environment environment) {
+        if (environment.physicalViewEnabled() != null && !environment.physicalViewEnabled()) return "";
         String text = "";
         if (!environment.name().isEmpty()) text = environment.name();
         if (!environment.comment().isEmpty()) text = environment.comment();
@@ -85,6 +86,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
     @NonNull
     private static String person(@NonNull final User user) {
+        if (user.physicalViewEnabled() != null && !user.physicalViewEnabled()) return "";
         return "<object placeholders=\"1\" " +
                 "c4Name=\"" + user.getName() + "\" " +
                 "c4Type=\"Person\" " +
@@ -105,6 +107,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
     @NonNull
     private static String queue(@NonNull final Queue queue) {
+        if (queue.physicalViewEnabled() != null && !queue.physicalViewEnabled()) return "";
         return "<object placeholders=\"1\" " +
                 "c4Name=\"" + queue.getName() + "\" " +
                 "c4Type=\"Container\" " +
@@ -126,6 +129,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
     @NonNull
     private static String service(@NonNull final Service service) {
+        if (service.physicalViewEnabled() != null && !service.physicalViewEnabled()) return "";
         return "<object placeholders=\"1\" " +
                 "c4Name=\"" + service.getName() + "\" " +
                 "c4Type=\"Container\" " +
@@ -147,6 +151,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
     @NonNull
     private static String system(@NonNull final ru.volnenko.plugin.arch.model.impl.System system) {
+        if (system.physicalViewEnabled() != null && !system.physicalViewEnabled()) return "";
         return "<object placeholders=\"1\" " +
                 "c4Name=\"" + system.getName() + "\" " +
                 "c4Type=\"Software System\" " +
@@ -167,6 +172,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
     @NonNull
     private static String database(@NonNull final Database database) {
+        if (database.physicalViewEnabled() != null && !database.physicalViewEnabled()) return "";
         return "<object placeholders=\"1\" " +
                 "c4Name=\"" + database.getName() + "\" " +
                 "c4Type=\"Container\" " +

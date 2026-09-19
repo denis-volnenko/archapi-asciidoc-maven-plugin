@@ -206,6 +206,13 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
         return properties.get("archapi.logical.view.enabled").equals("true");
     }
 
+    public Boolean physicalViewEnabled() {
+        if (properties == null) return null;
+        final String value = properties.get("archapi.physical.view.enabled");
+        if (value == null) return null;
+        return properties.get("archapi.physical.view.enabled").equals("true");
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
