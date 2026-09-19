@@ -286,6 +286,26 @@
 <!--                    </execution>-->
 <!--                </executions>-->
 <!--            </plugin>-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>request-xsd</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>src/main/java</outputDirectory>
+                            <packageName>ru.volnenko.plugin.arch.mxfile</packageName>
+                            <schemaDirectory>src/main/resources</schemaDirectory>
+                            <schemaFiles>mxfile.xsd</schemaFiles>
+                            <clearOutputDir>false</clearOutputDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
         <extensions>
             <extension>
@@ -361,6 +381,7 @@
 <!--                    </reportSet>-->
 <!--                </reportSets>-->
 <!--            </plugin>-->
+
         </plugins>
     </reporting>
 
