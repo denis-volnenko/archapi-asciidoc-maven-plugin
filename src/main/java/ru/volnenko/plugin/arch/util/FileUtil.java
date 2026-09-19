@@ -47,6 +47,11 @@ public final class FileUtil {
         Files.write(Paths.get(file.toURI()), xml.getBytes(StandardCharsets.UTF_8));
     }
 
+    @NonNull
+    public static String formatXml(@NonNull final String content) {
+        return prettyPrintByDom4j(content, 4, false);
+    }
+
     public static String prettyPrintByDom4j(String xmlString, int indent, boolean skipDeclaration) {
         try {
             @NonNull final OutputFormat format = OutputFormat.createPrettyPrint();

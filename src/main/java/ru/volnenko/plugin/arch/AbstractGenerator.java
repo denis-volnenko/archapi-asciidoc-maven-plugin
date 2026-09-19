@@ -65,6 +65,9 @@ public abstract class AbstractGenerator  extends AbstractMojo {
     protected final String logicalViewDiagramFilename = "src/main/asciidoc/images/logical-view.puml";
 
     @NonNull
+    protected final String physicalViewDiagramFilename = "src/main/asciidoc/images/physical-view.drawio";
+
+    @NonNull
     protected final String logicalViewCompileFilename = "src/main/asciidoc/images/logical-view.svg";
 
     @NonNull
@@ -94,6 +97,11 @@ public abstract class AbstractGenerator  extends AbstractMojo {
     @Setter
     @Parameter(property = "logicalViewDiagramEnabled")
     protected boolean logicalViewDiagramEnabled = true;
+
+    @Getter
+    @Setter
+    @Parameter(property = "physicalViewDiagramEnabled")
+    protected boolean physicalViewDiagramEnabled = true;
 
     @Getter
     @Setter
@@ -187,6 +195,12 @@ public abstract class AbstractGenerator  extends AbstractMojo {
                 .enabled(logicalViewDiagramEnabled)
                 .source(logicalViewDiagramFilename)
                 .target(logicalViewCompileFilename)
+                .execute();
+
+        GeneratorPhysicalDiagram.create()
+                .root(root)
+                .enabled(physicalViewDiagramEnabled)
+                .filename(physicalViewDiagramFilename)
                 .execute();
 
         GeneratorArchdoc.create()
