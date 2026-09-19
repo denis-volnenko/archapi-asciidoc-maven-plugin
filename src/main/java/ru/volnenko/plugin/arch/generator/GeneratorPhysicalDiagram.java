@@ -2,9 +2,16 @@ package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
 import ru.volnenko.plugin.arch.model.impl.*;
+import ru.volnenko.plugin.arch.mxfile.*;
 import ru.volnenko.plugin.arch.util.FileUtil;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import java.io.StringReader;
 import java.lang.System;
+import java.util.List;
 
 public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
@@ -192,8 +199,21 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
                 "</object>";
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JAXBException {
         System.out.println(new GeneratorPhysicalDiagram().generate());
+        String xml = new GeneratorPhysicalDiagram().generate();
+        RootType rootType = new RootType();
+
+        JAXBContext jc = JAXBContext.newInstance("ru.volnenko.plugin.arch.mxfile");
+        StringReader reader = new StringReader(xml);
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        Object fosterHome =  unmarshaller.unmarshal(reader);
+        JAXBElement jaxbElement = (JAXBElement) fosterHome;
+        MxfileType mxfileType = (MxfileType) jaxbElement.getValue();
+        List<DiagramType> diagramTypes = mxfileType.getDiagram();
+        DiagramType diagramType = diagramTypes.get(0);
+        System.out.println(diagramType);
+        System.out.println(mxfileType);
     }
 
 }
