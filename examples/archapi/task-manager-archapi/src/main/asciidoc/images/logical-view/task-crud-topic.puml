@@ -1,0 +1,6 @@
+@startuml
+!include ../base-library.puml
+HIDE_STEREOTYPE()
+ContainerQueue(TaskCrudTopic, "taskCrudTopic", "Apache Kafka, default", "", $tags = "selected")
+
+@enduml

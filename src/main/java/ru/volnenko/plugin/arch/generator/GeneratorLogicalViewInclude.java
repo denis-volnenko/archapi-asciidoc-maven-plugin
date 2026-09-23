@@ -1,9 +1,15 @@
 package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
+import lombok.SneakyThrows;
+import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.arch.model.ICoordinate;
 import ru.volnenko.plugin.arch.model.impl.*;
+import ru.volnenko.plugin.arch.util.FileUtil;
 
+import java.io.File;
+import java.lang.System;
+import java.nio.file.Files;
 import java.util.*;
 
 public final class GeneratorLogicalViewInclude extends AbstractGenerator {
@@ -129,6 +135,7 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
         }
     }
 
+    @SneakyThrows
     private void renderComponent(
             @NonNull final String component,
             @NonNull final StringBuilder stringBuilder,
@@ -150,7 +157,26 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
         if ("compile".equals(scope)) tags = "selected";
 
         for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
-        stringBuilder.append(renderComponent(componentName, url, name, mavenProjectDto.title(), mavenProjectDto.subtitle(), tags));
+        final String cmp = renderComponent(componentName, url, name, mavenProjectDto.title(), mavenProjectDto.subtitle(), tags);
+
+        stringBuilder.append(cmp);
+
+        final File path = getPath();
+        if (!path.exists()) path.mkdir();
+        System.out.println("PATH:" + path.getAbsolutePath());
+
+        final File file = new File(path.getPath() + "/" + mavenProjectDto.artifactId() + ".puml");
+        System.out.println("FILE:" + file.getAbsoluteFile());
+        if (!file.exists()) file.createNewFile();
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("@startuml").append("\n");
+        sb.append("!include ../base-library.puml").append("\n");
+        sb.append("HIDE_STEREOTYPE()").append("\n");
+        sb.append(cmp).append("\n");
+        sb.append("@enduml").append("\n");
+        FileUtils.fileWrite(file, sb.toString());
 
 //        if (!mavenProjectDto.comment().isEmpty()) {
 //            for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");
@@ -160,6 +186,12 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
         variables.put(new MavenCoordinateDto(mavenProjectDto), mavenProjectDto);
+    }
+
+    @NonNull
+    private File getPath() {
+        @NonNull final String path = new File(filename).getParent();
+        return new File(path + "/logical-view");
     }
 
 }

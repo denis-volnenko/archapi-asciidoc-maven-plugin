@@ -18,7 +18,7 @@ public abstract class AbstractGenerator {
     private boolean enabled = false;
 
     @NonNull
-    private String filename = "file.adoc";
+    protected String filename = "file.adoc";
 
     @NonNull
     private Root root;
