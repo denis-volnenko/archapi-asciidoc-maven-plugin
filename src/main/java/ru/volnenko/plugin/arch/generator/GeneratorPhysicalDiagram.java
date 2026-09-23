@@ -1,7 +1,16 @@
 package ru.volnenko.plugin.arch.generator;
 
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import jdk.internal.org.xml.sax.InputSource;
 import lombok.NonNull;
+import lombok.SneakyThrows;
+import org.codehaus.plexus.util.FileUtils;
+import org.jdom2.input.DOMBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import ru.volnenko.plugin.arch.model.impl.*;
+import ru.volnenko.plugin.arch.mx.MxFile;
 import ru.volnenko.plugin.arch.mxfile.*;
 import ru.volnenko.plugin.arch.util.FileUtil;
 
@@ -9,8 +18,12 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 import java.io.StringReader;
 import java.lang.System;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public final class GeneratorPhysicalDiagram extends AbstractGenerator {
@@ -199,21 +212,45 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
                 "</object>";
     }
 
+    @SneakyThrows
     public static void main(String[] args) throws JAXBException {
-        System.out.println(new GeneratorPhysicalDiagram().generate());
-        String xml = new GeneratorPhysicalDiagram().generate();
-        RootType rootType = new RootType();
+//        System.out.println(new GeneratorPhysicalDiagram().generate());
+//        RootType rootType = new RootType();
+        final String xml = FileUtils.fileRead(new File("physical-view.drawio"));
+//        System.out.println(xml);
 
-        JAXBContext jc = JAXBContext.newInstance("ru.volnenko.plugin.arch.mxfile");
-        StringReader reader = new StringReader(xml);
-        Unmarshaller unmarshaller = jc.createUnmarshaller();
-        Object fosterHome =  unmarshaller.unmarshal(reader);
-        JAXBElement jaxbElement = (JAXBElement) fosterHome;
-        MxfileType mxfileType = (MxfileType) jaxbElement.getValue();
-        List<DiagramType> diagramTypes = mxfileType.getDiagram();
-        DiagramType diagramType = diagramTypes.get(0);
-        System.out.println(diagramType);
-        System.out.println(mxfileType);
+//        String xml = new GeneratorPhysicalDiagram().generate();
+//        JAXBContext jc = JAXBContext.newInstance("ru.volnenko.plugin.arch.mxfile");
+//        StringReader reader = new StringReader(xml);
+//        Unmarshaller unmarshaller = jc.createUnmarshaller();
+//        Object fosterHome =  unmarshaller.unmarshal(reader);
+//        JAXBElement jaxbElement = (JAXBElement) fosterHome;
+//        MxfileType mxfileType = (MxfileType) jaxbElement.getValue();
+//        List<DiagramType> diagramTypes = mxfileType.getDiagram();
+//        DiagramType diagramType = diagramTypes.get(0);
+//        MxGraphModelType mxGraphModelType = diagramType.getMxGraphModel();
+//        RootType rootType = mxGraphModelType.getRoot();
+//        List<JAXBElement<?>> elements = rootType.getMxCellOrUserObjectOrObject();
+//
+//        for (JAXBElement element: elements) {
+//            System.out.println(element.get(););
+//        }
+
+//        System.out.println(elements);
+
+        final XmlMapper mapper = new XmlMapper();
+        final File file = new File("physical-view.drawio");
+        MxFile root = mapper.readValue(file, MxFile.class);
+        System.out.println(root);
+
+//        LinkedHashMap diagram = (LinkedHashMap) map.get("diagram");
+//        LinkedHashMap mxGraphModel = (LinkedHashMap) diagram.get("mxGraphModel");
+//        LinkedHashMap root = (LinkedHashMap) mxGraphModel.get("root");
+//        LinkedHashMap mxCell = (LinkedHashMap) root.get("mxCell");
+//
+//        for (Object item: mxCell.values()) {
+//            System.out.println(item);
+//        }
     }
-
+//
 }

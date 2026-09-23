@@ -2,6 +2,9 @@ package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
 import lombok.SneakyThrows;
+import net.sourceforge.plantuml.FileFormat;
+import net.sourceforge.plantuml.FileFormatOption;
+import net.sourceforge.plantuml.SourceFileReader;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.arch.model.ICoordinate;
 import ru.volnenko.plugin.arch.model.impl.*;
@@ -165,18 +168,23 @@ public final class GeneratorLogicalViewInclude extends AbstractGenerator {
         if (!path.exists()) path.mkdir();
         System.out.println("PATH:" + path.getAbsolutePath());
 
-        final File file = new File(path.getPath() + "/" + mavenProjectDto.artifactId() + ".puml");
-        System.out.println("FILE:" + file.getAbsoluteFile());
-        if (!file.exists()) file.createNewFile();
+        if (mavenProjectDto.getUrl() != null && !mavenProjectDto.getUrl().isEmpty()) {
+            final File file = new File(path.getPath() + "/" + mavenProjectDto.getUrl() + ".puml");
+            System.out.println("FILE:" + file.getAbsoluteFile());
+            if (!file.exists()) file.createNewFile();
 
-        StringBuilder sb = new StringBuilder();
+            final StringBuilder sb = new StringBuilder();
+            sb.append("@startuml").append("\n");
+            sb.append("!include ../base-library.puml").append("\n");
+            sb.append("HIDE_STEREOTYPE()").append("\n");
+            sb.append(cmp).append("\n");
+            sb.append("@enduml").append("\n");
+            FileUtils.fileWrite(file, sb.toString());
 
-        sb.append("@startuml").append("\n");
-        sb.append("!include ../base-library.puml").append("\n");
-        sb.append("HIDE_STEREOTYPE()").append("\n");
-        sb.append(cmp).append("\n");
-        sb.append("@enduml").append("\n");
-        FileUtils.fileWrite(file, sb.toString());
+            @NonNull final FileFormatOption option = new FileFormatOption(FileFormat.SVG);
+            @NonNull final SourceFileReader reader = new SourceFileReader(file, new File("."), option);
+            reader.getGeneratedImages();
+        }
 
 //        if (!mavenProjectDto.comment().isEmpty()) {
 //            for (int i = 0; i < environments.size(); i++) stringBuilder.append("\t");

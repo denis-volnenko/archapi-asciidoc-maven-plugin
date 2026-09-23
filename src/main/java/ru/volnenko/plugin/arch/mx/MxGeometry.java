@@ -1,0 +1,33 @@
+package ru.volnenko.plugin.arch.mx;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
+
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class MxGeometry {
+
+    private Double x;
+
+    private Double y;
+
+    private Double width;
+
+    private Double height;
+
+    private String relative;
+
+    private String as;
+
+    @JacksonXmlElementWrapper(useWrapping = false)
+    private List<MxPoint> mxPoint;
+
+    @JacksonXmlElementWrapper(useWrapping = false)
+    private List<MxRectangle> mxRectangle;
+
+}
