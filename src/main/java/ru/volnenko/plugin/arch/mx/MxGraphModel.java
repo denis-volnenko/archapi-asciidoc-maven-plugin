@@ -2,6 +2,7 @@ package ru.volnenko.plugin.arch.mx;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,8 +13,10 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MxGraphModel {
 
+    @JacksonXmlProperty(isAttribute = true, localName = "dx")
     private String dx;
 
+    @JacksonXmlProperty(isAttribute = true, localName = "dy")
     private String dy;
 
     private String grid;

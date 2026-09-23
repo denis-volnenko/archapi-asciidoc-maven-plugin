@@ -1,30 +1,14 @@
 package ru.volnenko.plugin.arch.generator;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import jdk.internal.org.xml.sax.InputSource;
 import lombok.NonNull;
 import lombok.SneakyThrows;
-import org.codehaus.plexus.util.FileUtils;
-import org.jdom2.input.DOMBuilder;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import ru.volnenko.plugin.arch.model.impl.*;
 import ru.volnenko.plugin.arch.mx.MxFile;
 import ru.volnenko.plugin.arch.mxfile.*;
-import ru.volnenko.plugin.arch.util.FileUtil;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.io.StringReader;
 import java.lang.System;
-import java.util.LinkedHashMap;
-import java.util.List;
 
 public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
@@ -38,49 +22,59 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
         return true;
     }
 
+    private XmlMapper xmlMapper = new XmlMapper();
+
     @NonNull
     @Override
+    @SneakyThrows
     public String generate() {
-        @NonNull final StringBuilder stringBuilder = new StringBuilder();
-        String key = "view";
-
-        stringBuilder.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>").append("\n");
-        stringBuilder.append("<mxfile host=\"Electron\">").append("\n");
-        stringBuilder.append("<diagram name=\"" + key + "\" id=\"" + key + "\">").append("\n");
-        stringBuilder.append("<mxGraphModel dx=\"707\" dy=\"634\" grid=\"1\" gridSize=\"10\" guides=\"1\" " +
-                "tooltips=\"1\" connect=\"1\" arrows=\"1\" fold=\"1\" page=\"1\" pageScale=\"1\" pageWidth=\"827\" " +
-                "pageHeight=\"1169\" math=\"0\" shadow=\"0\">").append("\n");
-        stringBuilder.append("<root>").append("\n");
-        stringBuilder.append("<mxCell id=\"0\" />").append("\n");
-        stringBuilder.append("<mxCell id=\"1\" parent=\"0\" />").append("\n");
-
-        if (root() != null) {
-            for (@NonNull final User user : root().users()) {
-                stringBuilder.append(person(user));
-            }
-            for (@NonNull final Service item : root().services()) {
-                stringBuilder.append(service(item));
-            }
-            for (@NonNull final ru.volnenko.plugin.arch.model.impl.Database item : root().databases()) {
-                stringBuilder.append(database(item));
-            }
-            for (@NonNull final ru.volnenko.plugin.arch.model.impl.System item: root().systems()) {
-                stringBuilder.append(system(item));
-            }
-            for (@NonNull final ru.volnenko.plugin.arch.model.impl.Queue item: root().queues()) {
-                stringBuilder.append(queue(item));
-            }
-            for (@NonNull final Environment environment: root().environments()) {
-                stringBuilder.append(boundary(environment));
-            }
+        @NonNull final File file = new File(filename);
+        MxFile mxFile = null;
+        if (file.exists()) {
+            mxFile = xmlMapper.readValue(file, MxFile.class);
         }
+        if (mxFile == null) mxFile = mxFile();
 
-        stringBuilder.append("</root>").append("\n");
-        stringBuilder.append("</mxGraphModel>").append("\n");
-        stringBuilder.append("</diagram>").append("\n");
-        stringBuilder.append("</mxfile>");
-        String value = FileUtil.formatXml(stringBuilder.toString());
-        return value;
+//        @NonNull final StringBuilder stringBuilder = new StringBuilder();
+//        String key = "view";
+
+//        stringBuilder.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>").append("\n");
+//        stringBuilder.append("<mxfile host=\"Electron\">").append("\n");
+//        stringBuilder.append("<diagram name=\"" + key + "\" id=\"" + key + "\">").append("\n");
+//        stringBuilder.append("<mxGraphModel dx=\"707\" dy=\"634\" grid=\"1\" gridSize=\"10\" guides=\"1\" " +
+//                "tooltips=\"1\" connect=\"1\" arrows=\"1\" fold=\"1\" page=\"1\" pageScale=\"1\" pageWidth=\"827\" " +
+//                "pageHeight=\"1169\" math=\"0\" shadow=\"0\">").append("\n");
+//        stringBuilder.append("<root>").append("\n");
+//        stringBuilder.append("<mxCell id=\"0\" />").append("\n");
+//        stringBuilder.append("<mxCell id=\"1\" parent=\"0\" />").append("\n");
+
+//        if (root() != null) {
+//            for (@NonNull final User user : root().users()) {
+//                stringBuilder.append(person(user));
+//            }
+//            for (@NonNull final Service item : root().services()) {
+//                stringBuilder.append(service(item));
+//            }
+//            for (@NonNull final ru.volnenko.plugin.arch.model.impl.Database item : root().databases()) {
+//                stringBuilder.append(database(item));
+//            }
+//            for (@NonNull final ru.volnenko.plugin.arch.model.impl.System item: root().systems()) {
+//                stringBuilder.append(system(item));
+//            }
+//            for (@NonNull final ru.volnenko.plugin.arch.model.impl.Queue item: root().queues()) {
+//                stringBuilder.append(queue(item));
+//            }
+//            for (@NonNull final Environment environment: root().environments()) {
+//                stringBuilder.append(boundary(environment));
+//            }
+//        }
+//
+//        stringBuilder.append("</root>").append("\n");
+//        stringBuilder.append("</mxGraphModel>").append("\n");
+//        stringBuilder.append("</diagram>").append("\n");
+//        stringBuilder.append("</mxfile>");
+//        String value = FileUtil.formatXml(stringBuilder.toString());
+        return xmlMapper.writeValueAsString(mxFile);
     }
 
     @NonNull
@@ -214,43 +208,21 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
     @SneakyThrows
     public static void main(String[] args) throws JAXBException {
-//        System.out.println(new GeneratorPhysicalDiagram().generate());
-//        RootType rootType = new RootType();
-        final String xml = FileUtils.fileRead(new File("physical-view.drawio"));
-//        System.out.println(xml);
-
-//        String xml = new GeneratorPhysicalDiagram().generate();
-//        JAXBContext jc = JAXBContext.newInstance("ru.volnenko.plugin.arch.mxfile");
-//        StringReader reader = new StringReader(xml);
-//        Unmarshaller unmarshaller = jc.createUnmarshaller();
-//        Object fosterHome =  unmarshaller.unmarshal(reader);
-//        JAXBElement jaxbElement = (JAXBElement) fosterHome;
-//        MxfileType mxfileType = (MxfileType) jaxbElement.getValue();
-//        List<DiagramType> diagramTypes = mxfileType.getDiagram();
-//        DiagramType diagramType = diagramTypes.get(0);
-//        MxGraphModelType mxGraphModelType = diagramType.getMxGraphModel();
-//        RootType rootType = mxGraphModelType.getRoot();
-//        List<JAXBElement<?>> elements = rootType.getMxCellOrUserObjectOrObject();
-//
-//        for (JAXBElement element: elements) {
-//            System.out.println(element.get(););
-//        }
-
-//        System.out.println(elements);
-
+//        final String xml = FileUtils.fileRead(new File("physical-view.drawio"));
         final XmlMapper mapper = new XmlMapper();
-        final File file = new File("physical-view.drawio");
-        MxFile root = mapper.readValue(file, MxFile.class);
-        System.out.println(root);
-
-//        LinkedHashMap diagram = (LinkedHashMap) map.get("diagram");
-//        LinkedHashMap mxGraphModel = (LinkedHashMap) diagram.get("mxGraphModel");
-//        LinkedHashMap root = (LinkedHashMap) mxGraphModel.get("root");
-//        LinkedHashMap mxCell = (LinkedHashMap) root.get("mxCell");
-//
-//        for (Object item: mxCell.values()) {
-//            System.out.println(item);
-//        }
+//        final File file = new File("physical-view.drawio");
+//        MxFile root = mapper.readValue(file, MxFile.class);
+//        System.out.println(root);
+        MxFile mxFile = mxFile();
+        mapper.writeValue(new File("test.drawio"), mxFile);
+        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(mxFile));
     }
-//
+
+    @NonNull
+    private static MxFile mxFile() {
+        MxFile mxFile = new MxFile();
+        mxFile.setHost("Electron");
+        return mxFile;
+    }
+
 }
