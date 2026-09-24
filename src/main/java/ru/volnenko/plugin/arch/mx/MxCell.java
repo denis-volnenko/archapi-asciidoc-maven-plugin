@@ -16,8 +16,23 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MxCell {
 
+    @JacksonXmlProperty(isAttribute = true, localName = "groupId")
+    private String groupId;
+
+    @JacksonXmlProperty(isAttribute = true, localName = "archapi")
+    private String archapi;
+
     @JacksonXmlProperty(isAttribute = true, localName = "id")
     private String id;
+
+    @JacksonXmlProperty(isAttribute = true, localName = "artifactId")
+    private String artifactId;
+
+    @JacksonXmlProperty(isAttribute = true, localName = "version")
+    private String version;
+
+    @JacksonXmlProperty(isAttribute = true, localName = "packaging")
+    private String packaging;
 
     @JacksonXmlProperty(isAttribute = true, localName = "parent")
     private String parent;
@@ -64,6 +79,13 @@ public class MxCell {
     public String toString() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("<mxCell ");
+
+        MapUtil.apply(stringBuilder, "archapi", archapi);
+        MapUtil.apply(stringBuilder, "groupId", groupId);
+        MapUtil.apply(stringBuilder, "artifactId", artifactId);
+        MapUtil.apply(stringBuilder, "version", version);
+        MapUtil.apply(stringBuilder, "packaging", packaging);
+
         MapUtil.apply(stringBuilder, "id", id);
         MapUtil.apply(stringBuilder, "parent", parent);
         MapUtil.apply(stringBuilder, "value", value);

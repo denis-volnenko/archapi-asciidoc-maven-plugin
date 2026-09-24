@@ -101,7 +101,7 @@ public abstract class AbstractGenerator  extends AbstractMojo {
     @Getter
     @Setter
     @Parameter(property = "physicalViewDiagramEnabled")
-    protected boolean physicalViewDiagramEnabled = false;
+    protected boolean physicalViewDiagramEnabled = true;
 
     @Getter
     @Setter

@@ -54,6 +54,11 @@ public class MxFile {
         this.properties.put(key, value);
     }
 
+    public MxFile diagram(Diagram diagram) {
+        this.diagram.add(diagram);
+        return this;
+    }
+
     @Override
     public String toString() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();

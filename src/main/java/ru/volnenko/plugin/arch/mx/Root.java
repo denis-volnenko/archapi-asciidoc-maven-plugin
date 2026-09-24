@@ -57,4 +57,10 @@ public class Root {
         this.userObjects.add(object);
     }
 
+    @NonNull
+    public Root mxCell(MxCell mxCell) {
+        mxCells.add(mxCell);
+        return this;
+    }
+
 }

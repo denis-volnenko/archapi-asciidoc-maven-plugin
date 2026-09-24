@@ -1,14 +1,14 @@
 package ru.volnenko.plugin.arch.generator;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.arch.model.impl.*;
+import ru.volnenko.plugin.arch.mx.Diagram;
+import ru.volnenko.plugin.arch.mx.MxCell;
 import ru.volnenko.plugin.arch.mx.MxFile;
+import ru.volnenko.plugin.arch.mx.MxGraphModel;
 import ru.volnenko.plugin.arch.mxfile.*;
 import javax.xml.bind.JAXBException;
 import java.io.File;
@@ -36,21 +36,9 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
         MxFile mxFile = null;
         if (file.exists()) {
             mxFile = xmlMapper.readValue(file, MxFile.class);
+        } else {
+            mxFile = mxFile();
         }
-        if (mxFile == null) mxFile = mxFile();
-
-//        @NonNull final StringBuilder stringBuilder = new StringBuilder();
-//        String key = "view";
-
-//        stringBuilder.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>").append("\n");
-//        stringBuilder.append("<mxfile host=\"Electron\">").append("\n");
-//        stringBuilder.append("<diagram name=\"" + key + "\" id=\"" + key + "\">").append("\n");
-//        stringBuilder.append("<mxGraphModel dx=\"707\" dy=\"634\" grid=\"1\" gridSize=\"10\" guides=\"1\" " +
-//                "tooltips=\"1\" connect=\"1\" arrows=\"1\" fold=\"1\" page=\"1\" pageScale=\"1\" pageWidth=\"827\" " +
-//                "pageHeight=\"1169\" math=\"0\" shadow=\"0\">").append("\n");
-//        stringBuilder.append("<root>").append("\n");
-//        stringBuilder.append("<mxCell id=\"0\" />").append("\n");
-//        stringBuilder.append("<mxCell id=\"1\" parent=\"0\" />").append("\n");
 
 //        if (root() != null) {
 //            for (@NonNull final User user : root().users()) {
@@ -72,13 +60,8 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 //                stringBuilder.append(boundary(environment));
 //            }
 //        }
-//
-//        stringBuilder.append("</root>").append("\n");
-//        stringBuilder.append("</mxGraphModel>").append("\n");
-//        stringBuilder.append("</diagram>").append("\n");
-//        stringBuilder.append("</mxfile>");
-//        String value = FileUtil.formatXml(stringBuilder.toString());
-        return xmlMapper.writeValueAsString(mxFile);
+
+        return mxFile.toString();
     }
 
     @NonNull
@@ -212,20 +195,65 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
     @SneakyThrows
     public static void main(String[] args) throws JAXBException {
-//        final String xml = FileUtils.fileRead(new File("physical-view.drawio"));
         final XmlMapper mapper = new XmlMapper();
-//        mapper.enable(SerializationFeature.INDENT_OUTPUT);
-//        mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
-//        mapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
         final File file = new File("physical-view-source.drawio");
         MxFile mxFile = mapper.readValue(file, MxFile.class);
         System.out.println(mxFile.toString());
         FileUtils.fileWrite( new File("physical-view-target.drawio"), mxFile.toString());
     }
 
+    private static MxCell mxCell(Service service) {
+        MxCell mxCell = new MxCell();
+        mxCell.toString();
+//        return "shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=data:image/svg+xml,"
+        return null;
+    }
+
     @NonNull
     private static MxFile mxFile() {
-        MxFile mxFile = new MxFile();
+        @NonNull final MxFile mxFile = new MxFile();
+        mxFile.setHost("drawio-plugin");
+        mxFile.setModified("2026-09-24T06:54:14.262Z");
+        mxFile.setAgent("Mozilla");
+        mxFile.setEtag("BRWCp266IsyFUOcJYXh5");
+        mxFile.setVersion("22.1.22");
+        mxFile.setType("embed");
+
+        @NonNull final Diagram diagram = new Diagram();
+        diagram.setId("view");
+        diagram.setName("view");
+        mxFile.diagram(diagram);
+
+        @NonNull MxGraphModel mxGraphModel = new MxGraphModel();
+        mxGraphModel.setDx("433");
+        mxGraphModel.setDy("565");
+        mxGraphModel.setGrid("1");
+        mxGraphModel.setGridSize("10");
+        mxGraphModel.setGuides("1");
+        mxGraphModel.setTooltips("1");
+        mxGraphModel.setConnect("1");
+        mxGraphModel.setArrows("1");
+        mxGraphModel.setFold("1");
+        mxGraphModel.setPage("1");
+        mxGraphModel.setPageScale("1");
+        mxGraphModel.setPageWidth("827");
+        mxGraphModel.setPageHeight("1169");
+        mxGraphModel.setMath("0");
+        mxGraphModel.setShadow("0");
+        diagram.setMxGraphModel(mxGraphModel);
+
+        @NonNull final ru.volnenko.plugin.arch.mx.Root root = new ru.volnenko.plugin.arch.mx.Root();
+        mxGraphModel.setRoot(root);
+
+        @NonNull final MxCell mxCell0 = new MxCell();
+        mxCell0.setId("0");
+
+        @NonNull final MxCell mxCell1 = new MxCell();
+        mxCell1.setId("1");
+        mxCell1.setParent("0");
+
+        root.mxCell(mxCell0).mxCell(mxCell1);
+
         return mxFile;
     }
 
