@@ -1,0 +1,5 @@
+@startuml
+!include ../base-library.puml
+HIDE_STEREOTYPE()
+Person(UserAdmin, "Администратор", "", "", $tags = "")
+@enduml

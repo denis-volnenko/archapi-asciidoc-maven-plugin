@@ -26,7 +26,7 @@ public final class GeneratorContextViewInclude extends AbstractGenerator {
         @NonNull final Map<ICoordinate, MavenProjectDto> variables = new LinkedHashMap<>();
 
         for (@NonNull final User user : root().users()) {
-           renderUser(stringBuilder, user, variables, user.contextViewEnabled());
+           renderUser(stringBuilder, user, variables, user.contextViewEnabled(), null);
         }
 
         for (@NonNull final Service item :  root().services()) {

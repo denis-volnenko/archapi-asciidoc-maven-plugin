@@ -2,6 +2,9 @@ package ru.volnenko.plugin.arch.generator;
 
 import lombok.NonNull;
 import lombok.SneakyThrows;
+import net.sourceforge.plantuml.FileFormat;
+import net.sourceforge.plantuml.FileFormatOption;
+import net.sourceforge.plantuml.SourceFileReader;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.arch.model.ICoordinate;
 import ru.volnenko.plugin.arch.model.impl.*;
@@ -9,6 +12,7 @@ import ru.volnenko.plugin.arch.util.StringUtil;
 
 import java.io.File;
 import java.io.InputStream;
+import java.lang.System;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -101,7 +105,8 @@ public abstract class AbstractGenerator {
             @NonNull final StringBuilder stringBuilder,
             @NonNull final User user,
             @NonNull final Map<ICoordinate, MavenProjectDto> variables,
-            final Boolean viewEnabled
+            final Boolean viewEnabled,
+            String filename
     ) {
         if (viewEnabled != null && !viewEnabled) return;
 
@@ -114,10 +119,12 @@ public abstract class AbstractGenerator {
         String tags = "";
         if ("provided".equals(scope)) component += "_Ext";
         if ("compile".equals(scope)) tags = "selected";
-        stringBuilder.append(renderUser(component, user.url(), user.name(), user.title(), user.subtitle(), tags));
+        String plantuml = renderUser(component, user.url(), user.name(), user.title(), user.subtitle(), tags);
+        stringBuilder.append(plantuml);
         endBoundary(stringBuilder, environments);
         stringBuilder.append("\n");
         variables.put(new MavenCoordinateDto(user), user);
+        if (filename != null) drawSvg(user, plantuml, filename);
     }
 
     @NonNull
@@ -131,7 +138,7 @@ public abstract class AbstractGenerator {
     ) {
         if (constant.isEmpty()) return "";
         if (name.isEmpty()) return "";
-        return new StringBuilder()
+        String plantuml = new StringBuilder()
                 .append(component).append("(")
                 .append(constant).append(", ")
                 .append("\"").append(name).append("\"").append(", ")
@@ -139,6 +146,8 @@ public abstract class AbstractGenerator {
                 .append("\"").append(subtitle).append("\"").append(", ")
                 .append("$tags = \"").append(tags).append("\"")
                 .append(")").append("\n").toString();
+
+        return plantuml;
     }
 
     @NonNull
@@ -179,6 +188,29 @@ public abstract class AbstractGenerator {
             for (int i = index; i > 0 ; i--) stringBuilder.append("\t");
             stringBuilder.append("}").append("\n");
             index--;
+        }
+    }
+
+    @SneakyThrows
+    protected void drawSvg(MavenProjectDto mavenProjectDto, String plantuml, String filename) {
+        @NonNull final String path = new File(filename).getParent();
+        File folder = new File(path + "/logical-view");
+        if (mavenProjectDto.getUrl() != null && !mavenProjectDto.getUrl().isEmpty()) {
+            final File file = new File(folder.getPath() + "/" + mavenProjectDto.getUrl() + ".puml");
+            System.out.println("FILE:" + file.getAbsoluteFile());
+            if (!file.exists()) file.createNewFile();
+
+            final StringBuilder sb = new StringBuilder();
+            sb.append("@startuml").append("\n");
+            sb.append("!include ../base-library.puml").append("\n");
+            sb.append("HIDE_STEREOTYPE()").append("\n");
+            sb.append(plantuml);
+            sb.append("@enduml").append("\n");
+            FileUtils.fileWrite(file, sb.toString());
+
+            @NonNull final FileFormatOption option = new FileFormatOption(FileFormat.SVG);
+            @NonNull final SourceFileReader reader = new SourceFileReader(file, new File("."), option);
+            reader.getGeneratedImages();
         }
     }
 

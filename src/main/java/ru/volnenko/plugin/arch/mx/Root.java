@@ -38,6 +38,7 @@ public class Root {
         return this;
     }
 
+    @JsonIgnore
     private XmlMapper objectMapper = new XmlMapper();
 
     @SneakyThrows

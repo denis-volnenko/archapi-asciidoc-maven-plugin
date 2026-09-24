@@ -2,5 +2,4 @@
 !include ../base-library.puml
 HIDE_STEREOTYPE()
 ContainerDb(TaskManagerDatabase, "task_manager", "", "Postgresql 17 Pro (Enterprise)", $tags = "selected")
-
 @enduml

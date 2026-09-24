@@ -1,19 +1,20 @@
 package ru.volnenko.plugin.arch.generator;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.arch.model.impl.*;
-import ru.volnenko.plugin.arch.mx.Diagram;
-import ru.volnenko.plugin.arch.mx.MxCell;
-import ru.volnenko.plugin.arch.mx.MxFile;
-import ru.volnenko.plugin.arch.mx.MxGraphModel;
+import ru.volnenko.plugin.arch.mx.*;
+import ru.volnenko.plugin.arch.mx.Root;
 import ru.volnenko.plugin.arch.mxfile.*;
 import javax.xml.bind.JAXBException;
 import java.io.File;
 import java.io.IOException;
 import java.lang.System;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
@@ -37,9 +38,15 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
         MxFile mxFile = null;
         if (file.exists()) {
             try {
-                mxFile = xmlMapper.readValue(file, MxFile.class);
+                byte[] bytes = Files.readAllBytes(Paths.get(filename));
+                String xml =
+                        "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>" +
+                        new String(bytes);
+
+                mxFile = xmlMapper.readValue(xml, MxFile.class);
             } catch (IOException e) {
                 System.out.println("ERROR PARSE!");
+                e.printStackTrace();
             }
         }
         if (mxFile == null) mxFile = mxFile();
@@ -63,8 +70,6 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
             for (final Environment environment: root().environments()) {
             }
         }
-
-        System.out.println(mxFile.toString());
 
         return mxFile.toString();
     }
@@ -202,9 +207,12 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
     public static void main(String[] args) throws JAXBException {
         final XmlMapper mapper = new XmlMapper();
         final File file = new File("physical-view-source.drawio");
-        MxFile mxFile = mapper.readValue(file, MxFile.class);
-        System.out.println(mxFile.toString());
-        FileUtils.fileWrite( new File("physical-view-target.drawio"), mxFile.toString());
+//        MxPoint mxFile = mapper.readValue(file, MxPoint.class);
+//        UserObject mxFile = mapper.readValue(file, UserObject.class);
+        Root mxFile = mapper.readValue(file, Root.class);
+//        MxFile mxFile = mapper.readValue(file, MxFile.class);
+//        System.out.println(mxFile.toString());
+//        FileUtils.fileWrite( new File("physical-view-target.drawio"), mxFile.toString());
     }
 
     private static MxCell mxCell(Service service) {
