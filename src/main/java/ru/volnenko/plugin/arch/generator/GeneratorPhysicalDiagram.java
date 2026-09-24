@@ -206,11 +206,11 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
     @SneakyThrows
     public static void main(String[] args) throws JAXBException {
         final XmlMapper mapper = new XmlMapper();
-        final File file = new File("physical-view-source.drawio");
+        final File file = new File("physical-view.drawio");
 //        MxPoint mxFile = mapper.readValue(file, MxPoint.class);
 //        UserObject mxFile = mapper.readValue(file, UserObject.class);
-        Root mxFile = mapper.readValue(file, Root.class);
-//        MxFile mxFile = mapper.readValue(file, MxFile.class);
+//        Root mxFile = mapper.readValue(file, Root.class);
+        MxFile mxFile = mapper.readValue(file, MxFile.class);
 //        System.out.println(mxFile.toString());
 //        FileUtils.fileWrite( new File("physical-view-target.drawio"), mxFile.toString());
     }
