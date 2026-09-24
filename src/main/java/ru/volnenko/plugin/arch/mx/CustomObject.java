@@ -8,7 +8,6 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
-import org.apache.commons.lang3.StringEscapeUtils;
 import ru.volnenko.plugin.arch.util.MapUtil;
 
 import java.util.LinkedHashMap;
