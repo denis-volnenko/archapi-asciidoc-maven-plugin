@@ -65,7 +65,7 @@ public abstract class AbstractGenerator  extends AbstractMojo {
     protected final String logicalViewDiagramFilename = "src/main/asciidoc/images/logical-view.puml";
 
     @NonNull
-    protected final String physicalViewDiagramFilename = "src/main/asciidoc/images/physical-view.drawio";
+    protected final String physicalViewDiagramFilename = "src/main/asciidoc/images/physical-view.drawio.xml";
 
     @NonNull
     protected final String logicalViewCompileFilename = "src/main/asciidoc/images/logical-view.svg";

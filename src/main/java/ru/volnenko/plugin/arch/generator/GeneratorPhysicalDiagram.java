@@ -9,6 +9,8 @@ import ru.volnenko.plugin.arch.model.impl.*;
 import ru.volnenko.plugin.arch.mx.*;
 import ru.volnenko.plugin.arch.mx.Root;
 import ru.volnenko.plugin.arch.mxfile.*;
+import ru.volnenko.plugin.arch.util.FileUtil;
+
 import javax.xml.bind.JAXBException;
 import java.io.File;
 import java.io.IOException;
@@ -70,7 +72,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
             }
         }
 
-        return mxFile.toString();
+        return FileUtil.formatXml(mxFile.toString());
     }
 
     @NonNull
