@@ -36,7 +36,6 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
     @Override
     public String generate() {
         @NonNull final File file = new File(filename);
-        @NonNull final File path = new File(file.getParent());
         MxFile mxFile = null;
         if (file.exists()) {
             try {
@@ -53,6 +52,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
         if (mxFile == null) mxFile = mxFile();
 
         if (root() != null) {
+            @NonNull final File path = new File(file.getParent());
             for (final User user : root().users()) {
                 mxFile.merge(user, path);
             }
@@ -268,6 +268,16 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
         root.mxCell(mxCell0).mxCell(mxCell1);
 
         return mxFile;
+    }
+
+    @SneakyThrows
+    public void execute() {
+        if (!enabled) return;
+        @NonNull final File file = new File(filename);
+        @NonNull final String parent = file.getParent();
+        @NonNull final File path = new File(parent);
+        path.mkdirs();
+        FileUtils.fileWrite(file, generate());
     }
 
 }

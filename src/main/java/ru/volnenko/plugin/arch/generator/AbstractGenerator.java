@@ -26,7 +26,7 @@ import java.util.Map;
 
 public abstract class AbstractGenerator {
 
-    private boolean enabled = false;
+    protected boolean enabled = false;
 
     @NonNull
     protected String filename = "file.adoc";
@@ -204,6 +204,7 @@ public abstract class AbstractGenerator {
     protected void drawSvg(MavenProjectDto mavenProjectDto, String plantuml, String filename) {
         @NonNull final String path = new File(filename).getParent();
         File folder = new File(path + "/logical-view");
+        if (!folder.exists()) folder.mkdirs();
         if (mavenProjectDto.getUrl() != null && !mavenProjectDto.getUrl().isEmpty()) {
             final File filePuml = new File(folder.getPath() + "/" + mavenProjectDto.getUrl() + ".puml");
             System.out.println("FILE:" + filePuml.getAbsoluteFile());
