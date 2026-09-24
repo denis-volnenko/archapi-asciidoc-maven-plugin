@@ -6,6 +6,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
 import ru.volnenko.plugin.arch.util.FileUtil;
 import ru.volnenko.plugin.arch.util.MapUtil;
 
@@ -52,6 +53,21 @@ public class MxFile {
     @JsonAnySetter
     public void properties(String key, String value) {
         this.properties.put(key, value);
+    }
+
+    @NonNull
+    public MxCell merge(@NonNull MavenProjectDto dto) {
+        return root().mergeMxCell(dto);
+    }
+
+
+
+    public Root root() {
+        if (diagram == null || diagram.isEmpty()) return null;
+        final Diagram d = diagram.get(0);
+        final MxGraphModel m = d.getMxGraphModel();
+        if (m == null) return null;
+        return m.getRoot();
     }
 
     public MxFile diagram(Diagram diagram) {

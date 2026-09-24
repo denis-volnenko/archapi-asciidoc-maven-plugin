@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,51 @@ public class Root {
 
     @JsonIgnore
     private List<CustomObject> objects = new ArrayList<>();
+
+    @NonNull
+    public Root add(@NonNull final MxCell mxCell) {
+        mxCells.add(mxCell);
+        return this;
+    }
+
+    public MxCell mergeMxCell(@NonNull final MavenProjectDto dto) {
+        MxCell mxCell = findMxCell(dto);
+        if (mxCell == null) mxCell = create(dto);
+        return mxCell;
+    }
+
+    @NonNull
+    public MxCell create(@NonNull final MavenProjectDto dto) {
+        @NonNull final MxCell mxCell = new MxCell();
+        mxCell.setId(dto.getGroupId()+":"+dto.artifactId()+":"+dto.getPackaging());
+        mxCell.setArchapi("1.0.0");
+        mxCell.setGroupId(dto.getGroupId());
+        mxCell.setArtifactId(dto.getArtifactId());
+        mxCell.setPackaging(dto.getPackaging());
+        mxCell.setArtifactId(dto.getPackaging());
+        mxCell.setParent("1");
+        mxCell.setVertex("1");
+        mxCell.setValue("");
+        return mxCell;
+    }
+
+    public MxCell findMxCell(@NonNull final MavenProjectDto dto) {
+        return mxCells.stream().filter(mxCell -> {
+            final boolean artifactId = dto.artifactId().equals(mxCell.getArtifactId());
+            final boolean groupId = dto.getGroupId().equals(mxCell.getGroupId());
+            final boolean packaging = dto.getPackaging().equals(mxCell.getPackaging());
+            return artifactId && groupId && packaging;
+        }).findAny().orElse(null);
+    }
+
+    public boolean containsMxCell(@NonNull final MavenProjectDto dto) {
+        return mxCells.stream().anyMatch(mxCell -> {
+            final boolean artifactId = dto.artifactId().equals(mxCell.getArtifactId());
+            final boolean groupId = dto.getGroupId().equals(mxCell.getGroupId());
+            final boolean packaging = dto.getPackaging().equals(mxCell.getPackaging());
+            return artifactId && groupId && packaging;
+        });
+    }
 
     @Override
     public String toString() {
