@@ -1,6 +1,8 @@
 package ru.volnenko.plugin.arch.mx;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.*;
 import net.sourceforge.plantuml.FileUtils;
 import org.codehaus.plexus.util.Base64;
@@ -36,6 +38,9 @@ public class Root {
         return this;
     }
 
+    private XmlMapper objectMapper = new XmlMapper();
+
+    @SneakyThrows
     public MxCell mergeMxCell(@NonNull final MavenProjectDto dto, @NonNull File path) {
         System.out.println("MERGE: "+dto);
         MxCell mxCell = findMxCell(dto);
@@ -45,7 +50,12 @@ public class Root {
         }
 
         String file = path.getAbsolutePath() + "/logical-view/" + dto.getUrl() + ".svg";
-        if (new File(file).exists()) {
+        final File svg = new File(file);
+        if (svg.exists()) {
+            SvgFile svgFile = objectMapper.readValue(svg, SvgFile.class);
+            mxCell.getMxGeometry().setWidth(svgFile.getWidth().replace("px", ""));
+            mxCell.getMxGeometry().setHeight(svgFile.getHeight().replace("px", ""));
+
             mxCell.setStyle("shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=data:image/svg+xml," + encodeFileToBase64Binary(file));
             System.out.println(file);
         } else {
