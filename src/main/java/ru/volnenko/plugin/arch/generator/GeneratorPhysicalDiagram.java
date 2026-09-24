@@ -12,6 +12,7 @@ import ru.volnenko.plugin.arch.mx.MxGraphModel;
 import ru.volnenko.plugin.arch.mxfile.*;
 import javax.xml.bind.JAXBException;
 import java.io.File;
+import java.io.IOException;
 import java.lang.System;
 
 public final class GeneratorPhysicalDiagram extends AbstractGenerator {
@@ -30,36 +31,39 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
     @NonNull
     @Override
-    @SneakyThrows
     public String generate() {
         @NonNull final File file = new File(filename);
         MxFile mxFile = null;
         if (file.exists()) {
-            mxFile = xmlMapper.readValue(file, MxFile.class);
-        } else {
-            mxFile = mxFile();
+            try {
+                mxFile = xmlMapper.readValue(file, MxFile.class);
+            } catch (IOException e) {
+                System.out.println("ERROR PARSE!");
+            }
         }
+        if (mxFile == null) mxFile = mxFile();
 
 //        if (root() != null) {
-//            for (@NonNull final User user : root().users()) {
-//                stringBuilder.append(person(user));
+//            for (final User user : root().users()) {
+//                mxFile.merge(user);
 //            }
-//            for (@NonNull final Service item : root().services()) {
-//                stringBuilder.append(service(item));
+//            for (final Service item : root().services()) {
+//                mxFile.merge(item);
 //            }
-//            for (@NonNull final ru.volnenko.plugin.arch.model.impl.Database item : root().databases()) {
-//                stringBuilder.append(database(item));
+//            for (final ru.volnenko.plugin.arch.model.impl.Database item : root().databases()) {
+//                mxFile.merge(item);
 //            }
-//            for (@NonNull final ru.volnenko.plugin.arch.model.impl.System item: root().systems()) {
-//                stringBuilder.append(system(item));
+//            for (final ru.volnenko.plugin.arch.model.impl.System item: root().systems()) {
+//                mxFile.merge(item);
 //            }
-//            for (@NonNull final ru.volnenko.plugin.arch.model.impl.Queue item: root().queues()) {
-//                stringBuilder.append(queue(item));
+//            for (final ru.volnenko.plugin.arch.model.impl.Queue item: root().queues()) {
+//                mxFile.merge(item);
 //            }
-//            for (@NonNull final Environment environment: root().environments()) {
-//                stringBuilder.append(boundary(environment));
+//            for (final Environment environment: root().environments()) {
 //            }
 //        }
+
+        System.out.println(mxFile.toString());
 
         return mxFile.toString();
     }
@@ -209,7 +213,6 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
         return null;
     }
 
-    @NonNull
     private static MxFile mxFile() {
         @NonNull final MxFile mxFile = new MxFile();
         mxFile.setHost("drawio-plugin");

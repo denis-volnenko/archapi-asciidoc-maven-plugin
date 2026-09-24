@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 import ru.volnenko.plugin.arch.util.MapUtil;
 
@@ -50,7 +49,7 @@ public class UserObject  {
 
     @Override
     public String toString() {
-        @NonNull final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("<userObject ");
         MapUtil.apply(stringBuilder, "id", id);
         MapUtil.apply(stringBuilder, "label", label);

@@ -226,4 +226,8 @@ public class MavenProjectDto implements Comparable<MavenProjectDto>, ICoordinate
         return Objects.hash(groupId, artifactId, version, packaging);
     }
 
+    @Override
+    public String toString() {
+        return groupId + ":" + artifactId + ":" + packaging;
+    }
 }

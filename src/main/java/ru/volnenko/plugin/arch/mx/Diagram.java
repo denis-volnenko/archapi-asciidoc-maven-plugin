@@ -25,7 +25,7 @@ public class Diagram {
     private String name;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    private MxGraphModel mxGraphModel;
+    private MxGraphModel mxGraphModel = new MxGraphModel();
 
     @JsonIgnore
     private Map<String, String> properties = new LinkedHashMap<>();

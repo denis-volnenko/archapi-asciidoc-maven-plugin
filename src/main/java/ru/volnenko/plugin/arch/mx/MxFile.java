@@ -10,6 +10,7 @@ import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
 import ru.volnenko.plugin.arch.util.FileUtil;
 import ru.volnenko.plugin.arch.util.MapUtil;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +46,7 @@ public class MxFile {
     private String pages;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    private List<Diagram> diagram;
+    private List<Diagram> diagram = new ArrayList<>();
 
     @JsonIgnore
     private Map<String, String> properties = new LinkedHashMap<>();
@@ -78,7 +79,6 @@ public class MxFile {
     @Override
     public String toString() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("<?xml version='1.0' encoding='UTF-8'?>").append("\n");
         stringBuilder.append("<mxfile ");
         MapUtil.apply(stringBuilder, "host", host);
         MapUtil.apply(stringBuilder, "modified", modified);
@@ -92,7 +92,7 @@ public class MxFile {
         stringBuilder.append(">").append("\n");
         if (diagram != null) for (Diagram d: diagram) stringBuilder.append(d);
         stringBuilder.append("</mxfile>").append("\n");
-        return FileUtil.formatXml(stringBuilder.toString());
+        return stringBuilder.toString();
     }
 
 }

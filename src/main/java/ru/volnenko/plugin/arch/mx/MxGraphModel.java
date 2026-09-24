@@ -73,7 +73,7 @@ public class MxGraphModel {
     private String adaptiveColors;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    private Root root;
+    private Root root = new Root();
 
     @JsonIgnore
     private Map<String, String> properties = new LinkedHashMap<>();

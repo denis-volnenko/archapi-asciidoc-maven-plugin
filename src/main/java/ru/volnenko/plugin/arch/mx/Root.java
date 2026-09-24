@@ -2,6 +2,7 @@ package ru.volnenko.plugin.arch.mx;
 
 import com.fasterxml.jackson.annotation.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Root {
 
@@ -30,6 +32,7 @@ public class Root {
     }
 
     public MxCell mergeMxCell(@NonNull final MavenProjectDto dto) {
+        System.out.println("MERGE: "+dto);
         MxCell mxCell = findMxCell(dto);
         if (mxCell == null) mxCell = create(dto);
         return mxCell;
