@@ -1,12 +1,17 @@
 package ru.volnenko.plugin.arch.mx;
 
 import com.fasterxml.jackson.annotation.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
+import net.sourceforge.plantuml.FileUtils;
+import org.codehaus.plexus.util.Base64;
 import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
+import ru.volnenko.plugin.arch.util.FileUtil;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,11 +36,31 @@ public class Root {
         return this;
     }
 
-    public MxCell mergeMxCell(@NonNull final MavenProjectDto dto) {
+    public MxCell mergeMxCell(@NonNull final MavenProjectDto dto, @NonNull File path) {
         System.out.println("MERGE: "+dto);
         MxCell mxCell = findMxCell(dto);
-        if (mxCell == null) mxCell = create(dto);
+        if (mxCell == null) {
+            mxCell = create(dto);
+            mxCells.add(mxCell);
+        }
+
+        String file = path.getAbsolutePath() + "/logical-view/" + dto.getUrl() + ".svg";
+        if (new File(file).exists()) {
+            mxCell.setStyle("shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=data:image/svg+xml," + encodeFileToBase64Binary(file));
+            System.out.println(file);
+        } else {
+            mxCell.setStyle("");
+        }
+
+        mxCell.setVersion(dto.getVersion());
+
         return mxCell;
+    }
+
+    @SneakyThrows
+    private static String encodeFileToBase64Binary(String fileName) {
+        byte[] encoded = Base64.encodeBase64(Files.readAllBytes(Paths.get(fileName)));
+        return new String(encoded, StandardCharsets.US_ASCII);
     }
 
     @NonNull
@@ -46,10 +71,19 @@ public class Root {
         mxCell.setGroupId(dto.getGroupId());
         mxCell.setArtifactId(dto.getArtifactId());
         mxCell.setPackaging(dto.getPackaging());
-        mxCell.setArtifactId(dto.getPackaging());
+        mxCell.setVersion(dto.getVersion());
         mxCell.setParent("1");
         mxCell.setVertex("1");
         mxCell.setValue("");
+
+        @NonNull final MxGeometry mxGeometry = new MxGeometry();
+        mxGeometry.setX("220");
+        mxGeometry.setY("450");
+        mxGeometry.setHeight("43");
+        mxGeometry.setWidth("168");
+        mxGeometry.setAs("geometry");
+
+        mxCell.setMxGeometry(mxGeometry);
         return mxCell;
     }
 

@@ -10,6 +10,7 @@ import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
 import ru.volnenko.plugin.arch.util.FileUtil;
 import ru.volnenko.plugin.arch.util.MapUtil;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -57,11 +58,9 @@ public class MxFile {
     }
 
     @NonNull
-    public MxCell merge(@NonNull MavenProjectDto dto) {
-        return root().mergeMxCell(dto);
+    public MxCell merge(@NonNull MavenProjectDto dto, @NonNull File path) {
+        return root().mergeMxCell(dto, path);
     }
-
-
 
     public Root root() {
         if (diagram == null || diagram.isEmpty()) return null;

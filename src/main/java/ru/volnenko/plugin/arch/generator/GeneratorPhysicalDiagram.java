@@ -33,6 +33,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
     @Override
     public String generate() {
         @NonNull final File file = new File(filename);
+        @NonNull final File path = new File(file.getParent());
         MxFile mxFile = null;
         if (file.exists()) {
             try {
@@ -43,25 +44,25 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
         }
         if (mxFile == null) mxFile = mxFile();
 
-//        if (root() != null) {
-//            for (final User user : root().users()) {
-//                mxFile.merge(user);
-//            }
-//            for (final Service item : root().services()) {
-//                mxFile.merge(item);
-//            }
-//            for (final ru.volnenko.plugin.arch.model.impl.Database item : root().databases()) {
-//                mxFile.merge(item);
-//            }
-//            for (final ru.volnenko.plugin.arch.model.impl.System item: root().systems()) {
-//                mxFile.merge(item);
-//            }
-//            for (final ru.volnenko.plugin.arch.model.impl.Queue item: root().queues()) {
-//                mxFile.merge(item);
-//            }
-//            for (final Environment environment: root().environments()) {
-//            }
-//        }
+        if (root() != null) {
+            for (final User user : root().users()) {
+                mxFile.merge(user, path);
+            }
+            for (final Service item : root().services()) {
+                mxFile.merge(item, path);
+            }
+            for (final ru.volnenko.plugin.arch.model.impl.Database item : root().databases()) {
+                mxFile.merge(item,path);
+            }
+            for (final ru.volnenko.plugin.arch.model.impl.System item: root().systems()) {
+                mxFile.merge(item, path);
+            }
+            for (final ru.volnenko.plugin.arch.model.impl.Queue item: root().queues()) {
+                mxFile.merge(item, path);
+            }
+            for (final Environment environment: root().environments()) {
+            }
+        }
 
         System.out.println(mxFile.toString());
 
