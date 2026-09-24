@@ -1,5 +1,7 @@
 package ru.volnenko.plugin.arch.generator;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import net.sourceforge.plantuml.FileFormat;
@@ -8,11 +10,16 @@ import net.sourceforge.plantuml.SourceFileReader;
 import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.arch.model.ICoordinate;
 import ru.volnenko.plugin.arch.model.impl.*;
+import ru.volnenko.plugin.arch.mx.SvgFile;
 import ru.volnenko.plugin.arch.util.StringUtil;
 
 import java.io.File;
 import java.io.InputStream;
 import java.lang.System;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -191,14 +198,16 @@ public abstract class AbstractGenerator {
         }
     }
 
+    protected XmlMapper objectMapper = new XmlMapper();
+
     @SneakyThrows
     protected void drawSvg(MavenProjectDto mavenProjectDto, String plantuml, String filename) {
         @NonNull final String path = new File(filename).getParent();
         File folder = new File(path + "/logical-view");
         if (mavenProjectDto.getUrl() != null && !mavenProjectDto.getUrl().isEmpty()) {
-            final File file = new File(folder.getPath() + "/" + mavenProjectDto.getUrl() + ".puml");
-            System.out.println("FILE:" + file.getAbsoluteFile());
-            if (!file.exists()) file.createNewFile();
+            final File filePuml = new File(folder.getPath() + "/" + mavenProjectDto.getUrl() + ".puml");
+            System.out.println("FILE:" + filePuml.getAbsoluteFile());
+            if (!filePuml.exists()) filePuml.createNewFile();
 
             final StringBuilder sb = new StringBuilder();
             sb.append("@startuml").append("\n");
@@ -206,11 +215,24 @@ public abstract class AbstractGenerator {
             sb.append("HIDE_STEREOTYPE()").append("\n");
             sb.append(plantuml);
             sb.append("@enduml").append("\n");
-            FileUtils.fileWrite(file, sb.toString());
+            FileUtils.fileWrite(filePuml, sb.toString());
 
             @NonNull final FileFormatOption option = new FileFormatOption(FileFormat.SVG);
-            @NonNull final SourceFileReader reader = new SourceFileReader(file, new File("."), option);
+            @NonNull final SourceFileReader reader = new SourceFileReader(filePuml, new File("."), option);
             reader.getGeneratedImages();
+
+            String svgFilename = folder.getPath() + "/" + mavenProjectDto.getUrl() + ".svg";
+            final File fileSvg = new File(svgFilename);
+            SvgFile svgFile = objectMapper.readValue(fileSvg, SvgFile.class);
+            final String widthValue = svgFile.getWidth().replace("px", "");
+            final String heightValue = svgFile.getHeight().replace("px", "");
+            final Integer width = Integer.valueOf(widthValue);
+            final Integer height = Integer.valueOf(heightValue);
+            final String viewPortOld = " viewBox=\"0 0 " + widthValue + " " + heightValue + "\" ";
+            final String viewPortNew = " viewBox=\"5 5 " + (width - 17) + " " + (height - 17) + "\" ";
+            String svgXml = new String(Files.readAllBytes(Paths.get(svgFilename)), StandardCharsets.UTF_8);
+            svgXml = svgXml.replace(viewPortOld, viewPortNew);
+            Files.write(Paths.get(svgFilename), svgXml.getBytes(StandardCharsets.UTF_8));
         }
     }
 
