@@ -1,12 +1,18 @@
 package ru.volnenko.plugin.arch.mx;
 
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
+import ru.volnenko.plugin.arch.util.MapUtil;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -14,16 +20,16 @@ import java.util.List;
 public class MxGeometry {
 
     @JacksonXmlProperty(isAttribute = true, localName = "x")
-    private Double x;
+    private String x;
 
     @JacksonXmlProperty(isAttribute = true, localName = "y")
-    private Double y;
+    private String y;
 
     @JacksonXmlProperty(isAttribute = true, localName = "width")
-    private Double width;
+    private String width;
 
     @JacksonXmlProperty(isAttribute = true, localName = "height")
-    private Double height;
+    private String height;
 
     @JacksonXmlProperty(isAttribute = true, localName = "relative")
     private String relative;
@@ -36,5 +42,31 @@ public class MxGeometry {
 
     @JacksonXmlElementWrapper(useWrapping = false)
     private List<MxRectangle> mxRectangle;
+
+    @JsonIgnore
+    private Map<String, String> properties = new LinkedHashMap<>();
+
+    @JsonAnySetter
+    public void properties(String key, String value) {
+        this.properties.put(key, value);
+    }
+
+    @Override
+    public String toString() {
+        @NonNull final StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("<mxGeometry ");
+        MapUtil.apply(stringBuilder, "x", x);
+        MapUtil.apply(stringBuilder, "y", y);
+        MapUtil.apply(stringBuilder, "width", width);
+        MapUtil.apply(stringBuilder, "height", height);
+        MapUtil.apply(stringBuilder, "relative", relative);
+        MapUtil.apply(stringBuilder, "as", as);
+        MapUtil.apply(stringBuilder, properties);
+        stringBuilder.append(">").append("\n");
+        if (mxPoint != null) for (MxPoint p: mxPoint) stringBuilder.append(p);
+        if (mxRectangle != null) for (MxRectangle p: mxRectangle) stringBuilder.append(p);
+        stringBuilder.append("</mxGeometry>").append("\n");
+        return stringBuilder.toString();
+    }
 
 }

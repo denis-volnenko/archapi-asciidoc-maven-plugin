@@ -1,8 +1,12 @@
 package ru.volnenko.plugin.arch.generator;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import lombok.NonNull;
 import lombok.SneakyThrows;
+import org.codehaus.plexus.util.FileUtils;
 import ru.volnenko.plugin.arch.model.impl.*;
 import ru.volnenko.plugin.arch.mx.MxFile;
 import ru.volnenko.plugin.arch.mxfile.*;
@@ -210,18 +214,18 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
     public static void main(String[] args) throws JAXBException {
 //        final String xml = FileUtils.fileRead(new File("physical-view.drawio"));
         final XmlMapper mapper = new XmlMapper();
-//        final File file = new File("physical-view.drawio");
-//        MxFile root = mapper.readValue(file, MxFile.class);
-//        System.out.println(root);
-        MxFile mxFile = mxFile();
-        mapper.writeValue(new File("test.drawio"), mxFile);
-        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(mxFile));
+//        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+//        mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
+//        mapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
+        final File file = new File("physical-view-source.drawio");
+        MxFile mxFile = mapper.readValue(file, MxFile.class);
+        System.out.println(mxFile.toString());
+        FileUtils.fileWrite( new File("physical-view-target.drawio"), mxFile.toString());
     }
 
     @NonNull
     private static MxFile mxFile() {
         MxFile mxFile = new MxFile();
-        mxFile.setHost("Electron");
         return mxFile;
     }
 

@@ -8,24 +8,38 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.apache.commons.lang3.StringEscapeUtils;
 import ru.volnenko.plugin.arch.util.MapUtil;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Diagram {
+public class CustomObject {
 
     @JacksonXmlProperty(isAttribute = true, localName = "id")
     private String id;
 
-    @JacksonXmlProperty(isAttribute = true, localName = "name")
-    private String name;
+    @JacksonXmlProperty(isAttribute = true, localName = "label")
+    private String label;
+
+    @JacksonXmlProperty(isAttribute = true, localName = "link")
+    private String link;
+
+    @JacksonXmlProperty(isAttribute = true, localName = "tags")
+    private String tags;
+
+    @JacksonXmlProperty(isAttribute = true, localName = "tooltip")
+    private String tooltip;
+
+    @JacksonXmlProperty(isAttribute = true, localName = "placeholders")
+    private String placeholders;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    private MxGraphModel mxGraphModel;
+    private List<MxCell> mxCell;
 
     @JsonIgnore
     private Map<String, String> properties = new LinkedHashMap<>();
@@ -38,13 +52,17 @@ public class Diagram {
     @Override
     public String toString() {
         @NonNull final StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("<diagram ");
+        stringBuilder.append("<object ");
         MapUtil.apply(stringBuilder, "id", id);
-        MapUtil.apply(stringBuilder, "name", name);
+        MapUtil.apply(stringBuilder, "label", label);
+        MapUtil.apply(stringBuilder, "link", link);
+        MapUtil.apply(stringBuilder, "tags", tags);
+        MapUtil.apply(stringBuilder, "tooltip", tooltip);
+        MapUtil.apply(stringBuilder, "placeholders", placeholders);
         MapUtil.apply(stringBuilder, properties);
         stringBuilder.append(">").append("\n");
-        if (mxGraphModel != null) stringBuilder.append(mxGraphModel);
-        stringBuilder.append("</diagram>").append("\n");
+        if (mxCell != null) for (MxCell c: mxCell) stringBuilder.append(c);
+        stringBuilder.append("</object>").append("\n");
         return stringBuilder.toString();
     }
 
