@@ -45,8 +45,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
 
                 mxFile = xmlMapper.readValue(xml, MxFile.class);
             } catch (IOException e) {
-                System.out.println("ERROR PARSE!");
-                e.printStackTrace();
+                throw new RuntimeException("Error! Parse physical diagram...");
             }
         }
         if (mxFile == null) mxFile = mxFile();
