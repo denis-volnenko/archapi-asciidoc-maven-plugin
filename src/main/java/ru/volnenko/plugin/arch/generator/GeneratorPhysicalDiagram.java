@@ -40,9 +40,7 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
         if (file.exists()) {
             try {
                 byte[] bytes = Files.readAllBytes(Paths.get(filename));
-                String xml =
-                        "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>" +
-                        new String(bytes);
+                String xml = new String(bytes);
 
                 mxFile = xmlMapper.readValue(xml, MxFile.class);
             } catch (IOException e) {
@@ -60,7 +58,10 @@ public final class GeneratorPhysicalDiagram extends AbstractGenerator {
                 mxFile.merge(item, path);
             }
             for (final ru.volnenko.plugin.arch.model.impl.Database item : root().databases()) {
-                mxFile.merge(item,path);
+                mxFile.merge(item, path);
+            }
+            for (final ru.volnenko.plugin.arch.model.impl.Balancer item : root().balancers()) {
+                mxFile.merge(item, path);
             }
             for (final ru.volnenko.plugin.arch.model.impl.System item: root().systems()) {
                 mxFile.merge(item, path);
