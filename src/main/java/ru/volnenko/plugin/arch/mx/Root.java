@@ -1,21 +1,18 @@
 package ru.volnenko.plugin.arch.mx;
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.*;
-import net.sourceforge.plantuml.FileUtils;
 import org.codehaus.plexus.util.Base64;
 import ru.volnenko.plugin.arch.model.impl.MavenProjectDto;
-import ru.volnenko.plugin.arch.util.FileUtil;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -49,7 +46,6 @@ public class Root {
             mxCell = create(dto);
             mxCells.add(mxCell);
         }
-
         String file = path.getAbsolutePath() + "/logical-view/" + dto.getUrl() + ".svg";
         final File svg = new File(file);
         if (svg.exists()) {
@@ -62,9 +58,7 @@ public class Root {
         } else {
             mxCell.setStyle("");
         }
-
         mxCell.setVersion(dto.getVersion());
-
         return mxCell;
     }
 
@@ -96,6 +90,16 @@ public class Root {
 
         mxCell.setMxGeometry(mxGeometry);
         return mxCell;
+    }
+
+    @NonNull
+    public List<MxCell> findMxCells(@NonNull final MavenProjectDto dto) {
+        return mxCells.stream().filter(mxCell -> {
+            final boolean artifactId = dto.artifactId().equals(mxCell.getArtifactId());
+            final boolean groupId = dto.getGroupId().equals(mxCell.getGroupId());
+            final boolean packaging = dto.getPackaging().equals(mxCell.getPackaging());
+            return artifactId && groupId && packaging;
+        }).collect(Collectors.toList());
     }
 
     public MxCell findMxCell(@NonNull final MavenProjectDto dto) {

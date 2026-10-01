@@ -53,12 +53,12 @@ public class MxFile {
     private Map<String, String> properties = new LinkedHashMap<>();
 
     @JsonAnySetter
-    public void properties(String key, String value) {
+    public void properties(@NonNull final String key, final String value) {
         this.properties.put(key, value);
     }
 
     @NonNull
-    public MxCell merge(@NonNull MavenProjectDto dto, @NonNull File path) {
+    public MxCell merge(@NonNull MavenProjectDto dto, @NonNull final File path) {
         return root().mergeMxCell(dto, path);
     }
 
@@ -70,7 +70,8 @@ public class MxFile {
         return m.getRoot();
     }
 
-    public MxFile diagram(Diagram diagram) {
+    @NonNull
+    public MxFile diagram(@NonNull final Diagram diagram) {
         this.diagram.add(diagram);
         return this;
     }
